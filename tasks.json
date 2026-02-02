@@ -1,0 +1,141 @@
+[
+  {
+    "id": "t_pos",
+    "title": "Упаковать позиционирование",
+    "desc": "✅ Черновик готов (drafts/positioning.md). Ждёт утверждения Вардгеса",
+    "priority": "high",
+    "column": "review",
+    "created": 1738368000000,
+    "status": "done"
+  },
+  {
+    "id": "t_utp",
+    "title": "Сформулировать УТП",
+    "desc": "✅ Черновик готов (drafts/utp.md). Анализ 7 конкурентов + 3 варианта УТП",
+    "priority": "high",
+    "column": "review",
+    "created": 1738368000000,
+    "status": "done"
+  },
+  {
+    "id": "t_ca",
+    "title": "Описать целевую аудиторию",
+    "desc": "✅ Черновик готов (drafts/target-audience.md). 3 сегмента + антиаудитория",
+    "priority": "high",
+    "column": "review",
+    "created": 1738368000000,
+    "status": "done"
+  },
+  {
+    "id": "t_product",
+    "title": "Определить флагманский продукт",
+    "desc": "Выбрать формат: курс, менторство, клуб. Цель: +$5000/мес. СЛЕДУЮЩИЙ ШАГ",
+    "priority": "high",
+    "column": "backlog",
+    "created": 1738368000000
+  },
+  {
+    "id": "t_struct",
+    "title": "Структура продукта",
+    "desc": "Модули, уроки, результат для ученика",
+    "priority": "medium",
+    "column": "backlog",
+    "created": 1738368000000
+  },
+  {
+    "id": "t_price",
+    "title": "Ценообразование",
+    "desc": "Цена, пакеты, условия оплаты",
+    "priority": "medium",
+    "column": "backlog",
+    "created": 1738368000000
+  },
+  {
+    "id": "t_content",
+    "title": "Контент-план на 2 недели",
+    "desc": "Темы для Reels, Threads, Telegram. Микс: экспертность + личное + ИИ",
+    "priority": "medium",
+    "column": "backlog",
+    "created": 1738368000000
+  },
+  {
+    "id": "t_lead",
+    "title": "Написать лид-магнит",
+    "desc": "Бесплатный PDF/чек-лист для сбора базы подписчиков",
+    "priority": "medium",
+    "column": "backlog",
+    "created": 1738368000000
+  },
+  {
+    "id": "t_funnel",
+    "title": "Настроить воронку в Telegram",
+    "desc": "Бот → лид-магнит → прогрев → продажа",
+    "priority": "medium",
+    "column": "backlog",
+    "created": 1738368000000
+  },
+  {
+    "id": "t_reels",
+    "title": "Reels-пайплайн (Notion)",
+    "desc": "Автоматизация: тема → скрипт → озвучка → субтитры → рендер. Ждём API-ключ Notion",
+    "priority": "high",
+    "column": "backlog",
+    "created": 1738368000000
+  },
+  {
+    "id": "t_kanban_v2",
+    "title": "Канбан v2: 2 доски + 4 колонки",
+    "desc": "✅ Готово! 2 доски, 4 колонки, авто-обновление 30 сек, priority bars",
+    "priority": "high",
+    "column": "done",
+    "created": 1738454400000
+  },
+  {
+    "id": "t_bond",
+    "title": "Запустить Бонда",
+    "desc": "✅ Личный ИИ-агент настроен и работает в Telegram",
+    "priority": "high",
+    "column": "done",
+    "created": 1738281600000
+  },
+  {
+    "id": "t_setup",
+    "title": "Настроить Бонда",
+    "desc": "✅ Канбан, голос, скиллы, email, утренний брифинг, Ollama",
+    "priority": "high",
+    "column": "done",
+    "created": 1738281600000
+  },
+  {
+    "id": "t_kanban",
+    "title": "Канбан-доска в Telegram",
+    "desc": "✅ Mini App на GitHub Pages + авто-обновление каждый час",
+    "priority": "high",
+    "column": "done",
+    "created": 1738281600000
+  },
+  {
+    "id": "t_skills",
+    "title": "Установить скиллы",
+    "desc": "✅ 7 скиллов ClawHub: blog-writer, focus, finance и др.",
+    "priority": "medium",
+    "column": "done",
+    "created": 1738281600000
+  },
+  {
+    "id": "t_email",
+    "title": "Настроить email-мониторинг",
+    "desc": "✅ Gmail + Mail.ru через himalaya. Автофильтрация спама",
+    "priority": "medium",
+    "column": "done",
+    "created": 1738368000000
+  },
+  {
+    "id": "t_ollama",
+    "title": "Установить Ollama",
+    "desc": "✅ llama3.2:3b, 16GB RAM, автозапуск, $0",
+    "priority": "medium",
+    "column": "done",
+    "created": 1738368000000
+  }
+]
