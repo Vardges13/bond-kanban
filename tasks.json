@@ -2,37 +2,82 @@
   {
     "id": "t_pos",
     "title": "Упаковать позиционирование",
-    "desc": "✅ Черновик готов (drafts/positioning.md). Ждёт утверждения Вардгеса",
+    "desc": "✅ Утверждено! Якорь: «практик из офлайна». Загружено в Notion",
     "priority": "high",
-    "column": "review",
-    "created": 1738368000000,
-    "status": "done"
+    "column": "done",
+    "created": 1738368000000
   },
   {
     "id": "t_utp",
     "title": "Сформулировать УТП",
-    "desc": "✅ Черновик готов (drafts/utp.md). Анализ 7 конкурентов + 3 варианта УТП",
+    "desc": "✅ Утверждено! «Реальный бизнес × ИИ × Здравый смысл». В Notion",
     "priority": "high",
-    "column": "review",
-    "created": 1738368000000,
-    "status": "done"
+    "column": "done",
+    "created": 1738368000000
   },
   {
     "id": "t_ca",
     "title": "Описать целевую аудиторию",
-    "desc": "✅ Черновик готов (drafts/target-audience.md). 3 сегмента + антиаудитория",
+    "desc": "✅ Утверждено! 3 сегмента + антиаудитория. Загружено в Notion",
     "priority": "high",
-    "column": "review",
-    "created": 1738368000000,
-    "status": "done"
+    "column": "done",
+    "created": 1738368000000
   },
   {
     "id": "t_product",
     "title": "Определить флагманский продукт",
-    "desc": "Выбрать формат: курс, менторство, клуб. Цель: +$5000/мес. СЛЕДУЮЩИЙ ШАГ",
+    "desc": "⏳ 3 варианта предложено. Рекомендация: наставничество «Из офлайна в онлайн» (80-150к ₽)",
     "priority": "high",
-    "column": "backlog",
+    "column": "progress",
     "created": 1738368000000
+  },
+  {
+    "id": "t_coursebot",
+    "title": "Telegram-бот курсов (@Oscar100_bot)",
+    "desc": "✅ aiogram 3 + YooKassa + SQLite. GitHub: Vardges13/course-bot. Работает!",
+    "priority": "high",
+    "column": "done",
+    "created": 1738454400000
+  },
+  {
+    "id": "t_academy",
+    "title": "Vardges Academy — Mini App",
+    "desc": "✅ Брендированный дизайн, фото Вардгеса, 5 направлений, тарифы. GitHub Pages",
+    "priority": "high",
+    "column": "done",
+    "created": 1738454400000
+  },
+  {
+    "id": "t_travelbot",
+    "title": "ИИ-бот турагентства",
+    "desc": "✅ Код готов (aiogram + GPT-4). Ждёт: бот-токен + OpenAI API ключ",
+    "priority": "medium",
+    "column": "done",
+    "created": 1738454400000
+  },
+  {
+    "id": "t_notion",
+    "title": "Notion — стратегия",
+    "desc": "✅ Все 3 документа загружены в «Стратегия 🚀» с форматированием",
+    "priority": "high",
+    "column": "done",
+    "created": 1738454400000
+  },
+  {
+    "id": "t_kanban_v3",
+    "title": "Канбан v3 — Trello-стиль",
+    "desc": "✅ Полный редизайн под Trello. Деплой GitHub Pages в процессе",
+    "priority": "high",
+    "column": "done",
+    "created": 1738454400000
+  },
+  {
+    "id": "t_threads",
+    "title": "Автоматизация Threads",
+    "desc": "🔜 Подключить Threads API, автопостинг. Нужен Access Token",
+    "priority": "high",
+    "column": "progress",
+    "created": 1738454400000
   },
   {
     "id": "t_struct",
@@ -76,66 +121,10 @@
   },
   {
     "id": "t_reels",
-    "title": "Reels-пайплайн (Notion)",
-    "desc": "Автоматизация: тема → скрипт → озвучка → субтитры → рендер. Ждём API-ключ Notion",
+    "title": "Reels-пайплайн",
+    "desc": "Тема → скрипт → озвучка → субтитры → рендер. Ждём Notion API ключ",
     "priority": "high",
     "column": "backlog",
-    "created": 1738368000000
-  },
-  {
-    "id": "t_kanban_v2",
-    "title": "Канбан v2: 2 доски + 4 колонки",
-    "desc": "✅ Готово! 2 доски, 4 колонки, авто-обновление 30 сек, priority bars",
-    "priority": "high",
-    "column": "done",
-    "created": 1738454400000
-  },
-  {
-    "id": "t_bond",
-    "title": "Запустить Бонда",
-    "desc": "✅ Личный ИИ-агент настроен и работает в Telegram",
-    "priority": "high",
-    "column": "done",
-    "created": 1738281600000
-  },
-  {
-    "id": "t_setup",
-    "title": "Настроить Бонда",
-    "desc": "✅ Канбан, голос, скиллы, email, утренний брифинг, Ollama",
-    "priority": "high",
-    "column": "done",
-    "created": 1738281600000
-  },
-  {
-    "id": "t_kanban",
-    "title": "Канбан-доска в Telegram",
-    "desc": "✅ Mini App на GitHub Pages + авто-обновление каждый час",
-    "priority": "high",
-    "column": "done",
-    "created": 1738281600000
-  },
-  {
-    "id": "t_skills",
-    "title": "Установить скиллы",
-    "desc": "✅ 7 скиллов ClawHub: blog-writer, focus, finance и др.",
-    "priority": "medium",
-    "column": "done",
-    "created": 1738281600000
-  },
-  {
-    "id": "t_email",
-    "title": "Настроить email-мониторинг",
-    "desc": "✅ Gmail + Mail.ru через himalaya. Автофильтрация спама",
-    "priority": "medium",
-    "column": "done",
-    "created": 1738368000000
-  },
-  {
-    "id": "t_ollama",
-    "title": "Установить Ollama",
-    "desc": "✅ llama3.2:3b, 16GB RAM, автозапуск, $0",
-    "priority": "medium",
-    "column": "done",
     "created": 1738368000000
   }
 ]
