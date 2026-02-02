@@ -1,0 +1,8 @@
+[
+  {"id":"v_review_pos","title":"Просмотреть черновик позиционирования","desc":"Бонд подготовил: drafts/positioning.md. Якорь: «практик из офлайна»","priority":"high","column":"review","created":1738454400000},
+  {"id":"v_review_utp","title":"Просмотреть черновик УТП","desc":"Бонд подготовил: drafts/utp.md. 3 варианта УТП + анализ 7 конкурентов","priority":"high","column":"review","created":1738454400000},
+  {"id":"v_review_ca","title":"Просмотреть черновик ЦА","desc":"Бонд подготовил: drafts/target-audience.md. 3 сегмента + антиаудитория","priority":"high","column":"review","created":1738454400000},
+  {"id":"v_notion_key","title":"Передать API-ключ Notion","desc":"Нужен для Reels-пайплайна. Ключ начинается с ntn_...","priority":"medium","column":"backlog","created":1738454400000},
+  {"id":"v_tourvisor","title":"Решение по лиду Елена (TourVisor)","desc":"Заявка #1361, +79508794214, Москва→Вьетнам, 4-10 ноября, 2 взр, 6-8 ночей","priority":"high","column":"backlog","created":1738454400000},
+  {"id":"v_icloud","title":"Решение по iCloud хранилищу","desc":"2TB заполнено. Апгрейд до 6TB = 3 490 ₽/мес. Нужно решение","priority":"medium","column":"backlog","created":1738454400000}
+]
