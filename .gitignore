@@ -1,1 +1,20 @@
+# Images
 ref_*.jpg
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Node (if ever added)
+node_modules/
+package-lock.json
+
+# Misc
+*.log
+*.tmp

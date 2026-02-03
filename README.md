@@ -1,91 +1,109 @@
-# 📋 Канбан-доска — Telegram Mini App
+<div align="center">
 
-Мобильная канбан-доска для управления задачами, работающая как Telegram Mini App.
+# 📋 Bond Kanban
 
-## Возможности
+**Канбан-доска — Telegram Mini App в стиле Trello**
 
-- 📥 **3 колонки**: Бэклог → В работе → Готово
-- ✋ **Drag & drop** — перетаскивание задач между колонками (и на мобильном)
-- ⚡ **Быстрые кнопки** — перемещение задач вперёд/назад одним нажатием
-- 🔍 **Поиск** — мгновенная фильтрация задач
-- 🎨 **Приоритеты** — 🔴 высокий, 🟡 средний, 🟢 низкий
-- 💾 **Telegram CloudStorage** — данные сохраняются в облаке Telegram
-- 🌗 **Адаптивная тема** — подстраивается под светлую/тёмную тему Telegram
-- 📱 **Mobile-first** — оптимизировано для мобильных устройств
-- 🔔 **Haptic feedback** — вибрация при действиях (на телефоне)
+[![GitHub Pages](https://img.shields.io/badge/demo-live-brightgreen?style=for-the-badge&logo=github)](https://vardges13.github.io/bond-kanban/)
+[![Telegram](https://img.shields.io/badge/Telegram-Mini%20App-blue?style=for-the-badge&logo=telegram)](https://t.me/Bond007_007_bot)
+[![License: MIT](https://img.shields.io/badge/license-MIT-yellow?style=for-the-badge)](LICENSE)
 
-## Деплой
+Минималистичная и быстрая канбан-доска для управления задачами,  
+работающая как **Telegram Mini App** — без бэкенда, без зависимостей, один файл.
 
-### Вариант 1: GitHub Pages (рекомендуется)
+[**🚀 Live Demo**](https://vardges13.github.io/bond-kanban/) · [**🤖 Telegram Bot**](https://t.me/Bond007_007_bot)
 
-1. Создайте репозиторий на GitHub
-2. Загрузите `index.html` в корень
-3. Settings → Pages → Source: Deploy from branch → `main` / `root`
-4. Ваш URL: `https://<username>.github.io/<repo>/`
+---
+
+<!-- Замените на реальный скриншот -->
+<img src="https://via.placeholder.com/800x500/1a1a2e/ffffff?text=📋+Bond+Kanban+—+Screenshot" alt="Bond Kanban Screenshot" width="700">
+
+</div>
+
+---
+
+## ✨ Возможности
+
+| | Фича | Описание |
+|---|---|---|
+| 📥 | **3 колонки** | Бэклог → В работе → Готово |
+| ✋ | **Drag & Drop** | Перетаскивание задач — работает и на мобильном |
+| ⚡ | **Быстрые кнопки** | Переместить задачу вперёд/назад одним нажатием |
+| 🔍 | **Поиск** | Мгновенная фильтрация по названию |
+| 🎨 | **Приоритеты** | 🔴 высокий · 🟡 средний · 🟢 низкий |
+| 💾 | **Cloud Storage** | Данные хранятся в облаке Telegram |
+| 🌗 | **Адаптивная тема** | Подстраивается под тему Telegram (светлая/тёмная) |
+| 📱 | **Mobile-first** | Оптимизировано для мобильных устройств |
+| 🔔 | **Haptic Feedback** | Вибрация при действиях (на телефоне) |
+
+## 🛠 Технологии
+
+- **Vanilla HTML/CSS/JS** — ноль зависимостей, один файл
+- **Telegram Web App JS SDK** — интеграция с Telegram
+- **Telegram CloudStorage API** — хранение данных
+- **CSS-переменные Telegram** — нативная адаптивная тема
+- **Touch Events** — drag & drop на мобильных
+
+## 🚀 Быстрый старт
+
+### GitHub Pages (рекомендуется)
 
 ```bash
-# Быстрый деплой
-cd kanban-app
-git init
-git add .
-git commit -m "Kanban Mini App"
-git branch -M main
-git remote add origin https://github.com/<username>/<repo>.git
-git push -u origin main
+git clone https://github.com/Vardges13/bond-kanban.git
+cd bond-kanban
+# Уже настроен GitHub Actions → автоматический деплой на push
 ```
 
-### Вариант 2: Netlify
+Перейдите в **Settings → Pages → Source: GitHub Actions** — и готово.
 
-1. Перетащите папку `kanban-app` в [app.netlify.com/drop](https://app.netlify.com/drop)
-2. Получите URL вида `https://xxx.netlify.app`
-
-### Вариант 3: Локально через ngrok (для тестирования)
+### Локально (для разработки)
 
 ```bash
-# Запустить локальный сервер
-cd kanban-app
 python3 -m http.server 8080
-
-# В другом терминале — проксировать через ngrok
-ngrok http 8080
+# Откройте http://localhost:8080
 ```
 
-Получите HTTPS URL от ngrok и используйте его для настройки бота.
+## 🤖 Настройка Telegram бота
 
-## Настройка бота
-
-После получения HTTPS URL приложения, настройте Telegram бота:
+После получения HTTPS URL, подключите Mini App к боту:
 
 ```bash
-# Установить кнопку меню (Web App)
 curl -X POST "https://api.telegram.org/bot<TOKEN>/setChatMenuButton" \
   -H "Content-Type: application/json" \
   -d '{
     "menu_button": {
       "type": "web_app",
       "text": "📋 Канбан",
-      "web_app": {"url": "https://<YOUR_URL>/index.html"}
+      "web_app": {"url": "https://vardges13.github.io/bond-kanban/"}
     }
   }'
 ```
 
-Замените `<TOKEN>` на токен бота и `<YOUR_URL>` на URL хостинга.
-
-## Управление
+## ⌨️ Управление
 
 | Действие | Как |
 |----------|-----|
-| Добавить задачу | Кнопка **+** (внизу справа) |
-| Редактировать | Нажать на карточку |
-| Переместить вперёд | Кнопка **▶** на карточке |
-| Переместить назад | Кнопка **◀** на карточке |
-| Перетащить (мобильный) | Зажать карточку ~0.5 сек и перетащить |
-| Перетащить (десктоп) | Обычный drag & drop |
-| Удалить | Кнопка **✕** на карточке |
-| Поиск | Кнопка 🔍 в заголовке |
-| Быстрое добавление | `Ctrl/Cmd + N` |
+| ➕ Добавить задачу | Кнопка **+** (внизу справа) или `Ctrl/Cmd + N` |
+| ✏️ Редактировать | Нажать на карточку |
+| ▶ Переместить вперёд | Кнопка **▶** на карточке |
+| ◀ Переместить назад | Кнопка **◀** на карточке |
+| 📱 Перетащить (мобильный) | Зажать ~0.5 сек → перетащить |
+| 🖱 Перетащить (десктоп) | Обычный drag & drop |
+| ✕ Удалить | Кнопка **✕** на карточке |
+| 🔍 Поиск | Кнопка в заголовке |
 
-## Структура задачи
+## 📁 Структура проекта
+
+```
+bond-kanban/
+├── index.html          # Всё приложение — один файл
+├── tasks.json          # Пример задач
+├── docs/               # GitHub Pages assets
+├── .github/workflows/  # CI/CD — автодеплой
+└── .nojekyll           # Отключение Jekyll
+```
+
+## 📄 Структура задачи
 
 ```json
 {
@@ -98,10 +116,14 @@ curl -X POST "https://api.telegram.org/bot<TOKEN>/setChatMenuButton" \
 }
 ```
 
-## Технологии
+## 📝 Лицензия
 
-- Vanilla HTML/CSS/JS — без зависимостей
-- Telegram Web App JS SDK
-- Telegram CloudStorage API
-- CSS переменные Telegram для адаптивной темы
-- Touch events для мобильного drag & drop
+[MIT](LICENSE) — используйте свободно.
+
+---
+
+<div align="center">
+
+Сделано с ❤️ для продуктивности
+
+</div>
