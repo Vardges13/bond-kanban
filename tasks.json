@@ -66,7 +66,7 @@
   {
     "id": "t_kanban_v3",
     "title": "Канбан v3 — Trello-стиль",
-    "desc": "✅ Полный редизайн под Trello. Деплой GitHub Pages в процессе",
+    "desc": "✅ v2: 2 доски (Бонд/Вардгес), 4 колонки, приоритеты, авто-обновление. Задеплоен на GitHub Pages",
     "priority": "high",
     "column": "done",
     "created": 1738454400000
