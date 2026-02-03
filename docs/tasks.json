@@ -1,0 +1,130 @@
+[
+  {
+    "id": "t_pos",
+    "title": "Упаковать позиционирование",
+    "desc": "✅ Утверждено! Якорь: «практик из офлайна». Загружено в Notion",
+    "priority": "high",
+    "column": "done",
+    "created": 1738368000000
+  },
+  {
+    "id": "t_utp",
+    "title": "Сформулировать УТП",
+    "desc": "✅ Утверждено! «Реальный бизнес × ИИ × Здравый смысл». В Notion",
+    "priority": "high",
+    "column": "done",
+    "created": 1738368000000
+  },
+  {
+    "id": "t_ca",
+    "title": "Описать целевую аудиторию",
+    "desc": "✅ Утверждено! 3 сегмента + антиаудитория. Загружено в Notion",
+    "priority": "high",
+    "column": "done",
+    "created": 1738368000000
+  },
+  {
+    "id": "t_product",
+    "title": "Определить флагманский продукт",
+    "desc": "⏳ 3 варианта предложено. Рекомендация: наставничество «Из офлайна в онлайн» (80-150к ₽)",
+    "priority": "high",
+    "column": "progress",
+    "created": 1738368000000
+  },
+  {
+    "id": "t_coursebot",
+    "title": "Telegram-бот курсов (@Oscar100_bot)",
+    "desc": "✅ aiogram 3 + YooKassa + SQLite. GitHub: Vardges13/course-bot. Работает!",
+    "priority": "high",
+    "column": "done",
+    "created": 1738454400000
+  },
+  {
+    "id": "t_academy",
+    "title": "Vardges Academy — Mini App",
+    "desc": "✅ Брендированный дизайн, фото Вардгеса, 5 направлений, тарифы. GitHub Pages",
+    "priority": "high",
+    "column": "done",
+    "created": 1738454400000
+  },
+  {
+    "id": "t_travelbot",
+    "title": "ИИ-бот турагентства",
+    "desc": "✅ Код готов (aiogram + GPT-4). Ждёт: бот-токен + OpenAI API ключ",
+    "priority": "medium",
+    "column": "done",
+    "created": 1738454400000
+  },
+  {
+    "id": "t_notion",
+    "title": "Notion — стратегия",
+    "desc": "✅ Все 3 документа загружены в «Стратегия 🚀» с форматированием",
+    "priority": "high",
+    "column": "done",
+    "created": 1738454400000
+  },
+  {
+    "id": "t_kanban_v3",
+    "title": "Канбан v3 — Trello-стиль",
+    "desc": "✅ Полный редизайн под Trello. Деплой GitHub Pages в процессе",
+    "priority": "high",
+    "column": "done",
+    "created": 1738454400000
+  },
+  {
+    "id": "t_threads",
+    "title": "Автоматизация Threads",
+    "desc": "🔜 Подключить Threads API, автопостинг. Нужен Access Token",
+    "priority": "high",
+    "column": "progress",
+    "created": 1738454400000
+  },
+  {
+    "id": "t_struct",
+    "title": "Структура продукта",
+    "desc": "Модули, уроки, результат для ученика",
+    "priority": "medium",
+    "column": "backlog",
+    "created": 1738368000000
+  },
+  {
+    "id": "t_price",
+    "title": "Ценообразование",
+    "desc": "Цена, пакеты, условия оплаты",
+    "priority": "medium",
+    "column": "backlog",
+    "created": 1738368000000
+  },
+  {
+    "id": "t_content",
+    "title": "Контент-план на 2 недели",
+    "desc": "Темы для Reels, Threads, Telegram. Микс: экспертность + личное + ИИ",
+    "priority": "medium",
+    "column": "backlog",
+    "created": 1738368000000
+  },
+  {
+    "id": "t_lead",
+    "title": "Написать лид-магнит",
+    "desc": "Бесплатный PDF/чек-лист для сбора базы подписчиков",
+    "priority": "medium",
+    "column": "backlog",
+    "created": 1738368000000
+  },
+  {
+    "id": "t_funnel",
+    "title": "Настроить воронку в Telegram",
+    "desc": "Бот → лид-магнит → прогрев → продажа",
+    "priority": "medium",
+    "column": "backlog",
+    "created": 1738368000000
+  },
+  {
+    "id": "t_reels",
+    "title": "Reels-пайплайн",
+    "desc": "Тема → скрипт → озвучка → субтитры → рендер. Ждём Notion API ключ",
+    "priority": "high",
+    "column": "backlog",
+    "created": 1738368000000
+  }
+]
