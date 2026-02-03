@@ -24,14 +24,6 @@
     "created": 1738368000000
   },
   {
-    "id": "t_product",
-    "title": "Определить флагманский продукт",
-    "desc": "⏳ 3 варианта предложено. Рекомендация: наставничество «Из офлайна в онлайн» (80-150к ₽)",
-    "priority": "high",
-    "column": "progress",
-    "created": 1738368000000
-  },
-  {
     "id": "t_coursebot",
     "title": "Telegram-бот курсов (@Oscar100_bot)",
     "desc": "✅ aiogram 3 + YooKassa + SQLite. GitHub: Vardges13/course-bot. Работает!",
@@ -66,31 +58,71 @@
   {
     "id": "t_kanban_v3",
     "title": "Канбан v3 — Trello-стиль",
-    "desc": "✅ Полный редизайн под Trello. Деплой GitHub Pages в процессе",
+    "desc": "✅ 2 доски (Бонд/Вардгес), GitHub Pages, авто-обновление каждый час",
     "priority": "high",
     "column": "done",
     "created": 1738454400000
   },
   {
+    "id": "t_gemini",
+    "title": "Gemini API — подключение",
+    "desc": "✅ Биллинг привязан, $300 кредитов. Nano Banana Pro, Imagen 4.0, Veo 3.0 — всё доступно",
+    "priority": "high",
+    "column": "done",
+    "created": 1738540800000
+  },
+  {
+    "id": "t_photoedit",
+    "title": "AI-фоторедактирование",
+    "desc": "✅ Nano Banana Pro: замена фона, освещение, апскейл. 4 версии сделаны и утверждены",
+    "priority": "medium",
+    "column": "done",
+    "created": 1738540800000
+  },
+  {
+    "id": "t_morning",
+    "title": "Утренняя сводка — крон",
+    "desc": "✅ Каждый день 8:00 МСК: новости, идеи контента, погода, новые скиллы",
+    "priority": "medium",
+    "column": "done",
+    "created": 1738454400000
+  },
+  {
+    "id": "t_product",
+    "title": "Определить флагманский продукт",
+    "desc": "⏳ 3 варианта предложено. Рекомендация: наставничество «Из офлайна в онлайн» (80-150к ₽). Ждём выбор Вардгеса",
+    "priority": "high",
+    "column": "progress",
+    "created": 1738368000000
+  },
+  {
     "id": "t_threads",
     "title": "Автоматизация Threads",
-    "desc": "🔜 Подключить Threads API, автопостинг. Нужен Access Token",
+    "desc": "⏳ Застрял на создании бизнес-портфолио в Facebook Developers. Ошибка Meta при создании",
     "priority": "high",
     "column": "progress",
     "created": 1738454400000
   },
   {
+    "id": "t_course50",
+    "title": "Курс «50 GPT-агентов»",
+    "desc": "⏳ «Обгони конкурентов: 50 GPT-агентов в твой бизнес» — название ✅, структура ✅ (7 модулей, 28 уроков), обложка v2 ✅, Notion загружен ✅, 1/50 агентов добавлен. Следующее: остальные 49 агентов, лендинг, ценовая модель",
+    "priority": "high",
+    "column": "progress",
+    "created": 1738540800000
+  },
+  {
     "id": "t_struct",
     "title": "Структура продукта",
-    "desc": "Модули, уроки, результат для ученика",
+    "desc": "✅ Черновик готов: drafts/course-structure.md — 7 модулей, 28 уроков, 50 агентов",
     "priority": "medium",
-    "column": "backlog",
+    "column": "done",
     "created": 1738368000000
   },
   {
     "id": "t_price",
     "title": "Ценообразование",
-    "desc": "Цена, пакеты, условия оплаты",
+    "desc": "Цена, пакеты, условия оплаты. Ждёт выбор флагмана",
     "priority": "medium",
     "column": "backlog",
     "created": 1738368000000
