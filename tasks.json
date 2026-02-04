@@ -170,9 +170,17 @@
   {
     "id": "t_tgapi",
     "title": "Local Telegram Bot API Server",
-    "desc": "⏳ Снятие лимита 20 МБ → до 2 ГБ. OpenClaw пропатчен (apiRoot). Сборка tdlib готова. Ждём api_id + api_hash от Вардгеса (my.telegram.org)",
+    "desc": "⏳ Workaround работает: 6 файлов OpenClaw + constants.js пропатчены, 26 МБ видео отправлено ✅. Полный Local Bot API (до 2 ГБ) ждёт api_id + api_hash от Вардгеса (my.telegram.org — ошибка при создании, нужен другой браузер)",
     "priority": "high",
     "column": "progress",
     "created": 1738688400000
+  },
+  {
+    "id": "t_everest",
+    "title": "Клиент: Эверест-Тех (Ковалев)",
+    "desc": "⏳ Конкурентный анализ ✅, калькулятор фасадных кассет ✅, калькулятор упаковки ✅, должностная инструкция ✅. Сейчас: исследование сигнальных ограждений «Россети»",
+    "priority": "high",
+    "column": "progress",
+    "created": 1738713600000
   }
 ]
