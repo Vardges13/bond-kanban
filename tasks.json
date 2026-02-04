@@ -166,5 +166,13 @@
     "priority": "high",
     "column": "progress",
     "created": 1738663200000
+  },
+  {
+    "id": "t_tgapi",
+    "title": "Local Telegram Bot API Server",
+    "desc": "⏳ Снятие лимита 20 МБ → до 2 ГБ. OpenClaw пропатчен (apiRoot). Сборка tdlib готова. Ждём api_id + api_hash от Вардгеса (my.telegram.org)",
+    "priority": "high",
+    "column": "progress",
+    "created": 1738688400000
   }
 ]
