@@ -1,0 +1,771 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1280">
+<title>50 GPT-агентов в твой бизнес</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --bg: #0a0a0f;
+    --surface: #12121a;
+    --surface2: #1a1a2e;
+    --accent: #6c5ce7;
+    --accent2: #a29bfe;
+    --gold: #ffd700;
+    --green: #00b894;
+    --red: #ff6b6b;
+    --blue: #0984e3;
+    --text: #e8e8f0;
+    --text-dim: #8888aa;
+    --gradient: linear-gradient(135deg, #6c5ce7, #a29bfe, #74b9ff);
+  }
+
+  body {
+    font-family: 'Inter', -apple-system, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    overflow-x: hidden;
+    line-height: 1.6;
+  }
+
+  /* ===== HERO SECTION ===== */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 60px 40px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle at 30% 40%, rgba(108,92,231,0.15) 0%, transparent 50%),
+                radial-gradient(circle at 70% 60%, rgba(162,155,254,0.1) 0%, transparent 50%);
+    animation: pulse 8s ease-in-out infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+  }
+
+  .hero-badge {
+    position: relative;
+    display: inline-block;
+    background: rgba(108,92,231,0.15);
+    border: 1px solid rgba(108,92,231,0.3);
+    border-radius: 50px;
+    padding: 8px 24px;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--accent2);
+    margin-bottom: 32px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+
+  .hero h1 {
+    position: relative;
+    font-size: 72px;
+    font-weight: 900;
+    line-height: 1.1;
+    margin-bottom: 24px;
+    max-width: 900px;
+  }
+
+  .hero h1 .highlight {
+    background: var(--gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .hero h1 .number {
+    color: var(--gold);
+    -webkit-text-fill-color: var(--gold);
+    font-size: 84px;
+  }
+
+  .hero-sub {
+    position: relative;
+    font-size: 22px;
+    color: var(--text-dim);
+    max-width: 650px;
+    margin-bottom: 48px;
+    font-weight: 300;
+  }
+
+  .hero-stats {
+    position: relative;
+    display: flex;
+    gap: 48px;
+    margin-bottom: 48px;
+  }
+
+  .stat {
+    text-align: center;
+  }
+
+  .stat-num {
+    font-size: 48px;
+    font-weight: 800;
+    background: var(--gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .stat-label {
+    font-size: 14px;
+    color: var(--text-dim);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-top: 4px;
+  }
+
+  .hero-author {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    background: var(--surface);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 16px;
+    padding: 16px 28px;
+  }
+
+  .author-avatar {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: var(--gradient);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    font-weight: 700;
+  }
+
+  .author-info {
+    text-align: left;
+  }
+
+  .author-name {
+    font-size: 18px;
+    font-weight: 600;
+  }
+
+  .author-desc {
+    font-size: 13px;
+    color: var(--text-dim);
+  }
+
+  /* ===== SECTION SHARED ===== */
+  section {
+    padding: 100px 80px;
+    max-width: 1280px;
+    margin: 0 auto;
+  }
+
+  .section-label {
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--accent2);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 16px;
+  }
+
+  .section-title {
+    font-size: 48px;
+    font-weight: 800;
+    margin-bottom: 16px;
+    line-height: 1.2;
+  }
+
+  .section-desc {
+    font-size: 18px;
+    color: var(--text-dim);
+    max-width: 600px;
+    margin-bottom: 48px;
+  }
+
+  /* ===== PROBLEM / UTP ===== */
+  .utp {
+    background: var(--surface);
+    border-radius: 24px;
+    padding: 64px;
+    margin: 0 80px 0;
+    max-width: 1120px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .utp-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 32px;
+    margin-top: 48px;
+  }
+
+  .utp-card {
+    background: var(--surface2);
+    border-radius: 16px;
+    padding: 32px;
+    border: 1px solid rgba(255,255,255,0.05);
+    transition: transform 0.3s, border-color 0.3s;
+  }
+
+  .utp-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(108,92,231,0.3);
+  }
+
+  .utp-icon {
+    font-size: 40px;
+    margin-bottom: 16px;
+  }
+
+  .utp-card h3 {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+
+  .utp-card p {
+    font-size: 14px;
+    color: var(--text-dim);
+    line-height: 1.6;
+  }
+
+  /* ===== MODULES ===== */
+  .modules-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
+
+  .module-card {
+    background: var(--surface);
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 20px;
+    padding: 36px;
+    display: flex;
+    gap: 24px;
+    align-items: flex-start;
+    transition: transform 0.3s, border-color 0.3s;
+  }
+
+  .module-card:hover {
+    transform: translateY(-2px);
+    border-color: rgba(108,92,231,0.3);
+  }
+
+  .module-num {
+    flex-shrink: 0;
+    width: 56px;
+    height: 56px;
+    border-radius: 14px;
+    background: var(--gradient);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    font-weight: 800;
+    color: white;
+  }
+
+  .module-info h3 {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+
+  .module-info p {
+    font-size: 14px;
+    color: var(--text-dim);
+    margin-bottom: 12px;
+  }
+
+  .module-agents {
+    display: inline-block;
+    background: rgba(108,92,231,0.15);
+    border-radius: 8px;
+    padding: 4px 12px;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--accent2);
+  }
+
+  .module-card.full-width {
+    grid-column: 1 / -1;
+    background: linear-gradient(135deg, rgba(108,92,231,0.15), rgba(162,155,254,0.08));
+    border-color: rgba(108,92,231,0.2);
+  }
+
+  /* ===== AGENTS TABLE ===== */
+  .agents-section {
+    padding-bottom: 60px;
+  }
+
+  .agents-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 16px;
+  }
+
+  .agent-chip {
+    background: var(--surface);
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 14px;
+    padding: 20px 16px;
+    text-align: center;
+    transition: transform 0.2s, border-color 0.3s;
+  }
+
+  .agent-chip:hover {
+    transform: scale(1.03);
+    border-color: rgba(108,92,231,0.4);
+  }
+
+  .agent-emoji {
+    font-size: 32px;
+    margin-bottom: 8px;
+  }
+
+  .agent-name {
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 1.3;
+  }
+
+  .agent-module {
+    font-size: 10px;
+    color: var(--text-dim);
+    margin-top: 4px;
+  }
+
+  /* ===== RESULTS ===== */
+  .results-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+  }
+
+  .result-card {
+    background: var(--surface);
+    border-radius: 16px;
+    padding: 32px 24px;
+    text-align: center;
+    border: 1px solid rgba(255,255,255,0.06);
+  }
+
+  .result-icon {
+    font-size: 48px;
+    margin-bottom: 16px;
+  }
+
+  .result-title {
+    font-size: 36px;
+    font-weight: 800;
+    background: var(--gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 8px;
+  }
+
+  .result-desc {
+    font-size: 13px;
+    color: var(--text-dim);
+  }
+
+  /* ===== WHO IS THIS FOR ===== */
+  .for-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+  }
+
+  .for-card {
+    background: var(--surface);
+    border-radius: 20px;
+    padding: 40px;
+    border: 1px solid rgba(255,255,255,0.06);
+  }
+
+  .for-card h3 {
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 20px;
+  }
+
+  .for-card.yes { border-left: 3px solid var(--green); }
+  .for-card.no { border-left: 3px solid var(--red); }
+
+  .for-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 14px;
+    font-size: 15px;
+  }
+
+  .for-item .icon {
+    flex-shrink: 0;
+    font-size: 18px;
+  }
+
+  /* ===== CTA ===== */
+  .cta-section {
+    text-align: center;
+    padding: 120px 80px;
+  }
+
+  .cta-section .section-title {
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .cta-btn {
+    display: inline-block;
+    margin-top: 40px;
+    padding: 20px 64px;
+    font-size: 20px;
+    font-weight: 700;
+    color: white;
+    background: var(--gradient);
+    border-radius: 16px;
+    text-decoration: none;
+    letter-spacing: 0.5px;
+    box-shadow: 0 8px 32px rgba(108,92,231,0.4);
+  }
+
+  .cta-price {
+    margin-top: 20px;
+    font-size: 14px;
+    color: var(--text-dim);
+  }
+
+  /* ===== FOOTER ===== */
+  .footer {
+    text-align: center;
+    padding: 40px;
+    font-size: 13px;
+    color: var(--text-dim);
+    border-top: 1px solid rgba(255,255,255,0.05);
+  }
+
+  /* ===== QUOTE ===== */
+  .quote-section {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+    padding: 80px 40px;
+  }
+
+  .quote-text {
+    font-size: 24px;
+    font-weight: 300;
+    font-style: italic;
+    line-height: 1.7;
+    color: var(--text);
+    margin-bottom: 24px;
+  }
+
+  .quote-author {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--accent2);
+  }
+
+  /* ===== DIVIDER ===== */
+  .divider {
+    width: 80px;
+    height: 3px;
+    background: var(--gradient);
+    border-radius: 2px;
+    margin: 0 auto;
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-badge">🚀 Онлайн-курс 2026</div>
+  <h1>
+    Обгони конкурентов:<br>
+    <span class="number">50</span> <span class="highlight">GPT-агентов</span><br>
+    в твой бизнес
+  </h1>
+  <p class="hero-sub">
+    Практический курс для предпринимателей. Создай ИИ-команду, которая работает 24/7 — пока ты думаешь о стратегии.
+  </p>
+  <div class="hero-stats">
+    <div class="stat">
+      <div class="stat-num">7</div>
+      <div class="stat-label">Модулей</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">28</div>
+      <div class="stat-label">Уроков</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">50</div>
+      <div class="stat-label">Агентов</div>
+    </div>
+  </div>
+  <div class="hero-author">
+    <div class="author-avatar">ВА</div>
+    <div class="author-info">
+      <div class="author-name">Вардгес Арутюнян</div>
+      <div class="author-desc">Предприниматель 15+ лет · Туризм · Отель · ИИ</div>
+    </div>
+  </div>
+</section>
+
+<!-- UTP -->
+<div class="utp">
+  <div class="section-label">Почему этот курс</div>
+  <div class="section-title" style="font-size:36px;">Реальный бизнес × ИИ × Здравый смысл</div>
+  <div class="utp-grid">
+    <div class="utp-card">
+      <div class="utp-icon">🏗️</div>
+      <h3>Практик, не теоретик</h3>
+      <p>15 лет реального бизнеса — от турагентства до отеля. Каждый агент проверен на живых задачах.</p>
+    </div>
+    <div class="utp-card">
+      <div class="utp-icon">🤖</div>
+      <h3>50 готовых агентов</h3>
+      <p>Copy-paste промпты. Запустил — работает. Не нужно быть программистом или «айтишником».</p>
+    </div>
+    <div class="utp-card">
+      <div class="utp-icon">💰</div>
+      <h3>ROI с первого урока</h3>
+      <p>Каждый агент экономит время и деньги. Считаем в часах и рублях — не в «пользе».</p>
+    </div>
+  </div>
+</div>
+
+<!-- MODULES -->
+<section>
+  <div class="section-label">Программа курса</div>
+  <div class="section-title">7 модулей — от основ до экосистемы</div>
+  <p class="section-desc">Каждый модуль = работающие агенты. Теория только та, без которой нельзя.</p>
+
+  <div class="modules-grid">
+    <div class="module-card">
+      <div class="module-num">1</div>
+      <div class="module-info">
+        <h3>Фундамент: ИИ без воды</h3>
+        <p>Perplexity, Comet, ChatGPT — настройка и первые агенты за 30 минут</p>
+        <span class="module-agents">🤖 4 агента</span>
+      </div>
+    </div>
+    <div class="module-card">
+      <div class="module-num">2</div>
+      <div class="module-info">
+        <h3>Продажи и клиенты</h3>
+        <p>Лиды, воронка, КП, отработка возражений и повторные продажи — на автопилоте</p>
+        <span class="module-agents">🤖 8 агентов</span>
+      </div>
+    </div>
+    <div class="module-card">
+      <div class="module-num">3</div>
+      <div class="module-info">
+        <h3>Маркетинг и контент</h3>
+        <p>Контент-план, посты, рассылки, реклама, Reels-сценарии — 5× быстрее</p>
+        <span class="module-agents">🤖 8 агентов</span>
+      </div>
+    </div>
+    <div class="module-card">
+      <div class="module-num">4</div>
+      <div class="module-info">
+        <h3>Аналитика и стратегия</h3>
+        <p>Конкуренты, рынок, SWOT, цены, портреты ЦА — твой отдел стратегии</p>
+        <span class="module-agents">🤖 7 агентов</span>
+      </div>
+    </div>
+    <div class="module-card">
+      <div class="module-num">5</div>
+      <div class="module-info">
+        <h3>Операционка и финансы</h3>
+        <p>Учёт, бюджет, документы, задачи, процессы — CEO, а не исполнитель</p>
+        <span class="module-agents">🤖 8 агентов</span>
+      </div>
+    </div>
+    <div class="module-card">
+      <div class="module-num">6</div>
+      <div class="module-info">
+        <h3>Команда и HR</h3>
+        <p>Найм, адаптация, обучение, мотивация, оценка — HR на ИИ</p>
+        <span class="module-agents">🤖 7 агентов</span>
+      </div>
+    </div>
+    <div class="module-card full-width">
+      <div class="module-num" style="width:64px;height:64px;font-size:28px;">7</div>
+      <div class="module-info">
+        <h3>Масштабирование: 50 агентов в системе</h3>
+        <p>Связываем всех агентов в экосистему. Интеграции, автоматизация, мета-агент. Стратегия роста на 90 дней.</p>
+        <span class="module-agents">🤖 8 агентов · Финал</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AGENTS -->
+<section class="agents-section">
+  <div class="section-label">Все 50 агентов</div>
+  <div class="section-title">Твоя ИИ-команда</div>
+  <p class="section-desc">Каждый агент решает конкретную бизнес-задачу. Готовый промпт + инструкция + практика.</p>
+
+  <div class="agents-grid">
+    <div class="agent-chip"><div class="agent-emoji">🧠</div><div class="agent-name">Брейнсторм</div><div class="agent-module">М1</div></div>
+    <div class="agent-chip"><div class="agent-emoji">📝</div><div class="agent-name">Переписчик</div><div class="agent-module">М1</div></div>
+    <div class="agent-chip"><div class="agent-emoji">🔍</div><div class="agent-name">Ресёрчер</div><div class="agent-module">М1</div></div>
+    <div class="agent-chip"><div class="agent-emoji">📧</div><div class="agent-name">Email-помощник</div><div class="agent-module">М1</div></div>
+    <div class="agent-chip"><div class="agent-emoji">🎯</div><div class="agent-name">Лидогенератор</div><div class="agent-module">М2</div></div>
+    <div class="agent-chip"><div class="agent-emoji">💬</div><div class="agent-name">Первое касание</div><div class="agent-module">М2</div></div>
+    <div class="agent-chip"><div class="agent-emoji">🛒</div><div class="agent-name">Менеджер продаж</div><div class="agent-module">М2</div></div>
+    <div class="agent-chip"><div class="agent-emoji">💡</div><div class="agent-name">Составитель КП</div><div class="agent-module">М2</div></div>
+    <div class="agent-chip"><div class="agent-emoji">🔥</div><div class="agent-name">Возражения</div><div class="agent-module">М2</div></div>
+    <div class="agent-chip"><div class="agent-emoji">⭐</div><div class="agent-name">Сбор отзывов</div><div class="agent-module">М2</div></div>
+    <div class="agent-chip"><div class="agent-emoji">🔄</div><div class="agent-name">Повторные продажи</div><div class="agent-module">М2</div></div>
+    <div class="agent-chip"><div class="agent-emoji">🆘</div><div class="agent-name">Ответчик 24/7</div><div class="agent-module">М2</div></div>
+    <div class="agent-chip"><div class="agent-emoji">📅</div><div class="agent-name">Контент-план</div><div class="agent-module">М3</div></div>
+    <div class="agent-chip"><div class="agent-emoji">✍️</div><div class="agent-name">Копирайтер</div><div class="agent-module">М3</div></div>
+    <div class="agent-chip"><div class="agent-emoji">📰</div><div class="agent-name">Автор статей</div><div class="agent-module">М3</div></div>
+    <div class="agent-chip"><div class="agent-emoji">📩</div><div class="agent-name">Email-маркетолог</div><div class="agent-module">М3</div></div>
+    <div class="agent-chip"><div class="agent-emoji">📱</div><div class="agent-name">Соцсети</div><div class="agent-module">М3</div></div>
+    <div class="agent-chip"><div class="agent-emoji">📢</div><div class="agent-name">Рекламщик</div><div class="agent-module">М3</div></div>
+    <div class="agent-chip"><div class="agent-emoji">🎨</div><div class="agent-name">Промптер визуала</div><div class="agent-module">М3</div></div>
+    <div class="agent-chip"><div class="agent-emoji">🎬</div><div class="agent-name">Reels / Shorts</div><div class="agent-module">М3</div></div>
+    <div class="agent-chip"><div class="agent-emoji">🕵️</div><div class="agent-name">Аналитик конкурентов</div><div class="agent-module">М4</div></div>
+    <div class="agent-chip"><div class="agent-emoji">📈</div><div class="agent-name">Мониторинг рынка</div><div class="agent-module">М4</div></div>
+    <div class="agent-chip"><div class="agent-emoji">📋</div><div class="agent-name">Дашбордист</div><div class="agent-module">М4</div></div>
+    <div class="agent-chip"><div class="agent-emoji">🔢</div><div class="agent-name">Интерпретатор</div><div class="agent-module">М4</div></div>
+    <div class="agent-chip"><div class="agent-emoji">🧭</div><div class="agent-name">Стратег</div><div class="agent-module">М4</div></div>
+    <div class="agent-chip"><div class="agent-emoji">💰</div><div class="agent-name">Ценовая аналитика</div><div class="agent-module">М4</div></div>
+    <div class="agent-chip"><div class="agent-emoji">🎯</div><div class="agent-name">Анализ ЦА</div><div class="agent-module">М4</div></div>
+    <div class="agent-chip"><div class="agent-emoji">💵</div><div class="agent-name">Финансовый учёт</div><div class="agent-module">М5</div></div>
+    <div class="agent-chip"><div class="agent-emoji">📊</div><div class="agent-name">Бюджетирование</div><div class="agent-module">М5</div></div>
+    <div class="agent-chip"><div class="agent-emoji">📄</div><div class="agent-name">Юрист</div><div class="agent-module">М5</div></div>
+    <div class="agent-chip"><div class="agent-emoji">📑</div><div class="agent-name">Документовед</div><div class="agent-module">М5</div></div>
+    <div class="agent-chip"><div class="agent-emoji">✅</div><div class="agent-name">Планировщик</div><div class="agent-module">М5</div></div>
+    <div class="agent-chip"><div class="agent-emoji">📦</div><div class="agent-name">Менеджер проектов</div><div class="agent-module">М5</div></div>
+    <div class="agent-chip"><div class="agent-emoji">🔄</div><div class="agent-name">Автоматизация</div><div class="agent-module">М5</div></div>
+    <div class="agent-chip"><div class="agent-emoji">🚚</div><div class="agent-name">Поставщики</div><div class="agent-module">М5</div></div>
+    <div class="agent-chip"><div class="agent-emoji">📝</div><div class="agent-name">Рекрутер</div><div class="agent-module">М6</div></div>
+    <div class="agent-chip"><div class="agent-emoji">🤝</div><div class="agent-name">Адаптация</div><div class="agent-module">М6</div></div>
+    <div class="agent-chip"><div class="agent-emoji">🎓</div><div class="agent-name">Тренер</div><div class="agent-module">М6</div></div>
+    <div class="agent-chip"><div class="agent-emoji">📚</div><div class="agent-name">База знаний</div><div class="agent-module">М6</div></div>
+    <div class="agent-chip"><div class="agent-emoji">💬</div><div class="agent-name">Коммуникации</div><div class="agent-module">М6</div></div>
+    <div class="agent-chip"><div class="agent-emoji">🏆</div><div class="agent-name">Мотивация</div><div class="agent-module">М6</div></div>
+    <div class="agent-chip"><div class="agent-emoji">📊</div><div class="agent-name">Оценка персонала</div><div class="agent-module">М6</div></div>
+    <div class="agent-chip"><div class="agent-emoji">🌐</div><div class="agent-name">Переводчик</div><div class="agent-module">М7</div></div>
+    <div class="agent-chip"><div class="agent-emoji">🗣️</div><div class="agent-name">Выступления</div><div class="agent-module">М7</div></div>
+    <div class="agent-chip"><div class="agent-emoji">📞</div><div class="agent-name">Скрипты звонков</div><div class="agent-module">М7</div></div>
+    <div class="agent-chip"><div class="agent-emoji">🔗</div><div class="agent-name">Интегратор</div><div class="agent-module">М7</div></div>
+    <div class="agent-chip"><div class="agent-emoji">🛡️</div><div class="agent-name">Контроль качества</div><div class="agent-module">М7</div></div>
+    <div class="agent-chip"><div class="agent-emoji">🧪</div><div class="agent-name">Тестировщик гипотез</div><div class="agent-module">М7</div></div>
+    <div class="agent-chip"><div class="agent-emoji">📈</div><div class="agent-name">Масштабирование</div><div class="agent-module">М7</div></div>
+    <div class="agent-chip"><div class="agent-emoji">🤖</div><div class="agent-name">Мета-агент</div><div class="agent-module">М7</div></div>
+  </div>
+</section>
+
+<!-- RESULTS -->
+<section>
+  <div class="section-label">Результаты</div>
+  <div class="section-title">Что ты получишь</div>
+  <p class="section-desc">Не абстрактные знания, а работающую систему.</p>
+
+  <div class="results-grid">
+    <div class="result-card">
+      <div class="result-icon">⏱️</div>
+      <div class="result-title">20+ ч</div>
+      <div class="result-desc">экономии в неделю на рутине</div>
+    </div>
+    <div class="result-card">
+      <div class="result-icon">🤖</div>
+      <div class="result-title">50</div>
+      <div class="result-desc">готовых агентов с промптами</div>
+    </div>
+    <div class="result-card">
+      <div class="result-icon">💰</div>
+      <div class="result-title">ROI</div>
+      <div class="result-desc">с первого модуля — измеримый</div>
+    </div>
+    <div class="result-card">
+      <div class="result-icon">🏆</div>
+      <div class="result-title">90 дней</div>
+      <div class="result-desc">план ИИ-трансформации бизнеса</div>
+    </div>
+  </div>
+</section>
+
+<!-- WHO IS THIS FOR -->
+<section>
+  <div class="section-label">Для кого</div>
+  <div class="section-title">Этот курс для тебя, если…</div>
+  <br>
+  <div class="for-grid">
+    <div class="for-card yes">
+      <h3>✅ Подойдёт</h3>
+      <div class="for-item"><span class="icon">🏢</span> Предприниматель с бизнесом (офлайн или онлайн)</div>
+      <div class="for-item"><span class="icon">⏰</span> Тонешь в рутине и хочешь делегировать ИИ</div>
+      <div class="for-item"><span class="icon">📈</span> Хочешь масштабироваться без раздувания штата</div>
+      <div class="for-item"><span class="icon">🎯</span> Готов внедрять — не просто «послушать»</div>
+      <div class="for-item"><span class="icon">💡</span> Эксперт, который хочет упаковать свои знания</div>
+    </div>
+    <div class="for-card no">
+      <h3>❌ Не подойдёт</h3>
+      <div class="for-item"><span class="icon">🎓</span> Ищешь теорию про нейросети и трансформеры</div>
+      <div class="for-item"><span class="icon">🛋️</span> Не готов действовать — только смотреть</div>
+      <div class="for-item"><span class="icon">💻</span> Программист, которому нужен API-уровень</div>
+      <div class="for-item"><span class="icon">🎰</span> Ждёшь «волшебную кнопку» без усилий</div>
+    </div>
+  </div>
+</section>
+
+<!-- QUOTE -->
+<div class="divider"></div>
+<div class="quote-section">
+  <p class="quote-text">
+    «Я не программист. Я — предприниматель, который 15 лет строил бизнес руками.<br>
+    А потом понял: ИИ может делать 80% рутины за меня.<br>
+    Этот курс — то, что я хотел бы получить сам, когда начинал.»
+  </p>
+  <div class="quote-author">— Вардгес Арутюнян</div>
+</div>
+<div class="divider"></div>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="section-label">Готов?</div>
+  <div class="section-title">Обгони конкурентов.<br>Запусти 50 агентов.</div>
+  <a href="#" class="cta-btn">🚀 ЗАПИСАТЬСЯ НА КУРС</a>
+  <div class="cta-price">Старт — скоро. Первые 50 мест по спеццене.</div>
+</section>
+
+<div class="footer">
+  © 2026 Вардгес Арутюнян · Реальный бизнес × ИИ × Здравый смысл
+</div>
+
+</body>
+</html>
