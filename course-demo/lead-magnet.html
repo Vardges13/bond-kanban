@@ -1,0 +1,1052 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>5 GPT-агентов, которые заменят 3 сотрудника — настрой за 30 минут</title>
+    <meta name="description" content="Бесплатный гайд: 5 готовых GPT-агентов для бизнеса с промптами, примерами и оценкой экономии. Автор — Вардгес Арутюнян.">
+    <meta property="og:title" content="5 GPT-агентов, которые заменят 3 сотрудника">
+    <meta property="og:description" content="Бесплатный гайд для предпринимателей. Готовые промпты — скопируй и работай.">
+    <meta property="og:type" content="article">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #6C3CE1;
+            --primary-light: #8B5CF6;
+            --primary-bg: #F3EFFE;
+            --accent: #F59E0B;
+            --accent-bg: #FEF3C7;
+            --dark: #1E1B4B;
+            --text: #374151;
+            --text-light: #6B7280;
+            --bg: #FAFAFA;
+            --white: #FFFFFF;
+            --border: #E5E7EB;
+            --green: #10B981;
+            --green-bg: #D1FAE5;
+            --blue: #3B82F6;
+            --blue-bg: #DBEAFE;
+            --red: #EF4444;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            color: var(--text);
+            background: var(--bg);
+            line-height: 1.7;
+            font-size: 16px;
+        }
+
+        .container {
+            max-width: 780px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* ====== COVER ====== */
+        .cover {
+            background: linear-gradient(135deg, #1E1B4B 0%, #4C1D95 50%, #6C3CE1 100%);
+            color: white;
+            padding: 80px 24px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .cover::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -30%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(245,158,11,0.15) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+        .cover-badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.15);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.2);
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-size: 14px;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            margin-bottom: 32px;
+            text-transform: uppercase;
+        }
+        .cover h1 {
+            font-size: clamp(28px, 5vw, 44px);
+            font-weight: 900;
+            line-height: 1.2;
+            margin-bottom: 20px;
+            position: relative;
+        }
+        .cover h1 span {
+            color: var(--accent);
+        }
+        .cover .subtitle {
+            font-size: 18px;
+            opacity: 0.85;
+            margin-bottom: 40px;
+            font-weight: 400;
+        }
+        .cover .author {
+            font-size: 16px;
+            font-weight: 500;
+            opacity: 0.9;
+        }
+        .cover .author strong {
+            font-weight: 700;
+        }
+
+        /* ====== SECTIONS ====== */
+        section {
+            padding: 48px 0;
+        }
+        .section-intro {
+            background: var(--white);
+            border-bottom: 1px solid var(--border);
+        }
+
+        h2 {
+            font-size: 28px;
+            font-weight: 800;
+            color: var(--dark);
+            margin-bottom: 20px;
+            line-height: 1.3;
+        }
+        h3 {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 12px;
+        }
+        p { margin-bottom: 16px; }
+
+        .lead {
+            font-size: 18px;
+            color: var(--text);
+            line-height: 1.8;
+        }
+        .lead strong { color: var(--dark); }
+
+        /* For-whom list */
+        .for-whom {
+            list-style: none;
+            padding: 0;
+            margin: 24px 0;
+        }
+        .for-whom li {
+            padding: 12px 16px;
+            margin-bottom: 8px;
+            background: var(--primary-bg);
+            border-radius: 10px;
+            font-weight: 500;
+        }
+
+        .what-you-get {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0;
+        }
+        .what-you-get li {
+            padding: 8px 0;
+            font-size: 16px;
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, var(--accent-bg), #FFF7ED);
+            border-left: 4px solid var(--accent);
+            padding: 20px 24px;
+            border-radius: 0 12px 12px 0;
+            margin: 24px 0;
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--dark);
+        }
+
+        /* ====== AGENT CARDS ====== */
+        .agent-section {
+            background: var(--white);
+            border-bottom: 1px solid var(--border);
+        }
+        .agent-section:nth-child(odd) {
+            background: var(--bg);
+        }
+
+        .agent-header {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+        .agent-number {
+            width: 48px;
+            height: 48px;
+            background: var(--primary);
+            color: white;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 20px;
+            flex-shrink: 0;
+        }
+        .agent-title {
+            font-size: 26px;
+            font-weight: 800;
+            color: var(--dark);
+        }
+
+        .problem-box {
+            background: #FEF2F2;
+            border: 1px solid #FECACA;
+            border-radius: 12px;
+            padding: 16px 20px;
+            margin-bottom: 20px;
+            display: flex;
+            gap: 12px;
+            align-items: flex-start;
+        }
+        .problem-box .icon {
+            font-size: 20px;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+        .problem-box p { margin: 0; }
+
+        .solution-box {
+            background: var(--green-bg);
+            border: 1px solid #A7F3D0;
+            border-radius: 12px;
+            padding: 16px 20px;
+            margin-bottom: 24px;
+            display: flex;
+            gap: 12px;
+            align-items: flex-start;
+        }
+        .solution-box .icon {
+            font-size: 20px;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+        .solution-box p { margin: 0; }
+
+        /* System prompt */
+        .prompt-block {
+            margin: 24px 0;
+        }
+        .prompt-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--dark);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 10px 10px 0 0;
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+        .prompt-code {
+            background: #1E1B4B;
+            color: #E2E8F0;
+            padding: 20px 24px;
+            border-radius: 0 10px 10px 10px;
+            font-family: 'Courier New', monospace;
+            font-size: 13.5px;
+            line-height: 1.7;
+            overflow-x: auto;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            position: relative;
+        }
+        .copy-btn {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            color: white;
+            padding: 6px 14px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 12px;
+            font-weight: 500;
+            transition: all 0.2s;
+        }
+        .copy-btn:hover {
+            background: rgba(255,255,255,0.2);
+        }
+
+        /* Example block */
+        .example-block {
+            background: var(--blue-bg);
+            border-radius: 12px;
+            padding: 24px;
+            margin: 24px 0;
+        }
+        .example-block h4 {
+            color: var(--blue);
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 16px;
+        }
+        .example-query {
+            background: white;
+            border-radius: 8px;
+            padding: 16px;
+            margin-bottom: 12px;
+            border-left: 3px solid var(--blue);
+        }
+        .example-query .label {
+            font-size: 12px;
+            color: var(--blue);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 6px;
+        }
+        .example-response {
+            background: white;
+            border-radius: 8px;
+            padding: 16px;
+            border-left: 3px solid var(--green);
+        }
+        .example-response .label {
+            font-size: 12px;
+            color: var(--green);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 6px;
+        }
+        .example-response p:last-child { margin-bottom: 0; }
+
+        /* Savings */
+        .savings-box {
+            background: linear-gradient(135deg, #F0FDF4, #ECFDF5);
+            border: 2px solid var(--green);
+            border-radius: 12px;
+            padding: 20px 24px;
+            margin-top: 24px;
+        }
+        .savings-box h4 {
+            color: var(--green);
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 12px;
+        }
+        .savings-box ul {
+            list-style: none;
+            padding: 0;
+        }
+        .savings-box li {
+            padding: 4px 0;
+            font-weight: 500;
+        }
+        .savings-box li strong {
+            color: var(--dark);
+        }
+
+        /* ====== SUMMARY TABLE ====== */
+        .summary-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 24px 0;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+        .summary-table thead {
+            background: var(--primary);
+            color: white;
+        }
+        .summary-table th {
+            padding: 14px 16px;
+            text-align: left;
+            font-weight: 600;
+            font-size: 14px;
+        }
+        .summary-table td {
+            padding: 14px 16px;
+            border-bottom: 1px solid var(--border);
+            font-size: 15px;
+        }
+        .summary-table tbody tr:nth-child(even) {
+            background: var(--primary-bg);
+        }
+        .summary-table tbody tr:last-child td {
+            border-bottom: none;
+        }
+        .summary-total {
+            background: var(--accent-bg) !important;
+            font-weight: 700;
+        }
+
+        /* ====== CTA SECTION ====== */
+        .cta-section {
+            background: linear-gradient(135deg, #1E1B4B 0%, #4C1D95 100%);
+            color: white;
+            text-align: center;
+        }
+        .cta-section h2 {
+            color: white;
+            font-size: 32px;
+        }
+        .cta-section p {
+            opacity: 0.9;
+            font-size: 17px;
+        }
+        .cta-teaser {
+            font-size: 22px !important;
+            font-weight: 700;
+            opacity: 1 !important;
+            margin-bottom: 32px;
+        }
+        .cta-agents-list {
+            text-align: left;
+            max-width: 480px;
+            margin: 24px auto 32px;
+            list-style: none;
+            padding: 0;
+        }
+        .cta-agents-list li {
+            padding: 10px 0;
+            font-size: 16px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        .cta-features {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            max-width: 480px;
+            margin: 24px auto 32px;
+            text-align: left;
+        }
+        .cta-features li {
+            list-style: none;
+            font-size: 15px;
+            padding: 8px 0;
+        }
+        .cta-btn {
+            display: inline-block;
+            background: var(--accent);
+            color: var(--dark);
+            padding: 16px 40px;
+            border-radius: 12px;
+            font-size: 18px;
+            font-weight: 800;
+            text-decoration: none;
+            transition: transform 0.2s, box-shadow 0.2s;
+            box-shadow: 0 4px 15px rgba(245,158,11,0.4);
+        }
+        .cta-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(245,158,11,0.5);
+        }
+        .cta-sub {
+            margin-top: 16px;
+            font-size: 14px;
+            opacity: 0.7;
+        }
+
+        /* ====== ABOUT ====== */
+        .about-section {
+            background: var(--white);
+        }
+        .about-card {
+            display: flex;
+            gap: 24px;
+            align-items: flex-start;
+            background: var(--primary-bg);
+            border-radius: 16px;
+            padding: 32px;
+        }
+        .about-avatar {
+            width: 80px;
+            height: 80px;
+            background: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 36px;
+            flex-shrink: 0;
+        }
+        .about-info h3 {
+            font-size: 22px;
+            margin-bottom: 12px;
+        }
+        .about-links {
+            margin-top: 16px;
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+        .about-links a {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: var(--primary);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 600;
+            transition: background 0.2s;
+        }
+        .about-links a:hover {
+            background: var(--primary-light);
+        }
+
+        /* ====== FOOTER ====== */
+        footer {
+            text-align: center;
+            padding: 32px 24px;
+            color: var(--text-light);
+            font-size: 14px;
+            border-top: 1px solid var(--border);
+        }
+
+        /* ====== PDF BUTTON ====== */
+        .pdf-btn-container {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            z-index: 1000;
+        }
+        .pdf-btn {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 14px 24px;
+            border-radius: 12px;
+            font-size: 15px;
+            font-weight: 700;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 4px 20px rgba(108,60,225,0.4);
+            transition: all 0.2s;
+        }
+        .pdf-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 25px rgba(108,60,225,0.5);
+        }
+
+        /* ====== PRINT STYLES ====== */
+        @media print {
+            body { background: white; font-size: 11pt; }
+            .container { max-width: 100%; padding: 0; }
+            .cover { padding: 60px 40px; page-break-after: always; }
+            .section-intro { page-break-after: always; }
+            .agent-section { page-break-inside: avoid; page-break-after: always; }
+            .cta-section { page-break-before: always; }
+            .about-section { page-break-before: always; }
+            .pdf-btn-container { display: none; }
+            .copy-btn { display: none; }
+            .prompt-code { font-size: 10pt; }
+            section { padding: 30px 0; }
+            h2 { font-size: 22pt; }
+            .cta-btn { box-shadow: none; border: 2px solid var(--accent); }
+            a { color: var(--primary); }
+        }
+
+        @media (max-width: 600px) {
+            .cover { padding: 48px 16px; }
+            .about-card { flex-direction: column; align-items: center; text-align: center; padding: 24px; }
+            .about-links { justify-content: center; }
+            .cta-features { grid-template-columns: 1fr; }
+            .agent-header { flex-direction: column; align-items: flex-start; gap: 8px; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- COVER -->
+<header class="cover">
+    <div class="container">
+        <div class="cover-badge">Бесплатный гайд для предпринимателей</div>
+        <h1>5 GPT-агентов, которые <span>заменят 3 сотрудника</span> — настрой за 30 минут</h1>
+        <p class="subtitle">Готовые промпты · Реальные примеры · Скопируй и работай</p>
+        <p class="author">Автор: <strong>Вардгес Арутюнян</strong> — предприниматель, 15+ лет в бизнесе</p>
+    </div>
+</header>
+
+<!-- INTRO -->
+<section class="section-intro">
+    <div class="container">
+        <h2>Зачем тебе этот гайд?</h2>
+        <p class="lead">Каждый день ты тратишь часы на рутину: email, тексты для соцсетей, коммерческие предложения, поиск информации, мозговые штурмы в одиночку.</p>
+        <p class="lead"><strong>5 GPT-агентов могут взять эту работу на себя.</strong> Бесплатно. Прямо сейчас. За 30 минут настройки.</p>
+        <p class="lead">Никаких программистов. Никаких сложных инструментов. Просто скопируй промпт в ChatGPT — и работай.</p>
+
+        <h3>Для кого?</h3>
+        <ul class="for-whom">
+            <li>👨‍💼 Предприниматели-одиночки — которым не с кем «подумать вслух»</li>
+            <li>🏢 Владельцы малого бизнеса — у кого каждый сотрудник на счету</li>
+            <li>📱 Фрилансеры и самозанятые — которые делают всё сами</li>
+            <li>🚀 Все, кто слышал про ИИ — но не понимает, с чего начать</li>
+        </ul>
+
+        <h3>Что внутри?</h3>
+        <ul class="what-you-get">
+            <li>✅ Готовый System Prompt для каждого агента — просто скопируй</li>
+            <li>✅ Реальный пример: запрос → ответ</li>
+            <li>✅ Оценка экономии — сколько часов и денег сэкономишь</li>
+        </ul>
+
+        <div class="highlight-box">
+            💡 Итого: 5 агентов = минус 15–25 часов рутины в неделю. Как нанять 3 сотрудника — бесплатно.
+        </div>
+    </div>
+</section>
+
+<!-- AGENT 1: BRAINSTORM -->
+<section class="agent-section" id="agent-1">
+    <div class="container">
+        <div class="agent-header">
+            <div class="agent-number">1</div>
+            <div class="agent-title">🧠 Брейнсторм-партнёр</div>
+        </div>
+
+        <div class="problem-box">
+            <span class="icon">🚨</span>
+            <p><strong>Проблема:</strong> У тебя нет команды стратегов, а идеи для развития нужны каждую неделю — и «подумать вслух» не с кем.</p>
+        </div>
+
+        <div class="solution-box">
+            <span class="icon">✅</span>
+            <p><strong>Решение:</strong> Агент генерирует 10–15 бизнес-идей за 5 минут — от быстрых (неделя) до стратегических (3–6 месяцев). С оценкой сложности и первым шагом.</p>
+        </div>
+
+        <div class="prompt-block">
+            <div class="prompt-label">📋 System Prompt — скопируй в ChatGPT</div>
+            <div class="prompt-code" id="prompt-1"><button class="copy-btn" onclick="copyPrompt('prompt-1')">📋 Копировать</button>Ты — креативный бизнес-консультант с 20-летним опытом работы с малым и средним бизнесом в России и СНГ. Твоя задача — генерировать бизнес-идеи.
+
+Правила:
+- Сначала задай 3–5 уточняющих вопросов о бизнесе, ресурсах и ограничениях
+- Генерируй минимум 10 идей разного масштаба: от быстрых (внедрение за неделю) до стратегических (3–6 месяцев)
+- Для каждой идеи укажи: суть (1–2 предложения), сложность (🟢 просто / 🟡 средне / 🔴 сложно), потенциальный эффект, первый шаг
+- Используй примеры из реального российского бизнеса
+- Будь конкретным: не «улучшите маркетинг», а «запустите Telegram-канал с закулисьем отеля, постинг 3 раза в неделю»
+- Тон: дружелюбный, как разговор с умным партнёром за кофе</div>
+        </div>
+
+        <div class="example-block">
+            <h4>💬 Пример использования</h4>
+            <div class="example-query">
+                <div class="label">Запрос</div>
+                <p>У меня мини-отель на 15 номеров в Курске. Загрузка 60%, хочу довести до 85%. Бюджет на маркетинг — 50 тыс. руб./мес.</p>
+            </div>
+            <div class="example-response">
+                <div class="label">Ответ агента</div>
+                <p><strong>1. 🟢 Пакеты выходного дня</strong> — «Романтический уикенд», «Семейный отдых» с ужином и экскурсией. Поднимает средний чек на 30–40%. <em>Первый шаг: составить 3 пакета и разместить на сайте.</em></p>
+                <p><strong>2. 🟡 Партнёрство с корпоратами</strong> — договоры с 5–10 компаниями на проживание командировочных. Стабильный поток в будни. <em>Первый шаг: список крупных работодателей Курска → холодные письма.</em></p>
+                <p><strong>3. 🟢 Яндекс.Бизнес + отзывы</strong> — активно собирать отзывы, выйти в топ-3 Яндекс.Карт. Бесплатно, эффект через 1–2 месяца.</p>
+            </div>
+        </div>
+
+        <div class="savings-box">
+            <h4>💰 Экономия</h4>
+            <ul>
+                <li>⏱️ <strong>3–5 часов</strong> на каждую мозговую штурм-сессию</li>
+                <li>💸 Заменяет стратсессию с консультантом: <strong>30 000–100 000 ₽</strong></li>
+                <li>🕐 Работает в любое время дня и ночи</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<!-- AGENT 2: EMAIL -->
+<section class="agent-section" id="agent-2">
+    <div class="container">
+        <div class="agent-header">
+            <div class="agent-number">2</div>
+            <div class="agent-title">📧 Email-помощник</div>
+        </div>
+
+        <div class="problem-box">
+            <span class="icon">🚨</span>
+            <p><strong>Проблема:</strong> 1–2 часа в день уходит на деловую переписку, а сложные письма (претензии, партнёрам) откладываешь неделями.</p>
+        </div>
+
+        <div class="solution-box">
+            <span class="icon">✅</span>
+            <p><strong>Решение:</strong> Агент пишет идеальные деловые письма за 2 минуты — кратко, по делу, с правильным тоном. От мягкого напоминания до жёсткой претензии.</p>
+        </div>
+
+        <div class="prompt-block">
+            <div class="prompt-label">📋 System Prompt — скопируй в ChatGPT</div>
+            <div class="prompt-code" id="prompt-2"><button class="copy-btn" onclick="copyPrompt('prompt-2')">📋 Копировать</button>Ты — персональный ассистент по деловой переписке. Ты помогаешь писать email-сообщения, которые достигают цели: получить ответ, договориться, решить проблему.
+
+Правила:
+- Спроси контекст: кому пишем (должность, отношения), цель письма, что было до этого
+- Определи тон: формальный / полуформальный / тёплый-деловой
+- Структура письма: приветствие → суть (1–2 абзаца) → конкретный следующий шаг (CTA) → подпись
+- Будь кратким: идеальное деловое письмо — до 150 слов
+- Не используй канцелярит и шаблонные фразы («доводим до вашего сведения»)
+- Если нужно — дай 2 варианта: мягкий и более настойчивый
+- Можешь помочь с ответом на полученное письмо: вставь его, и я отвечу за тебя</div>
+        </div>
+
+        <div class="example-block">
+            <h4>💬 Пример использования</h4>
+            <div class="example-query">
+                <div class="label">Запрос</div>
+                <p>Нужно написать поставщику постельного белья. Они задержали поставку на 2 недели. Мы платим вовремя, нам важно сохранить отношения, но такое недопустимо.</p>
+            </div>
+            <div class="example-response">
+                <div class="label">Ответ агента</div>
+                <p><strong>Тема:</strong> Задержка поставки — заказ №1247</p>
+                <p>Алексей, добрый день!</p>
+                <p>Заказ №1247 должен был прийти 15 января — прошло 2 недели, а мы всё ещё без белья. У нас отель, и каждый день без комплектов — это потери.</p>
+                <p>Мы ценим наше сотрудничество (работаем уже 2 года и всегда платим в срок), но повторение таких ситуаций заставит нас искать резервного поставщика.</p>
+                <p>Прошу до пятницы: 1) подтвердить точную дату доставки, 2) предложить компенсацию за задержку.</p>
+                <p><em>С уважением, Вардгес</em></p>
+            </div>
+        </div>
+
+        <div class="savings-box">
+            <h4>💰 Экономия</h4>
+            <ul>
+                <li>⏱️ <strong>15–30 минут</strong> на каждое сложное письмо</li>
+                <li>📊 При 5 письмах в неделю — <strong>1,5–2,5 часа</strong> экономии</li>
+                <li>📈 Качество переписки растёт → лучше результаты переговоров</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<!-- AGENT 3: COPYWRITER -->
+<section class="agent-section" id="agent-3">
+    <div class="container">
+        <div class="agent-header">
+            <div class="agent-number">3</div>
+            <div class="agent-title">✍️ Копирайтер для соцсетей</div>
+        </div>
+
+        <div class="problem-box">
+            <span class="icon">🚨</span>
+            <p><strong>Проблема:</strong> Надо писать посты 3 раза в неделю, а вдохновения — на ноль. Результат: пустой канал или скучные тексты, которые никто не читает.</p>
+        </div>
+
+        <div class="solution-box">
+            <span class="icon">✅</span>
+            <p><strong>Решение:</strong> Агент пишет цепляющие посты для Telegram, Instagram, VK — с крючком, историей и призывом к действию. 10 минут вместо часа.</p>
+        </div>
+
+        <div class="prompt-block">
+            <div class="prompt-label">📋 System Prompt — скопируй в ChatGPT</div>
+            <div class="prompt-code" id="prompt-3"><button class="copy-btn" onclick="copyPrompt('prompt-3')">📋 Копировать</button>Ты — копирайтер для социальных сетей. Пишешь посты, которые читают до конца, лайкают и комментируют.
+
+Правила:
+- Спроси: площадка, тема, цель поста (вовлечение / продажа / экспертность), тон (разговорный / экспертный / провокационный)
+- Структура поста: крючок (первая строка — цепляющая) → основа (польза или история) → CTA (что делать: комментить, переходить, покупать)
+- Длина: Telegram — до 1500 знаков, Instagram — до 2200, VK — до 2000
+- Используй короткие абзацы (2–3 строки), эмодзи для визуального разделения
+- Хештеги: 5–10 штук, микс из популярных и нишевых
+- Дай 2 варианта заголовка (крючка) на выбор
+- Пиши как живой человек, а не как рекламный бот. Рассказывай истории, задавай вопросы</div>
+        </div>
+
+        <div class="example-block">
+            <h4>💬 Пример использования</h4>
+            <div class="example-query">
+                <div class="label">Запрос</div>
+                <p>Пост для Telegram-канала отеля. Тема: как мы готовим номер к приезду гостя. Цель — доверие.</p>
+            </div>
+            <div class="example-response">
+                <div class="label">Ответ агента</div>
+                <p><strong>Крючок 1:</strong> Вы когда-нибудь задумывались, что происходит с номером за 45 минут до вашего заселения?</p>
+                <p><strong>Крючок 2:</strong> 23 действия. Столько нужно, чтобы подготовить для вас идеальный номер.</p>
+                <p>Чистое бельё — это базовый минимум. А мы ещё: проверяем каждую лампочку, ставим воду определённой температуры, раскладываем полотенца «как в кино» и даже проверяем Wi-Fi в конкретном номере.</p>
+                <p>Для нас 45 минут — это ритуал. Для вас — ощущение «наконец-то дома» с порога.</p>
+                <p>Хотите увидеть этот процесс? Напишите «ПОКАЖИ» — снимем видео 🎬</p>
+            </div>
+        </div>
+
+        <div class="savings-box">
+            <h4>💰 Экономия</h4>
+            <ul>
+                <li>⏱️ <strong>10–15 минут</strong> на пост вместо 40–60</li>
+                <li>📊 При 12 постах в месяц — <strong>6–9 часов</strong> экономии</li>
+                <li>💸 Заменяет копирайтера на фрилансе: <strong>15 000–30 000 ₽/мес.</strong></li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<!-- AGENT 4: RESEARCHER -->
+<section class="agent-section" id="agent-4">
+    <div class="container">
+        <div class="agent-header">
+            <div class="agent-number">4</div>
+            <div class="agent-title">🔍 Ресёрчер</div>
+        </div>
+
+        <div class="problem-box">
+            <span class="icon">🚨</span>
+            <p><strong>Проблема:</strong> Перед каждым решением — новый рынок, поставщик, партнёрство — нужно разобраться в теме. Но «погуглить» превращается в 4–8 часов без результата.</p>
+        </div>
+
+        <div class="solution-box">
+            <span class="icon">✅</span>
+            <p><strong>Решение:</strong> Агент собирает и структурирует информацию по любой теме за 15 минут. Выдаёт отчёт с фактами, цифрами и конкретными шагами.</p>
+        </div>
+
+        <div class="prompt-block">
+            <div class="prompt-label">📋 System Prompt — скопируй в ChatGPT</div>
+            <div class="prompt-code" id="prompt-4"><button class="copy-btn" onclick="copyPrompt('prompt-4')">📋 Копировать</button>Ты — бизнес-аналитик и ресёрчер. Твоя задача — быстро и глубоко исследовать любую тему и выдать структурированный отчёт.
+
+Правила:
+- Уточни цель исследования: зачем нужна эта информация и какое решение будет приниматься на её основе
+- Составь мини-план: какие аспекты темы нужно покрыть (3–5 пунктов)
+- Для каждого аспекта дай: ключевые факты, цифры (где возможно), источники
+- Формат ответа: структурированный отчёт с заголовками, буллетами и итоговым выводом
+- В конце — раздел «Что делать дальше» с 3 конкретными шагами
+- Если данные устарели или ненадёжны — предупреди об этом
+- Пиши кратко, по делу, без воды. Язык — русский, понятный предпринимателю</div>
+        </div>
+
+        <div class="example-block">
+            <h4>💬 Пример использования</h4>
+            <div class="example-query">
+                <div class="label">Запрос</div>
+                <p>Исследуй рынок глэмпингов в Курской области. Хочу понять, стоит ли запускать.</p>
+            </div>
+            <div class="example-response">
+                <div class="label">Ответ агента</div>
+                <p><strong>📊 Ресёрч: Глэмпинг в Курской области</strong></p>
+                <p><strong>1. Рынок в России:</strong> Объём ~12 млрд руб. (2024), рост 25–30% в год. Основные регионы: Подмосковье, Краснодар, Карелия.</p>
+                <p><strong>2. Конкуренция в Курской области:</strong> Найдено 2 действующих глэмпинга. Низкая конкуренция. Ближайшие серьёзные — в Воронежской области.</p>
+                <p><strong>3. Целевая аудитория:</strong> Москвичи (4 часа на машине), жители Курска (выходные без перелёта), корпоративные группы.</p>
+                <p><strong>Что делать дальше:</strong><br>
+                1. Съездить на 2–3 глэмпинга лично (бенчмарк)<br>
+                2. Считать unit-экономику: земля + модуль + сезонность<br>
+                3. Протестировать спрос: лендинг + Яндекс.Директ на 20 тыс. руб.</p>
+            </div>
+        </div>
+
+        <div class="savings-box">
+            <h4>💰 Экономия</h4>
+            <ul>
+                <li>⏱️ <strong>4–8 часов</strong> ручного гуглинга на каждое исследование</li>
+                <li>💸 Один ресёрч может уберечь от ошибки в <strong>сотни тысяч ₽</strong></li>
+                <li>🏢 Заменяет маркетинговое исследование: <strong>50 000–200 000 ₽</strong></li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<!-- AGENT 5: KP GENERATOR -->
+<section class="agent-section" id="agent-5">
+    <div class="container">
+        <div class="agent-header">
+            <div class="agent-number">5</div>
+            <div class="agent-title">💰 Генератор коммерческих предложений</div>
+        </div>
+
+        <div class="problem-box">
+            <span class="icon">🚨</span>
+            <p><strong>Проблема:</strong> Каждое КП — это 2 часа мучений над структурой и формулировками. А шаблонные «рады предложить...» — летят в корзину.</p>
+        </div>
+
+        <div class="solution-box">
+            <span class="icon">✅</span>
+            <p><strong>Решение:</strong> Агент создаёт персонализированные КП за 10 минут — с болью клиента, конкретным решением, кейсами и вариантами цен.</p>
+        </div>
+
+        <div class="prompt-block">
+            <div class="prompt-label">📋 System Prompt — скопируй в ChatGPT</div>
+            <div class="prompt-code" id="prompt-5"><button class="copy-btn" onclick="copyPrompt('prompt-5')">📋 Копировать</button>Ты — специалист по созданию коммерческих предложений (КП), которые закрывают сделки. Пишешь КП, от которых сложно отказаться.
+
+Правила:
+- Спроси: кому КП (компания, ЛПР, ниша), что предлагаем (услуги/товары), ценовой диапазон, есть ли кейсы/отзывы, дедлайн решения
+- Структура КП: 1) Персональное обращение → 2) Проблема клиента (его боль) → 3) Наше решение → 4) Что входит (конкретика) → 5) Кейс/результат похожего клиента → 6) Цена + условия → 7) Почему сейчас (дедлайн / бонус) → 8) Следующий шаг
+- Объём: 1–2 страницы (600–1000 слов)
+- Тон: профессиональный, конкретный, уверенный
+- Не пиши «мы лучшие на рынке» — пиши цифры и факты
+- Каждое КП должно отвечать на вопрос клиента «Что я получу и почему именно вы?»
+- Предложи 2 или 3 ценовых пакета (дешёвый / оптимальный / VIP) — если уместно</div>
+        </div>
+
+        <div class="example-block">
+            <h4>💬 Пример использования</h4>
+            <div class="example-query">
+                <div class="label">Запрос</div>
+                <p>КП для HR-директора завода «КурскМаш» (300 сотрудников). Предлагаем корпоративный тимбилдинг. Бюджет ~150–200 тыс.</p>
+            </div>
+            <div class="example-response">
+                <div class="label">Ответ агента</div>
+                <p><strong>Корпоративный тимбилдинг для «КурскМаш»</strong></p>
+                <p>Елена, здравствуйте!</p>
+                <p>300 человек — это не просто коллектив, это маленький город. И чтобы этот город работал слаженно, важно, чтобы люди не просто знали друг друга по имени, а доверяли.</p>
+                <p><strong>Что мы предлагаем:</strong><br>
+                🟢 <strong>Базовый</strong> (150 тыс.) — 4-часовой тимбилдинг, до 100 чел.<br>
+                🟡 <strong>Оптимальный</strong> (180 тыс.) — полный день, 300 чел., квесты + обед<br>
+                🔴 <strong>VIP</strong> (220 тыс.) — 2 дня с выездом, трансфер и проживание</p>
+                <p><strong>Кейс:</strong> Для «Агрокультуры» (200 чел.) мы провели похожее мероприятие → текучесть за следующий квартал снизилась на 18%.</p>
+            </div>
+        </div>
+
+        <div class="savings-box">
+            <h4>💰 Экономия</h4>
+            <ul>
+                <li>⏱️ <strong>10 минут</strong> вместо 2 часов на одно КП</li>
+                <li>📊 При 4 КП в неделю — экономия <strong>7+ часов</strong></li>
+                <li>📈 Персонализированные КП закрываются на <strong>30–40% чаще</strong></li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<!-- SUMMARY -->
+<section class="agent-section" style="background: var(--white);">
+    <div class="container">
+        <h2>📊 Итого: сколько ты экономишь</h2>
+        <table class="summary-table">
+            <thead>
+                <tr>
+                    <th>Агент</th>
+                    <th>Экономия в неделю</th>
+                    <th>Кого заменяет</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>🧠 Брейнсторм</td>
+                    <td>3–5 часов</td>
+                    <td>Стратег-консультант</td>
+                </tr>
+                <tr>
+                    <td>📧 Email-помощник</td>
+                    <td>1,5–2,5 часа</td>
+                    <td>Персональный ассистент</td>
+                </tr>
+                <tr>
+                    <td>✍️ Копирайтер</td>
+                    <td>6–9 часов/мес.</td>
+                    <td>Фриланс-копирайтер</td>
+                </tr>
+                <tr>
+                    <td>🔍 Ресёрчер</td>
+                    <td>4–8 часов</td>
+                    <td>Бизнес-аналитик</td>
+                </tr>
+                <tr>
+                    <td>💰 Генератор КП</td>
+                    <td>7+ часов</td>
+                    <td>Менеджер по продажам</td>
+                </tr>
+                <tr class="summary-total">
+                    <td><strong>ИТОГО</strong></td>
+                    <td><strong>15–25 часов/нед.</strong></td>
+                    <td><strong>≈ 3 сотрудника</strong></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+    <div class="container">
+        <h2>Это только 5 из 50 💪</h2>
+        <p class="cta-teaser">Остальные 45 агентов ждут тебя в полном курсе</p>
+
+        <p style="font-size: 22px; font-weight: 800; margin-bottom: 24px;">«Обгони конкурентов: 50 GPT-агентов в твой бизнес»</p>
+
+        <ul class="cta-agents-list">
+            <li>🎯 Лидогенератор — находит клиентов, пока ты спишь</li>
+            <li>💬 Менеджер по продажам — ведёт переписку и закрывает сделки</li>
+            <li>⭐ Сборщик отзывов — автоматизирует работу с репутацией</li>
+            <li>📊 Финансовый аналитик — считает unit-экономику за минуты</li>
+            <li>🤖 HR-ассистент — пишет вакансии и проводит скрининг</li>
+            <li>...и ещё 40 агентов для маркетинга, продаж и операций</li>
+        </ul>
+
+        <p style="margin-bottom: 8px;">Каждый агент в курсе:</p>
+        <ul class="cta-features">
+            <li>✅ Готовый промпт</li>
+            <li>✅ Видеоурок</li>
+            <li>✅ Реальные кейсы</li>
+            <li>✅ Шаблоны для ниши</li>
+        </ul>
+
+        <a href="https://t.me/vardges" class="cta-btn" target="_blank">Записаться на курс →</a>
+        <p class="cta-sub">Напиши @vardges в Telegram или подпишись на канал @vardges13</p>
+    </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about-section">
+    <div class="container">
+        <h2>Об авторе</h2>
+        <div class="about-card">
+            <div class="about-avatar">👨‍💼</div>
+            <div class="about-info">
+                <h3>Вардгес Арутюнян</h3>
+                <p>Предприниматель с 15+ летним опытом в туризме и гостиничном бизнесе, владелец турагентства и мини-отеля в Курске. Внедрил GPT-агентов в собственный бизнес и сократил рутину на 20+ часов в неделю — теперь обучает этому других предпринимателей.</p>
+                <div class="about-links">
+                    <a href="https://t.me/vardges" target="_blank">💬 Telegram</a>
+                    <a href="https://t.me/vardges13" target="_blank">📢 Канал</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <p>© 2025 Вардгес Арутюнян. Распространяйте свободно — чем больше предпринимателей используют ИИ, тем лучше для всех.</p>
+</footer>
+
+<!-- PDF BUTTON -->
+<div class="pdf-btn-container">
+    <button class="pdf-btn" onclick="window.print()">
+        📄 Скачать PDF
+    </button>
+</div>
+
+<script>
+function copyPrompt(id) {
+    const el = document.getElementById(id);
+    const btn = el.querySelector('.copy-btn');
+    // Get text content excluding the button text
+    const text = el.textContent.replace('📋 Копировать', '').replace('✅ Скопировано!', '').trim();
+    
+    navigator.clipboard.writeText(text).then(() => {
+        btn.textContent = '✅ Скопировано!';
+        setTimeout(() => {
+            btn.textContent = '📋 Копировать';
+        }, 2000);
+    }).catch(() => {
+        // Fallback
+        const textarea = document.createElement('textarea');
+        textarea.value = text;
+        document.body.appendChild(textarea);
+        textarea.select();
+        document.execCommand('copy');
+        document.body.removeChild(textarea);
+        btn.textContent = '✅ Скопировано!';
+        setTimeout(() => {
+            btn.textContent = '📋 Копировать';
+        }, 2000);
+    });
+}
+</script>
+
+</body>
+</html>
