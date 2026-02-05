@@ -106,7 +106,7 @@
   {
     "id": "t_course50",
     "title": "Курс «50 GPT-агентов»",
-    "desc": "🎬 Демо-видео готово, лендинг на GitHub Pages, опрос в канале. 1/50 агентов описан. Следующий: описать агентов 2-50",
+    "desc": "✅ ГОТОВ К ЗАПУСКУ! 50/50 агентов описаны, лендинг v2 (11 секций), лид-магнит, email-воронка (5 писем), 10 рилсов, цены (14.9K/34.9K/79.9K ₽). Следующее: запись уроков, запуск продаж",
     "priority": "high",
     "column": "progress",
     "created": 1738540800000
@@ -122,33 +122,33 @@
   {
     "id": "t_price",
     "title": "Ценообразование",
-    "desc": "Цена, пакеты, условия оплаты. Ждёт выбор флагмана",
+    "desc": "✅ Конкурентный анализ 13 курсов, 3 пакета: Базовый 14.9K / Продвинутый 34.9K / Премиум 79.9K ₽. Файл: drafts/course-pricing-analysis.md",
     "priority": "medium",
-    "column": "backlog",
+    "column": "done",
     "created": 1738368000000
   },
   {
     "id": "t_content",
     "title": "Контент-план на 2 недели",
-    "desc": "Темы для Reels, Threads, Telegram. Микс: экспертность + личное + ИИ",
+    "desc": "✅ 10 сценариев рилсов готовы (drafts/reels-scenarios.md). Осталось: Threads-посты, Telegram-посты, расписание публикаций",
     "priority": "medium",
-    "column": "backlog",
+    "column": "progress",
     "created": 1738368000000
   },
   {
     "id": "t_lead",
     "title": "Написать лид-магнит",
-    "desc": "Бесплатный PDF/чек-лист для сбора базы подписчиков",
+    "desc": "✅ Лид-магнит задеплоен: 5 агентов с копируемыми промптами, PDF. URL: https://vardges13.github.io/bond-kanban/course-demo/lead-magnet.html",
     "priority": "medium",
-    "column": "backlog",
+    "column": "done",
     "created": 1738368000000
   },
   {
     "id": "t_funnel",
     "title": "Настроить воронку в Telegram",
-    "desc": "Бот → лид-магнит → прогрев → продажа",
+    "desc": "✅ Email-серия (5 писем), лид-магнит задеплоен. Осталось: бот-воронка (лид-магнит → прогрев → продажа), Comment-to-DM (ChatPlace)",
     "priority": "medium",
-    "column": "backlog",
+    "column": "progress",
     "created": 1738368000000
   },
   {
@@ -162,17 +162,34 @@
   {
     "id": "t_bitrix",
     "title": "Bitrix24 — ИИ-помощник оператора",
-    "desc": "Вариант 2: ИИ-помощник оператора. Ждём URL Bitrix24 + вебхук от Вардгеса",
+    "desc": "⏳ Вариант 2: ответы в открытых линиях, задачи сотрудникам, CRM. Ждём URL Bitrix24 + входящий вебхук от Вардгеса",
     "priority": "high",
     "column": "progress",
     "created": 1738663200000
   },
   {
-    "id": "t_tglocal",
-    "title": "Telegram Local API — видео до 2 ГБ",
-    "desc": "✅ Сервер собран, патчи OpenClaw готовы. Ждём api_id + api_hash от Вардгеса",
+    "id": "t_tgapi",
+    "title": "Local Telegram Bot API Server",
+    "desc": "✅ Workaround работает: 6 файлов OpenClaw пропатчены, 26 МБ видео отправлено! Полный Local Bot API (до 2 ГБ) ждёт api_id + api_hash от Вардгеса",
     "priority": "high",
     "column": "progress",
-    "created": 1738670400000
+    "created": 1738688400000
+  },
+  {
+    "id": "t_everest",
+    "title": "Клиент: Эверест-Тех (Ковалев)",
+    "desc": "⏳ Сделано: 3 калькулятора (кассет, упаковки, профиля), 2 DXF развёртки (1000×1000, КЛЦ-2-1.1), презентация ограждений, 3 карты производственного учёта, FreeCAD анализ. Ждём: .sldprt для VBA макроса, цены/логотип для презентации",
+    "priority": "high",
+    "column": "progress",
+    "created": 1738713600000,
+    "updated": 1738767600000
+  },
+  {
+    "id": "t_skills",
+    "title": "Скиллы — расширение",
+    "desc": "✅ 48 скиллов на борту! Установлены ТОП-30 с ClawHub. AI Router собран и протестирован",
+    "priority": "medium",
+    "column": "done",
+    "created": 1738713600000
   }
 ]
