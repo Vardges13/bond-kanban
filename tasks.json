@@ -106,7 +106,7 @@
   {
     "id": "t_course50",
     "title": "Курс «50 GPT-агентов»",
-    "desc": "⏳ Название ✅, структура ✅ (7 модулей, 28 уроков), обложка v2 ✅, Notion ✅, 1/50 агентов ✅, демо-видео MP4 ✅, лендинг-презентация на GitHub Pages ✅, опрос в канале ✅. Следующее: остальные 49 агентов, ценовая модель",
+    "desc": "⏳ Название ✅, структура ✅ (7 модулей, 28 уроков), обложка v2 ✅, Notion ✅, 50/50 агентов описаны ✅, демо-видео ✅, лендинг v2 ✅ (11 секций, фильтр агентов, тарифы, FAQ), лид-магнит ✅, email-воронка (5 писем) ✅, опрос ✅, ценовой анализ ✅ (3 пакета: 14.9K/34.9K/79.9K ₽), 10 сценариев рилсов ✅. Следующее: запись уроков, запуск продаж",
     "priority": "high",
     "column": "progress",
     "created": 1738540800000
@@ -122,33 +122,33 @@
   {
     "id": "t_price",
     "title": "Ценообразование",
-    "desc": "Цена, пакеты, условия оплаты. Ждёт выбор флагмана",
+    "desc": "⏳ Конкурентный анализ 13 курсов ✅, 3 пакета: Базовый 14.9K / Продвинутый 34.9K / Премиум 79.9K ₽. Файл: drafts/course-pricing-analysis.md. Ждёт утверждения Вардгеса",
     "priority": "medium",
-    "column": "backlog",
+    "column": "progress",
     "created": 1738368000000
   },
   {
     "id": "t_content",
     "title": "Контент-план на 2 недели",
-    "desc": "Темы для Reels, Threads, Telegram. Микс: экспертность + личное + ИИ",
+    "desc": "⏳ 10 сценариев рилсов готовы ✅ (drafts/reels-scenarios.md). Осталось: Threads-посты, Telegram-посты, расписание публикаций",
     "priority": "medium",
-    "column": "backlog",
+    "column": "progress",
     "created": 1738368000000
   },
   {
     "id": "t_lead",
     "title": "Написать лид-магнит",
-    "desc": "Бесплатный PDF/чек-лист для сбора базы подписчиков",
+    "desc": "✅ Лид-магнит задеплоен: 5 агентов с копируемыми промптами, PDF. URL: https://vardges13.github.io/bond-kanban/course-demo/lead-magnet.html",
     "priority": "medium",
-    "column": "backlog",
+    "column": "done",
     "created": 1738368000000
   },
   {
     "id": "t_funnel",
     "title": "Настроить воронку в Telegram",
-    "desc": "Бот → лид-магнит → прогрев → продажа",
+    "desc": "⏳ Email-серия из 5 прогревающих писем ✅ (drafts/email-funnel.md). Лид-магнит ✅. Осталось: подключить бот-воронку (лид-магнит → прогрев → продажа), Comment-to-DM (Instagram → Telegram, ChatPlace)",
     "priority": "medium",
-    "column": "backlog",
+    "column": "progress",
     "created": 1738368000000
   },
   {
