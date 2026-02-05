@@ -1,0 +1,936 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Обгони конкурентов: 50 GPT-агентов в твой бизнес — Курс Вардгеса Арутюняна</title>
+<meta name="description" content="Практический курс: 7 модулей, 28 уроков, 50 готовых GPT-агентов для бизнеса. Автоматизируй продажи, маркетинг, аналитику и HR.">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#0a0a0f;--bg2:#12121a;--bg3:#1a1a2e;
+  --text:#e8e8f0;--text2:#a0a0b8;--text3:#6a6a80;
+  --accent:#6c5ce7;--accent2:#a29bfe;--accent3:#fd79a8;
+  --green:#00b894;--orange:#fdcb6e;--red:#e17055;
+  --grad1:linear-gradient(135deg,#6c5ce7,#a29bfe);
+  --grad2:linear-gradient(135deg,#6c5ce7,#fd79a8);
+  --grad3:linear-gradient(135deg,#00b894,#6c5ce7);
+  --radius:16px;--radius-sm:10px;
+  --shadow:0 4px 30px rgba(108,92,231,0.15);
+  --transition:0.3s cubic-bezier(.4,0,.2,1);
+}
+html{scroll-behavior:smooth;font-size:16px}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,Ubuntu,Cantarell,sans-serif;background:var(--bg);color:var(--text);line-height:1.7;overflow-x:hidden}
+a{color:var(--accent2);text-decoration:none;transition:color var(--transition)}
+a:hover{color:var(--accent3)}
+img{max-width:100%;height:auto}
+
+/* === UTILITIES === */
+.container{max-width:1200px;margin:0 auto;padding:0 24px}
+.section{padding:100px 0;position:relative}
+.section-label{display:inline-block;font-size:.75rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--accent2);margin-bottom:12px;padding:6px 16px;border:1px solid rgba(162,155,254,0.3);border-radius:99px;background:rgba(108,92,231,0.08)}
+.section-title{font-size:clamp(2rem,5vw,3rem);font-weight:800;line-height:1.2;margin-bottom:16px}
+.section-subtitle{font-size:1.15rem;color:var(--text2);max-width:640px;margin-bottom:48px}
+.gradient-text{background:var(--grad2);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:16px 36px;border:none;border-radius:99px;font-size:1.05rem;font-weight:700;cursor:pointer;transition:all var(--transition);text-decoration:none}
+.btn-primary{background:var(--grad1);color:#fff;box-shadow:0 4px 24px rgba(108,92,231,0.4)}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 32px rgba(108,92,231,0.55);color:#fff}
+.btn-outline{background:transparent;color:var(--accent2);border:2px solid var(--accent2)}
+.btn-outline:hover{background:var(--accent);color:#fff;border-color:var(--accent)}
+.btn-accent{background:var(--grad2);color:#fff;box-shadow:0 4px 24px rgba(253,121,168,0.35)}
+.btn-accent:hover{transform:translateY(-2px);box-shadow:0 8px 32px rgba(253,121,168,0.5);color:#fff}
+.grid{display:grid;gap:24px}
+.grid-2{grid-template-columns:repeat(2,1fr)}
+.grid-3{grid-template-columns:repeat(3,1fr)}
+.grid-4{grid-template-columns:repeat(4,1fr)}
+.grid-5{grid-template-columns:repeat(5,1fr)}
+
+/* === ANIMATIONS === */
+.reveal{opacity:0;transform:translateY(40px);transition:all 0.7s cubic-bezier(.4,0,.2,1)}
+.reveal.visible{opacity:1;transform:translateY(0)}
+.reveal-delay-1{transition-delay:.1s}
+.reveal-delay-2{transition-delay:.2s}
+.reveal-delay-3{transition-delay:.3s}
+
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+@keyframes pulse-glow{0%,100%{box-shadow:0 0 20px rgba(108,92,231,0.3)}50%{box-shadow:0 0 40px rgba(108,92,231,0.6)}}
+@keyframes gradient-shift{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
+@keyframes counter{from{opacity:0;transform:scale(.5)}to{opacity:1;transform:scale(1)}}
+
+/* === NAVBAR === */
+.navbar{position:fixed;top:0;left:0;right:0;z-index:1000;padding:16px 0;transition:all var(--transition)}
+.navbar.scrolled{background:rgba(10,10,15,0.92);backdrop-filter:blur(20px);border-bottom:1px solid rgba(108,92,231,0.15);padding:10px 0}
+.navbar .container{display:flex;align-items:center;justify-content:space-between}
+.nav-logo{font-size:1.3rem;font-weight:800;background:var(--grad2);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.nav-links{display:flex;gap:28px;align-items:center}
+.nav-links a{color:var(--text2);font-size:.9rem;font-weight:500;transition:color var(--transition)}
+.nav-links a:hover{color:var(--accent2)}
+.nav-cta{padding:10px 24px !important;font-size:.9rem !important}
+.burger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px}
+.burger span{width:24px;height:2px;background:var(--text);border-radius:2px;transition:var(--transition)}
+
+/* === HERO === */
+.hero{min-height:100vh;display:flex;align-items:center;position:relative;overflow:hidden;padding-top:100px}
+.hero::before{content:'';position:absolute;top:-30%;right:-20%;width:700px;height:700px;background:radial-gradient(circle,rgba(108,92,231,0.15),transparent 70%);border-radius:50%;animation:float 8s ease-in-out infinite}
+.hero::after{content:'';position:absolute;bottom:-20%;left:-15%;width:500px;height:500px;background:radial-gradient(circle,rgba(253,121,168,0.1),transparent 70%);border-radius:50%;animation:float 10s ease-in-out infinite reverse}
+.hero-content{position:relative;z-index:2;max-width:720px}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;padding:8px 20px;background:rgba(108,92,231,0.12);border:1px solid rgba(108,92,231,0.3);border-radius:99px;font-size:.85rem;color:var(--accent2);margin-bottom:28px}
+.hero-badge .dot{width:8px;height:8px;border-radius:50%;background:var(--green);animation:pulse-glow 2s infinite}
+.hero h1{font-size:clamp(2.5rem,6vw,4rem);font-weight:900;line-height:1.1;margin-bottom:24px}
+.hero p{font-size:1.25rem;color:var(--text2);margin-bottom:36px;max-width:580px}
+.hero-buttons{display:flex;gap:16px;flex-wrap:wrap;margin-bottom:48px}
+.hero-stats{display:flex;gap:48px;flex-wrap:wrap}
+.hero-stat{text-align:center}
+.hero-stat .num{font-size:2.5rem;font-weight:900;background:var(--grad1);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.hero-stat .label{font-size:.85rem;color:var(--text3);margin-top:4px}
+
+/* === PROBLEMS === */
+.problems{background:var(--bg2)}
+.problem-card{background:var(--bg3);border:1px solid rgba(255,255,255,0.05);border-radius:var(--radius);padding:40px 32px;text-align:center;transition:all var(--transition)}
+.problem-card:hover{transform:translateY(-8px);border-color:rgba(225,112,85,0.3);box-shadow:0 8px 40px rgba(225,112,85,0.1)}
+.problem-icon{font-size:3rem;margin-bottom:20px;display:block}
+.problem-card h3{font-size:1.3rem;font-weight:700;margin-bottom:12px}
+.problem-card p{color:var(--text2);font-size:.95rem}
+
+/* === SOLUTION === */
+.solution-box{background:var(--bg3);border:1px solid rgba(108,92,231,0.2);border-radius:var(--radius);padding:60px 48px;text-align:center;position:relative;overflow:hidden}
+.solution-box::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--grad1)}
+.solution-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:32px;margin-top:40px}
+.solution-item .num{font-size:3rem;font-weight:900;background:var(--grad1);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.solution-item .txt{color:var(--text2);font-size:.95rem;margin-top:4px}
+
+/* === TARGET === */
+.target{background:var(--bg2)}
+.target-card{background:var(--bg3);border:1px solid rgba(255,255,255,0.05);border-radius:var(--radius);padding:40px 32px;transition:all var(--transition)}
+.target-card:hover{transform:translateY(-6px);border-color:rgba(108,92,231,0.3);box-shadow:var(--shadow)}
+.target-emoji{font-size:3rem;margin-bottom:16px;display:block}
+.target-card h3{font-size:1.2rem;font-weight:700;margin-bottom:10px}
+.target-card p{color:var(--text2);font-size:.95rem}
+.target-card ul{list-style:none;margin-top:16px}
+.target-card ul li{padding:6px 0;color:var(--text2);font-size:.9rem;position:relative;padding-left:20px}
+.target-card ul li::before{content:'✓';position:absolute;left:0;color:var(--green);font-weight:700}
+
+/* === PROGRAM === */
+.accordion{max-width:800px;margin:0 auto}
+.accordion-item{background:var(--bg3);border:1px solid rgba(255,255,255,0.05);border-radius:var(--radius-sm);margin-bottom:12px;overflow:hidden;transition:border-color var(--transition)}
+.accordion-item.active{border-color:rgba(108,92,231,0.3)}
+.accordion-header{display:flex;align-items:center;justify-content:space-between;padding:24px 28px;cursor:pointer;user-select:none;transition:background var(--transition)}
+.accordion-header:hover{background:rgba(108,92,231,0.05)}
+.accordion-header .left{display:flex;align-items:center;gap:16px}
+.accordion-header .module-num{width:40px;height:40px;border-radius:10px;background:var(--grad1);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:.9rem;flex-shrink:0}
+.accordion-header .module-title{font-weight:700;font-size:1.05rem}
+.accordion-header .module-agents{font-size:.8rem;color:var(--accent2);margin-top:2px}
+.accordion-arrow{width:24px;height:24px;display:flex;align-items:center;justify-content:center;transition:transform var(--transition);color:var(--text3);font-size:1.2rem;flex-shrink:0}
+.accordion-item.active .accordion-arrow{transform:rotate(180deg);color:var(--accent2)}
+.accordion-body{max-height:0;overflow:hidden;transition:max-height 0.4s ease}
+.accordion-content{padding:0 28px 24px;color:var(--text2);font-size:.95rem;line-height:1.8}
+.accordion-content ul{list-style:none;margin:8px 0}
+.accordion-content ul li{padding:4px 0;padding-left:20px;position:relative}
+.accordion-content ul li::before{content:'→';position:absolute;left:0;color:var(--accent2)}
+.accordion-content .result{margin-top:12px;padding:12px 16px;background:rgba(0,184,148,0.08);border-left:3px solid var(--green);border-radius:0 8px 8px 0;font-size:.9rem;color:var(--green)}
+
+/* === AGENTS === */
+.agents{background:var(--bg2)}
+.agents-filter{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:32px;justify-content:center}
+.filter-btn{padding:8px 20px;border:1px solid rgba(255,255,255,0.1);background:transparent;color:var(--text2);border-radius:99px;cursor:pointer;font-size:.85rem;transition:all var(--transition)}
+.filter-btn:hover,.filter-btn.active{background:var(--accent);border-color:var(--accent);color:#fff}
+.agents-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:14px}
+.agent-card{background:var(--bg3);border:1px solid rgba(255,255,255,0.04);border-radius:var(--radius-sm);padding:20px 16px;text-align:center;transition:all var(--transition);cursor:default}
+.agent-card:hover{transform:translateY(-4px);border-color:rgba(108,92,231,0.25);box-shadow:0 4px 20px rgba(108,92,231,0.1)}
+.agent-card .agent-icon{font-size:2rem;margin-bottom:10px;display:block}
+.agent-card .agent-num{font-size:.7rem;color:var(--text3);margin-bottom:4px}
+.agent-card .agent-name{font-size:.85rem;font-weight:600;line-height:1.4}
+.agent-card .agent-module{font-size:.7rem;color:var(--accent2);margin-top:6px}
+
+/* === AUTHOR === */
+.author-block{display:grid;grid-template-columns:1fr 1.5fr;gap:48px;align-items:center;background:var(--bg3);border:1px solid rgba(108,92,231,0.15);border-radius:var(--radius);padding:48px;overflow:hidden;position:relative}
+.author-block::before{content:'';position:absolute;top:0;right:0;width:300px;height:300px;background:radial-gradient(circle,rgba(108,92,231,0.08),transparent);border-radius:50%}
+.author-avatar{width:100%;max-width:320px;aspect-ratio:1;border-radius:var(--radius);background:var(--grad1);display:flex;align-items:center;justify-content:center;font-size:8rem;margin:0 auto;position:relative;overflow:hidden}
+.author-info h3{font-size:1.8rem;font-weight:800;margin-bottom:8px}
+.author-info .author-role{color:var(--accent2);font-size:1rem;margin-bottom:20px}
+.author-info p{color:var(--text2);font-size:1rem;margin-bottom:16px;line-height:1.8}
+.author-facts{display:flex;flex-wrap:wrap;gap:12px;margin-top:20px}
+.author-fact{padding:8px 16px;background:rgba(108,92,231,0.1);border:1px solid rgba(108,92,231,0.2);border-radius:99px;font-size:.85rem;color:var(--accent2)}
+
+/* === PRICING === */
+.pricing{background:var(--bg2)}
+.pricing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;align-items:start}
+.price-card{background:var(--bg3);border:1px solid rgba(255,255,255,0.05);border-radius:var(--radius);padding:40px 32px;position:relative;transition:all var(--transition)}
+.price-card:hover{transform:translateY(-8px)}
+.price-card.featured{border-color:rgba(108,92,231,0.4);box-shadow:0 0 60px rgba(108,92,231,0.15);transform:scale(1.03)}
+.price-card.featured:hover{transform:scale(1.03) translateY(-8px)}
+.price-badge{position:absolute;top:-14px;left:50%;transform:translateX(-50%);padding:6px 24px;background:var(--grad2);border-radius:99px;font-size:.8rem;font-weight:700;color:#fff;white-space:nowrap}
+.price-name{font-size:1.3rem;font-weight:700;margin-bottom:4px}
+.price-desc{color:var(--text3);font-size:.9rem;margin-bottom:24px}
+.price-amount{font-size:3rem;font-weight:900;margin-bottom:4px}
+.price-amount span{font-size:1rem;font-weight:400;color:var(--text3)}
+.price-installment{font-size:.85rem;color:var(--text2);margin-bottom:28px}
+.price-features{list-style:none;margin-bottom:32px}
+.price-features li{padding:10px 0;border-bottom:1px solid rgba(255,255,255,0.04);font-size:.92rem;color:var(--text2);padding-left:28px;position:relative}
+.price-features li::before{content:'✓';position:absolute;left:0;color:var(--green);font-weight:700}
+.price-features li.disabled{color:var(--text3);opacity:.5}
+.price-features li.disabled::before{content:'✗';color:var(--text3)}
+.price-card .btn{width:100%;justify-content:center}
+.price-compare{text-align:center;margin-top:40px;padding:24px;background:rgba(108,92,231,0.06);border-radius:var(--radius-sm);border:1px solid rgba(108,92,231,0.1)}
+.price-compare p{color:var(--text2);font-size:.95rem}
+.price-compare strong{color:var(--accent2)}
+
+/* === FAQ === */
+.faq-list{max-width:800px;margin:0 auto}
+.faq-item{border-bottom:1px solid rgba(255,255,255,0.06);padding:20px 0}
+.faq-q{display:flex;justify-content:space-between;align-items:center;cursor:pointer;font-size:1.05rem;font-weight:600;padding:4px 0;user-select:none}
+.faq-q:hover{color:var(--accent2)}
+.faq-q .faq-icon{font-size:1.4rem;color:var(--text3);transition:transform var(--transition);flex-shrink:0;margin-left:16px}
+.faq-item.active .faq-icon{transform:rotate(45deg);color:var(--accent2)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height 0.4s ease}
+.faq-a-inner{padding:16px 0 4px;color:var(--text2);font-size:.95rem;line-height:1.8}
+
+/* === LEAD MAGNET === */
+.lead-magnet{background:var(--bg2);position:relative;overflow:hidden}
+.lead-box{background:var(--bg3);border:1px solid rgba(253,121,168,0.2);border-radius:var(--radius);padding:60px 48px;text-align:center;position:relative;overflow:hidden;max-width:700px;margin:0 auto}
+.lead-box::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--grad2)}
+.lead-box h2{font-size:clamp(1.8rem,4vw,2.4rem);font-weight:800;margin-bottom:12px}
+.lead-box p{color:var(--text2);font-size:1.05rem;margin-bottom:32px}
+.lead-form{display:flex;gap:12px;max-width:480px;margin:0 auto}
+.lead-form input{flex:1;padding:16px 20px;background:var(--bg);border:1px solid rgba(255,255,255,0.1);border-radius:99px;color:var(--text);font-size:1rem;outline:none;transition:border-color var(--transition)}
+.lead-form input:focus{border-color:var(--accent)}
+.lead-form input::placeholder{color:var(--text3)}
+.lead-note{margin-top:16px;font-size:.8rem;color:var(--text3)}
+.lead-gift{display:flex;justify-content:center;gap:16px;flex-wrap:wrap;margin-top:24px}
+.lead-gift-item{display:flex;align-items:center;gap:6px;font-size:.85rem;color:var(--accent2)}
+
+/* === FOOTER === */
+.footer{background:var(--bg2);border-top:1px solid rgba(255,255,255,0.04);padding:60px 0 30px}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:48px;margin-bottom:40px}
+.footer-brand{font-size:1.4rem;font-weight:800;background:var(--grad2);-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:16px}
+.footer p{color:var(--text3);font-size:.9rem;line-height:1.7}
+.footer h4{font-size:1rem;font-weight:700;margin-bottom:16px;color:var(--text)}
+.footer-links{list-style:none}
+.footer-links li{margin-bottom:10px}
+.footer-links a{color:var(--text3);font-size:.9rem;transition:color var(--transition)}
+.footer-links a:hover{color:var(--accent2)}
+.footer-socials{display:flex;gap:12px;margin-top:16px}
+.footer-social{width:40px;height:40px;border-radius:10px;background:rgba(255,255,255,0.05);display:flex;align-items:center;justify-content:center;font-size:1.2rem;transition:all var(--transition)}
+.footer-social:hover{background:var(--accent);transform:translateY(-2px)}
+.footer-bottom{text-align:center;padding-top:30px;border-top:1px solid rgba(255,255,255,0.04);color:var(--text3);font-size:.85rem}
+
+/* === RESPONSIVE === */
+@media(max-width:1024px){
+  .pricing-grid{grid-template-columns:1fr;max-width:420px;margin:0 auto}
+  .price-card.featured{transform:none}
+  .price-card.featured:hover{transform:translateY(-8px)}
+  .author-block{grid-template-columns:1fr;text-align:center}
+  .author-avatar{max-width:200px;font-size:5rem}
+  .footer-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:768px){
+  .section{padding:72px 0}
+  .nav-links{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(10,10,15,0.98);flex-direction:column;justify-content:center;align-items:center;gap:32px;z-index:999}
+  .nav-links.open{display:flex}
+  .nav-links a{font-size:1.2rem}
+  .burger{display:flex;z-index:1001}
+  .grid-2,.grid-3,.grid-4,.grid-5{grid-template-columns:1fr}
+  .hero-stats{gap:32px}
+  .hero h1{font-size:clamp(2rem,8vw,3rem)}
+  .agents-grid{grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px}
+  .agent-card{padding:16px 12px}
+  .lead-form{flex-direction:column}
+  .lead-form .btn{width:100%;justify-content:center}
+  .author-block{padding:32px 24px}
+  .solution-box{padding:40px 24px}
+  .footer-grid{grid-template-columns:1fr}
+}
+@media(max-width:480px){
+  .agents-grid{grid-template-columns:repeat(2,1fr)}
+  .hero-buttons{flex-direction:column}
+  .hero-buttons .btn{width:100%;justify-content:center}
+}
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar" id="navbar">
+  <div class="container">
+    <a href="#" class="nav-logo">🤖 50 GPT-агентов</a>
+    <div class="nav-links" id="navLinks">
+      <a href="#problems" onclick="closeNav()">Проблема</a>
+      <a href="#program" onclick="closeNav()">Программа</a>
+      <a href="#agents" onclick="closeNav()">Агенты</a>
+      <a href="#pricing" onclick="closeNav()">Тарифы</a>
+      <a href="#faq" onclick="closeNav()">FAQ</a>
+      <a href="#lead" class="btn btn-primary nav-cta" onclick="closeNav()">Получить программу</a>
+    </div>
+    <div class="burger" id="burger" onclick="toggleNav()">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="hero">
+  <div class="container">
+    <div class="hero-content">
+      <div class="hero-badge reveal"><span class="dot"></span> Набор открыт — места ограничены</div>
+      <h1 class="reveal">Обгони конкурентов: <span class="gradient-text">50 GPT-агентов</span> в&nbsp;твой бизнес</h1>
+      <p class="reveal">Практический курс для предпринимателей: 7 модулей, 28 уроков и&nbsp;50&nbsp;готовых ИИ-агентов, которые автоматизируют продажи, маркетинг, аналитику и&nbsp;управление командой.</p>
+      <div class="hero-buttons reveal">
+        <a href="#pricing" class="btn btn-primary">Выбрать тариф →</a>
+        <a href="#lead" class="btn btn-outline">Получить 5 агентов бесплатно</a>
+      </div>
+      <div class="hero-stats reveal">
+        <div class="hero-stat"><div class="num">50</div><div class="label">GPT-агентов</div></div>
+        <div class="hero-stat"><div class="num">7</div><div class="label">модулей</div></div>
+        <div class="hero-stat"><div class="num">28</div><div class="label">уроков</div></div>
+        <div class="hero-stat"><div class="num">698₽</div><div class="label">за агента</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROBLEMS -->
+<section class="section problems" id="problems">
+  <div class="container">
+    <div style="text-align:center">
+      <span class="section-label reveal">Знакомая ситуация?</span>
+      <h2 class="section-title reveal">Бизнес <span class="gradient-text">буксует</span>, а ты работаешь за&nbsp;десятерых</h2>
+      <p class="section-subtitle reveal" style="margin:0 auto 48px">Пока ты всё делаешь вручную — конкуренты уже автоматизируют с помощью ИИ. Вот 3 боли, которые мешают расти:</p>
+    </div>
+    <div class="grid grid-3">
+      <div class="problem-card reveal">
+        <span class="problem-icon">😤</span>
+        <h3>Рутина съедает всё время</h3>
+        <p>Ответы клиентам, посты, отчёты, документы — ты тонешь в операционке и не успеваешь думать о развитии. 80% времени — на задачах, которые ИИ сделает за минуты.</p>
+      </div>
+      <div class="problem-card reveal reveal-delay-1">
+        <span class="problem-icon">🏃‍♂️</span>
+        <h3>Конкуренты обгоняют</h3>
+        <p>Они уже используют ИИ для продаж, маркетинга и аналитики. Пока ты пишешь КП 2 часа — их агент делает это за 10 минут. Разрыв растёт каждый день.</p>
+      </div>
+      <div class="problem-card reveal reveal-delay-2">
+        <span class="problem-icon">💸</span>
+        <h3>Сотрудники стоят дорого</h3>
+        <p>Маркетолог, копирайтер, аналитик, HR — это 300–500 тыс./мес на ФОТ. А один набор GPT-агентов закрывает большинство этих задач.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SOLUTION -->
+<section class="section" id="solution">
+  <div class="container">
+    <div class="solution-box reveal">
+      <span class="section-label">Решение</span>
+      <h2 class="section-title" style="margin-top:16px">50&nbsp;агентов = <span class="gradient-text">50 бизнес-задач</span> закрыты</h2>
+      <p style="color:var(--text2);font-size:1.1rem;max-width:600px;margin:0 auto 8px">Каждый агент — это специалист, который работает 24/7, не просит зарплату и не уходит в отпуск.</p>
+      <div class="solution-grid">
+        <div class="solution-item"><div class="num">8</div><div class="txt">агентов продаж</div></div>
+        <div class="solution-item"><div class="num">8</div><div class="txt">агентов маркетинга</div></div>
+        <div class="solution-item"><div class="num">7</div><div class="txt">агентов аналитики</div></div>
+        <div class="solution-item"><div class="num">8</div><div class="txt">агентов операционки</div></div>
+        <div class="solution-item"><div class="num">7</div><div class="txt">агентов HR</div></div>
+        <div class="solution-item"><div class="num">8</div><div class="txt">агентов масштабирования</div></div>
+        <div class="solution-item"><div class="num">4</div><div class="txt">базовых агента</div></div>
+        <div class="solution-item"><div class="num">100+</div><div class="txt">часов экономии/мес</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TARGET AUDIENCE -->
+<section class="section target" id="target">
+  <div class="container">
+    <div style="text-align:center">
+      <span class="section-label reveal">Для кого этот курс</span>
+      <h2 class="section-title reveal">Если вы — <span class="gradient-text">один из них</span>, это для вас</h2>
+      <p class="section-subtitle reveal" style="margin:0 auto 48px">Курс создан для тех, кто строит реальный бизнес и хочет использовать ИИ как конкурентное преимущество.</p>
+    </div>
+    <div class="grid grid-3">
+      <div class="target-card reveal">
+        <span class="target-emoji">🏢</span>
+        <h3>Владельцы малого и среднего бизнеса</h3>
+        <p>Отели, рестораны, магазины, клиники, агентства — любой бизнес с оборотом от 500 тыс. ₽/мес.</p>
+        <ul>
+          <li>Хотите автоматизировать рутину</li>
+          <li>Ищете рост без раздувания штата</li>
+          <li>Готовы внедрять новые инструменты</li>
+        </ul>
+      </div>
+      <div class="target-card reveal reveal-delay-1">
+        <span class="target-emoji">📈</span>
+        <h3>Маркетологи и менеджеры</h3>
+        <p>Специалисты, которые хотят усилить свои навыки с помощью ИИ и стать незаменимыми в команде.</p>
+        <ul>
+          <li>Контент за минуты, не за часы</li>
+          <li>Аналитика без Excel-головоломок</li>
+          <li>Продажи на автопилоте</li>
+        </ul>
+      </div>
+      <div class="target-card reveal reveal-delay-2">
+        <span class="target-emoji">🚀</span>
+        <h3>Предприниматели на старте</h3>
+        <p>Начинающие бизнесмены, которые хотят стартовать сразу с ИИ-командой вместо дорогого найма.</p>
+        <ul>
+          <li>ИИ-команда вместо 5 сотрудников</li>
+          <li>Экономия 300-500 тыс. ₽/мес на ФОТ</li>
+          <li>Быстрый запуск процессов</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROGRAM -->
+<section class="section" id="program">
+  <div class="container">
+    <div style="text-align:center">
+      <span class="section-label reveal">Программа курса</span>
+      <h2 class="section-title reveal">7 модулей — <span class="gradient-text">от первого агента до&nbsp;полной системы</span></h2>
+      <p class="section-subtitle reveal" style="margin:0 auto 48px">Каждый модуль — практика с первого дня. Прошёл урок → запустил агента → получил результат.</p>
+    </div>
+    <div class="accordion reveal">
+      <div class="accordion-item">
+        <div class="accordion-header" onclick="toggleAccordion(this)">
+          <div class="left">
+            <div class="module-num">1</div>
+            <div><div class="module-title">Фундамент: ИИ без воды</div><div class="module-agents">4 агента · Настройка среды + первые результаты</div></div>
+          </div>
+          <div class="accordion-arrow">▼</div>
+        </div>
+        <div class="accordion-body"><div class="accordion-content">
+          <ul>
+            <li>Как работает ИИ на практике — без теории и воды</li>
+            <li>Настройка Perplexity, Comet Browser, ChatGPT</li>
+            <li>Анатомия GPT-агента: инструкция, контекст, триггеры</li>
+            <li>Шаблон создания агента за 15 минут</li>
+          </ul>
+          <div class="result">🎯 Результат: Рабочая среда настроена, 4 агента работают (брейнсторм, рерайт, ресёрч, email)</div>
+        </div></div>
+      </div>
+      <div class="accordion-item">
+        <div class="accordion-header" onclick="toggleAccordion(this)">
+          <div class="left">
+            <div class="module-num">2</div>
+            <div><div class="module-title">Продажи и клиенты</div><div class="module-agents">8 агентов · Воронка продаж на автопилоте</div></div>
+          </div>
+          <div class="accordion-arrow">▼</div>
+        </div>
+        <div class="accordion-body"><div class="accordion-content">
+          <ul>
+            <li>Лидогенерация и первый контакт с клиентом</li>
+            <li>ИИ-менеджер по продажам: скрипты и отработка возражений</li>
+            <li>Автоматические КП за 10 минут</li>
+            <li>Сбор отзывов, повторные продажи, FAQ 24/7</li>
+          </ul>
+          <div class="result">🎯 Результат: 8 агентов ведут клиентов от первого касания до повторной покупки</div>
+        </div></div>
+      </div>
+      <div class="accordion-item">
+        <div class="accordion-header" onclick="toggleAccordion(this)">
+          <div class="left">
+            <div class="module-num">3</div>
+            <div><div class="module-title">Маркетинг и контент</div><div class="module-agents">8 агентов · Контент-машина запущена</div></div>
+          </div>
+          <div class="accordion-arrow">▼</div>
+        </div>
+        <div class="accordion-body"><div class="accordion-content">
+          <ul>
+            <li>Контент-план на месяц за 30 минут</li>
+            <li>Посты, статьи, email-рассылки, реклама</li>
+            <li>Промпты для визуала и сценарии Reels/Shorts</li>
+            <li>Адаптация контента под все площадки</li>
+          </ul>
+          <div class="result">🎯 Результат: 8 агентов создают контент — ты тратишь на маркетинг в 5 раз меньше времени</div>
+        </div></div>
+      </div>
+      <div class="accordion-item">
+        <div class="accordion-header" onclick="toggleAccordion(this)">
+          <div class="left">
+            <div class="module-num">4</div>
+            <div><div class="module-title">Аналитика и стратегия</div><div class="module-agents">7 агентов · Личный отдел стратегии</div></div>
+          </div>
+          <div class="accordion-arrow">▼</div>
+        </div>
+        <div class="accordion-body"><div class="accordion-content">
+          <ul>
+            <li>Конкурентная разведка и мониторинг рынка</li>
+            <li>Автоматические отчёты и дашборды</li>
+            <li>SWOT-анализ и стратегическое планирование</li>
+            <li>Ценовая аналитика и анализ ЦА</li>
+          </ul>
+          <div class="result">🎯 Результат: 7 агентов-аналитиков = полная картина рынка и конкурентов</div>
+        </div></div>
+      </div>
+      <div class="accordion-item">
+        <div class="accordion-header" onclick="toggleAccordion(this)">
+          <div class="left">
+            <div class="module-num">5</div>
+            <div><div class="module-title">Операционка и финансы</div><div class="module-agents">8 агентов · Рутина автоматизирована</div></div>
+          </div>
+          <div class="accordion-arrow">▼</div>
+        </div>
+        <div class="accordion-body"><div class="accordion-content">
+          <ul>
+            <li>Управленческий учёт и бюджетирование</li>
+            <li>Договоры, ТЗ, регламенты — за секунды</li>
+            <li>Декомпозиция целей и управление проектами</li>
+            <li>Автоматизация процессов и работа с поставщиками</li>
+          </ul>
+          <div class="result">🎯 Результат: Ты — CEO, а не исполнитель. 8 агентов ведут операционку</div>
+        </div></div>
+      </div>
+      <div class="accordion-item">
+        <div class="accordion-header" onclick="toggleAccordion(this)">
+          <div class="left">
+            <div class="module-num">6</div>
+            <div><div class="module-title">Команда и HR</div><div class="module-agents">7 агентов · HR-процессы на автопилоте</div></div>
+          </div>
+          <div class="accordion-arrow">▼</div>
+        </div>
+        <div class="accordion-body"><div class="accordion-content">
+          <ul>
+            <li>Найм: вакансии, скрининг резюме, интервью</li>
+            <li>Адаптация и onboarding новичков</li>
+            <li>Обучение, база знаний, тесты</li>
+            <li>Внутренние коммуникации и мотивация</li>
+          </ul>
+          <div class="result">🎯 Результат: 7 агентов управляют HR — от найма до мотивации команды</div>
+        </div></div>
+      </div>
+      <div class="accordion-item">
+        <div class="accordion-header" onclick="toggleAccordion(this)">
+          <div class="left">
+            <div class="module-num">7</div>
+            <div><div class="module-title">Масштабирование: 50 агентов в системе</div><div class="module-agents">8 агентов · Полная ИИ-экосистема</div></div>
+          </div>
+          <div class="accordion-arrow">▼</div>
+        </div>
+        <div class="accordion-body"><div class="accordion-content">
+          <ul>
+            <li>Продвинутые агенты: переводчик, презентации, скрипты звонков</li>
+            <li>Экосистема: цепочки агентов и автоматизация (Zapier, Make, n8n)</li>
+            <li>ИИ-стратегия для масштабирования бизнеса</li>
+            <li>Мета-агент (агент агентов) — управляет всей системой</li>
+          </ul>
+          <div class="result">🎯 Результат: Все 50 агентов работают как единая ИИ-команда. План на 90 дней готов</div>
+        </div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 50 AGENTS -->
+<section class="section agents" id="agents">
+  <div class="container">
+    <div style="text-align:center">
+      <span class="section-label reveal">Все 50 агентов</span>
+      <h2 class="section-title reveal">Твоя <span class="gradient-text">ИИ-команда</span> из 50 специалистов</h2>
+      <p class="section-subtitle reveal" style="margin:0 auto 32px">Каждый агент — готовый инструмент с промптом, инструкцией и примером. Копируй и запускай.</p>
+    </div>
+    <div class="agents-filter reveal">
+      <button class="filter-btn active" onclick="filterAgents('all')">Все 50</button>
+      <button class="filter-btn" onclick="filterAgents('m1')">М1 · Фундамент</button>
+      <button class="filter-btn" onclick="filterAgents('m2')">М2 · Продажи</button>
+      <button class="filter-btn" onclick="filterAgents('m3')">М3 · Маркетинг</button>
+      <button class="filter-btn" onclick="filterAgents('m4')">М4 · Аналитика</button>
+      <button class="filter-btn" onclick="filterAgents('m5')">М5 · Операционка</button>
+      <button class="filter-btn" onclick="filterAgents('m6')">М6 · HR</button>
+      <button class="filter-btn" onclick="filterAgents('m7')">М7 · Масштаб</button>
+    </div>
+    <div class="agents-grid reveal" id="agentsGrid">
+      <!-- Module 1 -->
+      <div class="agent-card" data-module="m1"><span class="agent-icon">🧠</span><div class="agent-num">#1</div><div class="agent-name">Агент-брейнсторм</div><div class="agent-module">Фундамент</div></div>
+      <div class="agent-card" data-module="m1"><span class="agent-icon">📝</span><div class="agent-num">#2</div><div class="agent-name">Переписчик текстов</div><div class="agent-module">Фундамент</div></div>
+      <div class="agent-card" data-module="m1"><span class="agent-icon">🔍</span><div class="agent-num">#3</div><div class="agent-name">Агент-ресёрчер</div><div class="agent-module">Фундамент</div></div>
+      <div class="agent-card" data-module="m1"><span class="agent-icon">📧</span><div class="agent-num">#4</div><div class="agent-name">Помощник по email</div><div class="agent-module">Фундамент</div></div>
+      <!-- Module 2 -->
+      <div class="agent-card" data-module="m2"><span class="agent-icon">🎯</span><div class="agent-num">#5</div><div class="agent-name">Лидогенератор</div><div class="agent-module">Продажи</div></div>
+      <div class="agent-card" data-module="m2"><span class="agent-icon">💬</span><div class="agent-num">#6</div><div class="agent-name">Первое касание</div><div class="agent-module">Продажи</div></div>
+      <div class="agent-card" data-module="m2"><span class="agent-icon">🛒</span><div class="agent-num">#7</div><div class="agent-name">Менеджер продаж</div><div class="agent-module">Продажи</div></div>
+      <div class="agent-card" data-module="m2"><span class="agent-icon">💡</span><div class="agent-num">#8</div><div class="agent-name">Составитель КП</div><div class="agent-module">Продажи</div></div>
+      <div class="agent-card" data-module="m2"><span class="agent-icon">🔥</span><div class="agent-num">#9</div><div class="agent-name">Отработка возражений</div><div class="agent-module">Продажи</div></div>
+      <div class="agent-card" data-module="m2"><span class="agent-icon">⭐</span><div class="agent-num">#10</div><div class="agent-name">Сбор отзывов</div><div class="agent-module">Продажи</div></div>
+      <div class="agent-card" data-module="m2"><span class="agent-icon">🔄</span><div class="agent-num">#11</div><div class="agent-name">Повторные продажи</div><div class="agent-module">Продажи</div></div>
+      <div class="agent-card" data-module="m2"><span class="agent-icon">🆘</span><div class="agent-num">#12</div><div class="agent-name">Ответчик клиентам</div><div class="agent-module">Продажи</div></div>
+      <!-- Module 3 -->
+      <div class="agent-card" data-module="m3"><span class="agent-icon">📅</span><div class="agent-num">#13</div><div class="agent-name">Контент-планировщик</div><div class="agent-module">Маркетинг</div></div>
+      <div class="agent-card" data-module="m3"><span class="agent-icon">✍️</span><div class="agent-num">#14</div><div class="agent-name">Копирайтер</div><div class="agent-module">Маркетинг</div></div>
+      <div class="agent-card" data-module="m3"><span class="agent-icon">📰</span><div class="agent-num">#15</div><div class="agent-name">Автор статей</div><div class="agent-module">Маркетинг</div></div>
+      <div class="agent-card" data-module="m3"><span class="agent-icon">📩</span><div class="agent-num">#16</div><div class="agent-name">Email-маркетолог</div><div class="agent-module">Маркетинг</div></div>
+      <div class="agent-card" data-module="m3"><span class="agent-icon">📱</span><div class="agent-num">#17</div><div class="agent-name">Агент для соцсетей</div><div class="agent-module">Маркетинг</div></div>
+      <div class="agent-card" data-module="m3"><span class="agent-icon">📢</span><div class="agent-num">#18</div><div class="agent-name">Рекламщик</div><div class="agent-module">Маркетинг</div></div>
+      <div class="agent-card" data-module="m3"><span class="agent-icon">🎨</span><div class="agent-num">#19</div><div class="agent-name">Промптер визуала</div><div class="agent-module">Маркетинг</div></div>
+      <div class="agent-card" data-module="m3"><span class="agent-icon">🎬</span><div class="agent-num">#20</div><div class="agent-name">Сценарии Reels</div><div class="agent-module">Маркетинг</div></div>
+      <!-- Module 4 -->
+      <div class="agent-card" data-module="m4"><span class="agent-icon">🕵️</span><div class="agent-num">#21</div><div class="agent-name">Аналитик конкурентов</div><div class="agent-module">Аналитика</div></div>
+      <div class="agent-card" data-module="m4"><span class="agent-icon">📈</span><div class="agent-num">#22</div><div class="agent-name">Мониторинг рынка</div><div class="agent-module">Аналитика</div></div>
+      <div class="agent-card" data-module="m4"><span class="agent-icon">📋</span><div class="agent-num">#23</div><div class="agent-name">Дашбордист</div><div class="agent-module">Аналитика</div></div>
+      <div class="agent-card" data-module="m4"><span class="agent-icon">🔢</span><div class="agent-num">#24</div><div class="agent-name">Интерпретатор данных</div><div class="agent-module">Аналитика</div></div>
+      <div class="agent-card" data-module="m4"><span class="agent-icon">🧭</span><div class="agent-num">#25</div><div class="agent-name">Стратег</div><div class="agent-module">Аналитика</div></div>
+      <div class="agent-card" data-module="m4"><span class="agent-icon">💰</span><div class="agent-num">#26</div><div class="agent-name">Ценовая аналитика</div><div class="agent-module">Аналитика</div></div>
+      <div class="agent-card" data-module="m4"><span class="agent-icon">🎯</span><div class="agent-num">#27</div><div class="agent-name">Анализ ЦА</div><div class="agent-module">Аналитика</div></div>
+      <!-- Module 5 -->
+      <div class="agent-card" data-module="m5"><span class="agent-icon">💵</span><div class="agent-num">#28</div><div class="agent-name">Финансовый учёт</div><div class="agent-module">Операционка</div></div>
+      <div class="agent-card" data-module="m5"><span class="agent-icon">📊</span><div class="agent-num">#29</div><div class="agent-name">Бюджетирование</div><div class="agent-module">Операционка</div></div>
+      <div class="agent-card" data-module="m5"><span class="agent-icon">📄</span><div class="agent-num">#30</div><div class="agent-name">Агент-юрист</div><div class="agent-module">Операционка</div></div>
+      <div class="agent-card" data-module="m5"><span class="agent-icon">📑</span><div class="agent-num">#31</div><div class="agent-name">Документовед</div><div class="agent-module">Операционка</div></div>
+      <div class="agent-card" data-module="m5"><span class="agent-icon">✅</span><div class="agent-num">#32</div><div class="agent-name">Планировщик задач</div><div class="agent-module">Операционка</div></div>
+      <div class="agent-card" data-module="m5"><span class="agent-icon">📦</span><div class="agent-num">#33</div><div class="agent-name">Менеджер проектов</div><div class="agent-module">Операционка</div></div>
+      <div class="agent-card" data-module="m5"><span class="agent-icon">🔄</span><div class="agent-num">#34</div><div class="agent-name">Автоматизация процессов</div><div class="agent-module">Операционка</div></div>
+      <div class="agent-card" data-module="m5"><span class="agent-icon">🚚</span><div class="agent-num">#35</div><div class="agent-name">Работа с поставщиками</div><div class="agent-module">Операционка</div></div>
+      <!-- Module 6 -->
+      <div class="agent-card" data-module="m6"><span class="agent-icon">📝</span><div class="agent-num">#36</div><div class="agent-name">Рекрутер</div><div class="agent-module">HR</div></div>
+      <div class="agent-card" data-module="m6"><span class="agent-icon">🤝</span><div class="agent-num">#37</div><div class="agent-name">Адаптация сотрудников</div><div class="agent-module">HR</div></div>
+      <div class="agent-card" data-module="m6"><span class="agent-icon">🎓</span><div class="agent-num">#38</div><div class="agent-name">Тренер команды</div><div class="agent-module">HR</div></div>
+      <div class="agent-card" data-module="m6"><span class="agent-icon">📚</span><div class="agent-num">#39</div><div class="agent-name">База знаний</div><div class="agent-module">HR</div></div>
+      <div class="agent-card" data-module="m6"><span class="agent-icon">💬</span><div class="agent-num">#40</div><div class="agent-name">Внутренние коммуникации</div><div class="agent-module">HR</div></div>
+      <div class="agent-card" data-module="m6"><span class="agent-icon">🏆</span><div class="agent-num">#41</div><div class="agent-name">Мотивация и KPI</div><div class="agent-module">HR</div></div>
+      <div class="agent-card" data-module="m6"><span class="agent-icon">📊</span><div class="agent-num">#42</div><div class="agent-name">Оценка персонала</div><div class="agent-module">HR</div></div>
+      <!-- Module 7 -->
+      <div class="agent-card" data-module="m7"><span class="agent-icon">🌐</span><div class="agent-num">#43</div><div class="agent-name">Переводчик</div><div class="agent-module">Масштаб</div></div>
+      <div class="agent-card" data-module="m7"><span class="agent-icon">🗣️</span><div class="agent-num">#44</div><div class="agent-name">Подготовка к выступлениям</div><div class="agent-module">Масштаб</div></div>
+      <div class="agent-card" data-module="m7"><span class="agent-icon">📞</span><div class="agent-num">#45</div><div class="agent-name">Скрипты для звонков</div><div class="agent-module">Масштаб</div></div>
+      <div class="agent-card" data-module="m7"><span class="agent-icon">🔗</span><div class="agent-num">#46</div><div class="agent-name">Интегратор</div><div class="agent-module">Масштаб</div></div>
+      <div class="agent-card" data-module="m7"><span class="agent-icon">🛡️</span><div class="agent-num">#47</div><div class="agent-name">Контроль качества</div><div class="agent-module">Масштаб</div></div>
+      <div class="agent-card" data-module="m7"><span class="agent-icon">🧪</span><div class="agent-num">#48</div><div class="agent-name">Тестировщик гипотез</div><div class="agent-module">Масштаб</div></div>
+      <div class="agent-card" data-module="m7"><span class="agent-icon">📈</span><div class="agent-num">#49</div><div class="agent-name">Масштабирование</div><div class="agent-module">Масштаб</div></div>
+      <div class="agent-card" data-module="m7"><span class="agent-icon">🤖</span><div class="agent-num">#50</div><div class="agent-name">Мета-агент</div><div class="agent-module">Масштаб</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- AUTHOR -->
+<section class="section" id="author">
+  <div class="container">
+    <div style="text-align:center">
+      <span class="section-label reveal">Автор курса</span>
+      <h2 class="section-title reveal">Курс от <span class="gradient-text">практика</span>, а не теоретика</h2>
+    </div>
+    <div class="author-block reveal" style="margin-top:48px">
+      <div class="author-avatar">👨‍💼</div>
+      <div class="author-info">
+        <h3>Вардгес Арутюнян</h3>
+        <div class="author-role">Предприниматель · Автор курса</div>
+        <p>15+ лет в реальном бизнесе — туризм и отельный бизнес в Курске. Не инфобизнесмен, а практик, который каждый день управляет компанией.</p>
+        <p>Последние 2 года активно внедряю ИИ в свой бизнес. Результат: рутина автоматизирована на 80%, время на управление — вдвое меньше, продажи — вдвое больше.</p>
+        <p>Этот курс — то, что я хотел бы получить сам, когда начинал. Все примеры — из реального офлайн-бизнеса, а не из «инфобизнеса».</p>
+        <div class="author-facts">
+          <span class="author-fact">🏨 Собственник отеля</span>
+          <span class="author-fact">✈️ 15+ лет в туризме</span>
+          <span class="author-fact">🤖 2 года с ИИ</span>
+          <span class="author-fact">📍 Курск, Россия</span>
+          <span class="author-fact">💼 Реальный бизнес</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="section pricing" id="pricing">
+  <div class="container">
+    <div style="text-align:center">
+      <span class="section-label reveal">Тарифы</span>
+      <h2 class="section-title reveal">Выбери свой <span class="gradient-text">уровень</span></h2>
+      <p class="section-subtitle reveal" style="margin:0 auto 48px">50 агентов по цене одного фрилансера. Инвестиция, которая окупится за первый месяц.</p>
+    </div>
+    <div class="pricing-grid reveal">
+      <!-- СТАРТ -->
+      <div class="price-card">
+        <div class="price-name">🟢 Старт</div>
+        <div class="price-desc">Попробовать и начать</div>
+        <div class="price-amount">14 900₽ <span>/ разово</span></div>
+        <div class="price-installment">или 2 483 ₽/мес × 6 мес</div>
+        <ul class="price-features">
+          <li>Все 7 модулей и 28 уроков</li>
+          <li>15 базовых GPT-агентов</li>
+          <li>Шаблоны промптов</li>
+          <li>Чек-листы внедрения</li>
+          <li>Доступ на 6 месяцев</li>
+          <li class="disabled">Закрытый чат</li>
+          <li class="disabled">Обновления агентов</li>
+          <li class="disabled">Менторские сессии</li>
+        </ul>
+        <a href="#lead" class="btn btn-outline">Начать →</a>
+      </div>
+      <!-- БИЗНЕС -->
+      <div class="price-card featured">
+        <div class="price-badge">⭐ Самый популярный</div>
+        <div class="price-name">🟡 Бизнес</div>
+        <div class="price-desc">Для серьёзного результата</div>
+        <div class="price-amount" style="background:var(--grad1);-webkit-background-clip:text;-webkit-text-fill-color:transparent">34 900₽ <span style="-webkit-text-fill-color:var(--text3)">/ разово</span></div>
+        <div class="price-installment">или 2 908 ₽/мес × 12 мес</div>
+        <ul class="price-features">
+          <li><strong>Все 50 GPT-агентов</strong></li>
+          <li>Все 7 модулей и 28 уроков</li>
+          <li>Пошаговые инструкции</li>
+          <li>Доступ навсегда (lifetime)</li>
+          <li>Закрытый Telegram-чат</li>
+          <li>Обновления 12 месяцев</li>
+          <li>100+ бонусных промптов</li>
+          <li>Сертификат</li>
+          <li class="disabled">Менторские сессии</li>
+        </ul>
+        <a href="#lead" class="btn btn-primary">Выбрать Бизнес →</a>
+      </div>
+      <!-- VIP -->
+      <div class="price-card">
+        <div class="price-name">🔴 VIP</div>
+        <div class="price-desc">Максимальный результат</div>
+        <div class="price-amount">79 900₽ <span>/ разово</span></div>
+        <div class="price-installment">или 6 658 ₽/мес × 12 мес</div>
+        <ul class="price-features">
+          <li><strong>Всё из «Бизнес» +</strong></li>
+          <li>4 групповых менторских сессии</li>
+          <li>1 личная консультация (60 мин)</li>
+          <li>Кастомизация 5 агентов под вас</li>
+          <li>Приоритетная поддержка 24ч</li>
+          <li>Обновления бессрочно</li>
+          <li>VIP-сообщество выпускников</li>
+          <li>AI-стратегия для бизнеса</li>
+        </ul>
+        <a href="#lead" class="btn btn-accent">Выбрать VIP →</a>
+      </div>
+    </div>
+    <div class="price-compare reveal" style="margin-top:40px">
+      <p>💡 <strong>Для сравнения:</strong> Ближайший конкурент (Skillbox) даёт 10 агентов за 83 124 ₽. Мы — <strong>50 агентов за 34 900 ₽</strong>. Стоимость одного агента: <strong>698 ₽</strong> против 8 312 ₽.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section" id="faq">
+  <div class="container">
+    <div style="text-align:center">
+      <span class="section-label reveal">Частые вопросы</span>
+      <h2 class="section-title reveal">Ответы на <span class="gradient-text">ваши вопросы</span></h2>
+      <p class="section-subtitle reveal" style="margin:0 auto 48px">Не нашли ответ? Напишите в Telegram — ответим лично.</p>
+    </div>
+    <div class="faq-list reveal">
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)"><span>Нужны ли технические навыки или знание программирования?</span><span class="faq-icon">+</span></div>
+        <div class="faq-a"><div class="faq-a-inner">Нет! Курс создан для предпринимателей, а не для программистов. Если вы умеете пользоваться браузером и мессенджерами — этого достаточно. Все агенты создаются без единой строчки кода. Мы используем ChatGPT, Perplexity и Comet Browser — удобные инструменты с простым интерфейсом.</div></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)"><span>Подойдёт ли курс для моей ниши?</span><span class="faq-icon">+</span></div>
+        <div class="faq-a"><div class="faq-a-inner">Да. 50 агентов покрывают универсальные бизнес-задачи: продажи, маркетинг, аналитика, HR, операционка. Все примеры в курсе — из реального офлайн-бизнеса (отель, туризм, услуги). Агенты работают в любой нише: торговля, услуги, производство, HoReCa, IT-услуги, образование.</div></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)"><span>Сколько времени нужно на прохождение курса?</span><span class="faq-icon">+</span></div>
+        <div class="faq-a"><div class="faq-a-inner">Рекомендуемый темп — 1 модуль в неделю, итого 7–8 недель. Общий объём: ~30–40 часов (видео + практика). Уроки по 15–25 минут — можно проходить в удобное время. Но даже первый модуль даст вам 4 работающих агента, которые сразу начнут экономить время.</div></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)"><span>Нужна ли платная подписка ChatGPT?</span><span class="faq-icon">+</span></div>
+        <div class="faq-a"><div class="faq-a-inner">Для базовых агентов достаточно бесплатной версии ChatGPT. Для продвинутых функций рекомендуем ChatGPT Plus (20$/мес) — но это окупается уже в первую неделю: один агент-копирайтер экономит 6–9 часов в месяц. Также в курсе показываем бесплатные альтернативы.</div></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)"><span>Что если курс мне не подойдёт?</span><span class="faq-icon">+</span></div>
+        <div class="faq-a"><div class="faq-a-inner">Мы уверены в качестве курса, поэтому даём гарантию: если в течение 14 дней вы пройдёте первые 2 модуля и не увидите результата — вернём деньги полностью. Без вопросов и бюрократии.</div></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)"><span>Чем этот курс отличается от Skillbox, Нетологии и т.д.?</span><span class="faq-icon">+</span></div>
+        <div class="faq-a"><div class="faq-a-inner">Три ключевых отличия: <strong>1)</strong> У нас 50 готовых агентов (у Skillbox — 10, у остальных — 0). <strong>2)</strong> Автор — реальный предприниматель с 15+ летним бизнесом, а не инфобизнесмен. <strong>3)</strong> Цена: 698 ₽ за агента у нас vs 8 312 ₽ у ближайшего конкурента. Плюс — все примеры из реального офлайн-бизнеса.</div></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)"><span>Как быстро я увижу результат?</span><span class="faq-icon">+</span></div>
+        <div class="faq-a"><div class="faq-a-inner">Первые 4 агента заработают уже после модуля 1 (первая неделя). К концу второй недели у вас будет работающая воронка продаж с ИИ-менеджером. По отзывам участников, курс окупается за 2–4 недели за счёт экономии времени и роста продаж.</div></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)"><span>Можно ли купить в рассрочку?</span><span class="faq-icon">+</span></div>
+        <div class="faq-a"><div class="faq-a-inner">Да! Все тарифы доступны в рассрочку: Старт — 2 483 ₽/мес (6 мес), Бизнес — 2 908 ₽/мес (12 мес), VIP — 6 658 ₽/мес (12 мес). Без переплаты, без процентов. Оформление — за 2 минуты.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LEAD MAGNET -->
+<section class="section lead-magnet" id="lead">
+  <div class="container">
+    <div class="lead-box reveal">
+      <h2>🎁 Получи <span class="gradient-text">5 агентов</span> бесплатно</h2>
+      <p>Оставь email — и мы пришлём 5 самых полезных GPT-агентов с готовыми промптами. Начни автоматизировать бизнес уже сегодня.</p>
+      <div class="lead-form" id="leadForm">
+        <input type="email" id="leadEmail" placeholder="Твой email" required>
+        <button type="button" class="btn btn-accent" onclick="submitLead()">Получить →</button>
+      </div>
+      <div class="lead-note">Никакого спама. Только ценность. Отписаться можно в один клик.</div>
+      <div class="lead-gift">
+        <span class="lead-gift-item">🧠 Брейнсторм</span>
+        <span class="lead-gift-item">🔍 Ресёрчер</span>
+        <span class="lead-gift-item">✍️ Копирайтер</span>
+        <span class="lead-gift-item">🛒 Менеджер продаж</span>
+        <span class="lead-gift-item">📋 Дашбордист</span>
+      </div>
+      <div id="leadSuccess" style="display:none;margin-top:24px;padding:16px;background:rgba(0,184,148,0.1);border:1px solid var(--green);border-radius:12px;color:var(--green);font-weight:600">
+        ✅ Отлично! Проверьте почту — агенты уже в пути!
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="section" style="padding:80px 0;text-align:center">
+  <div class="container">
+    <h2 class="section-title reveal">Пока ты думаешь — <span class="gradient-text">конкуренты действуют</span></h2>
+    <p class="reveal" style="color:var(--text2);font-size:1.15rem;max-width:600px;margin:16px auto 36px">50 агентов. 50 бизнес-задач. Один курс. Стоимость — меньше зарплаты стажёра за 1 неделю.</p>
+    <div class="reveal"><a href="#pricing" class="btn btn-primary" style="font-size:1.15rem;padding:20px 48px">Выбрать тариф и начать →</a></div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer" id="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand">🤖 50 GPT-агентов</div>
+        <p>Практический курс по внедрению ИИ в бизнес. Автор — Вардгес Арутюнян, предприниматель с 15+ летним опытом.</p>
+        <div class="footer-socials" style="margin-top:20px">
+          <a href="https://t.me/vardges13" class="footer-social" title="Telegram">📱</a>
+          <a href="#" class="footer-social" title="YouTube">▶️</a>
+          <a href="#" class="footer-social" title="Instagram">📸</a>
+          <a href="#" class="footer-social" title="VK">💙</a>
+        </div>
+      </div>
+      <div>
+        <h4>Навигация</h4>
+        <ul class="footer-links">
+          <li><a href="#problems">Проблема</a></li>
+          <li><a href="#program">Программа курса</a></li>
+          <li><a href="#agents">50 агентов</a></li>
+          <li><a href="#author">Об авторе</a></li>
+          <li><a href="#pricing">Тарифы</a></li>
+          <li><a href="#faq">FAQ</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Контакты</h4>
+        <ul class="footer-links">
+          <li><a href="https://t.me/vardges13">Telegram: @vardges13</a></li>
+          <li><a href="mailto:vardges13@gmail.com">vardges13@gmail.com</a></li>
+          <li><a href="#">📍 Курск, Россия</a></li>
+        </ul>
+        <h4 style="margin-top:24px">Поддержка</h4>
+        <ul class="footer-links">
+          <li><a href="https://t.me/vardges13">Написать в Telegram →</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025–2026 Вардгес Арутюнян. Все права защищены. Не является публичной офертой.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* === NAVBAR SCROLL === */
+const navbar = document.getElementById('navbar');
+window.addEventListener('scroll', () => {
+  navbar.classList.toggle('scrolled', window.scrollY > 50);
+});
+
+/* === MOBILE NAV === */
+function toggleNav() {
+  document.getElementById('navLinks').classList.toggle('open');
+}
+function closeNav() {
+  document.getElementById('navLinks').classList.remove('open');
+}
+
+/* === SCROLL REVEAL === */
+const reveals = document.querySelectorAll('.reveal');
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+reveals.forEach(el => revealObserver.observe(el));
+
+/* === ACCORDION === */
+function toggleAccordion(header) {
+  const item = header.parentElement;
+  const body = item.querySelector('.accordion-body');
+  const isActive = item.classList.contains('active');
+  
+  // Close all
+  document.querySelectorAll('.accordion-item').forEach(i => {
+    i.classList.remove('active');
+    i.querySelector('.accordion-body').style.maxHeight = null;
+  });
+  
+  // Open clicked (if was closed)
+  if (!isActive) {
+    item.classList.add('active');
+    body.style.maxHeight = body.scrollHeight + 'px';
+  }
+}
+
+/* === FAQ === */
+function toggleFaq(q) {
+  const item = q.parentElement;
+  const answer = item.querySelector('.faq-a');
+  const isActive = item.classList.contains('active');
+  
+  document.querySelectorAll('.faq-item').forEach(i => {
+    i.classList.remove('active');
+    i.querySelector('.faq-a').style.maxHeight = null;
+  });
+  
+  if (!isActive) {
+    item.classList.add('active');
+    answer.style.maxHeight = answer.scrollHeight + 'px';
+  }
+}
+
+/* === AGENTS FILTER === */
+function filterAgents(module) {
+  const cards = document.querySelectorAll('.agent-card');
+  const btns = document.querySelectorAll('.filter-btn');
+  
+  btns.forEach(b => b.classList.remove('active'));
+  event.target.classList.add('active');
+  
+  cards.forEach(card => {
+    if (module === 'all' || card.dataset.module === module) {
+      card.style.display = '';
+      card.style.opacity = '0';
+      card.style.transform = 'translateY(10px)';
+      setTimeout(() => {
+        card.style.transition = 'all 0.3s ease';
+        card.style.opacity = '1';
+        card.style.transform = 'translateY(0)';
+      }, 50);
+    } else {
+      card.style.display = 'none';
+    }
+  });
+}
+
+/* === LEAD FORM === */
+function submitLead() {
+  const email = document.getElementById('leadEmail').value;
+  if (email && email.includes('@')) {
+    document.getElementById('leadForm').style.display = 'none';
+    document.getElementById('leadSuccess').style.display = 'block';
+  } else {
+    document.getElementById('leadEmail').style.borderColor = 'var(--red)';
+    setTimeout(() => {
+      document.getElementById('leadEmail').style.borderColor = '';
+    }, 2000);
+  }
+}
+
+/* === SMOOTH SCROLL === */
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function(e) {
+    const target = document.querySelector(this.getAttribute('href'));
+    if (target) {
+      e.preventDefault();
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  });
+});
+</script>
+</body>
+</html>
