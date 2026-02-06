@@ -131,11 +131,11 @@
   {
     "id": "t_content",
     "title": "Контент-план на 2 недели",
-    "desc": "✅ 10 рилсов + 5 постов @vardges13 + 14 постов @onlinetur24 (чек-листы, гайды). Осталось: Threads-посты",
+    "desc": "✅ ГОТОВО! 10 рилсов + 5 постов @vardges13 + 14 постов @onlinetur24 + картинки + автопостинг. Threads заблокирован (Meta)",
     "priority": "medium",
-    "column": "progress",
+    "column": "done",
     "created": 1738368000000,
-    "updated": 1738800000000
+    "updated": 1738821600000
   },
   {
     "id": "t_lead",
