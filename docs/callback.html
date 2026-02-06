@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>OAuth Callback</title>
+    <script>
+        // Get the authorization code from URL
+        const params = new URLSearchParams(window.location.search);
+        const code = params.get('code');
+        if (code) {
+            document.body.innerHTML = '<h1>Код получен!</h1><p>Скопируй весь URL из адресной строки и отправь Бонду:</p><pre style="background:#222;color:#0f0;padding:20px;word-break:break-all;">' + window.location.href + '</pre>';
+        }
+    </script>
+</head>
+<body>
+    <h1>OAuth Callback</h1>
+    <p>Эта страница используется для авторизации приложений.</p>
+</body>
+</html>
