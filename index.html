@@ -70,11 +70,71 @@
     font-size: 18px;
     font-weight: 700;
     color: #FFFFFF;
-    flex: 1;
     padding: 0 8px;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+    flex-shrink: 1;
+    min-width: 80px;
+  }
+
+  /* ===== HEADER SEARCH — Trello style ===== */
+  .header-search {
+    flex: 1;
+    max-width: 220px;
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+  .header-search-icon {
+    position: absolute;
+    left: 8px;
+    font-size: 14px;
+    color: #6B778C;
+    pointer-events: none;
+    z-index: 1;
+  }
+  .header-search input {
+    width: 100%;
+    padding: 6px 28px 6px 30px;
+    border-radius: 3px;
+    border: none;
+    background: rgba(255,255,255,.9);
+    color: var(--text-primary);
+    font-size: 14px;
+    font-family: var(--font);
+    outline: none;
+    transition: background .15s, box-shadow .15s;
+  }
+  .header-search input::placeholder {
+    color: #6B778C;
+  }
+  .header-search input:focus {
+    background: #FFFFFF;
+    box-shadow: 0 0 0 2px var(--trello-blue);
+  }
+  .header-search-clear {
+    position: absolute;
+    right: 4px;
+    background: none;
+    border: none;
+    width: 22px;
+    height: 22px;
+    border-radius: 3px;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    cursor: pointer;
+    color: #6B778C;
+    transition: background .1s, color .1s;
+  }
+  .header-search-clear:hover {
+    background: rgba(9,30,66,.08);
+    color: var(--text-primary);
+  }
+  .header-search-clear.visible {
+    display: flex;
   }
 
   .header-btn {
@@ -168,28 +228,6 @@
   .board-tab.active .tab-badge {
     background: rgba(255,255,255,.35);
   }
-
-  /* ===== SEARCH BAR ===== */
-  .search-wrap {
-    padding: 6px 8px;
-    display: none;
-    flex-shrink: 0;
-  }
-  .search-wrap.active { display: block; }
-  .search-wrap input {
-    width: 100%;
-    padding: 8px 12px;
-    border-radius: 3px;
-    border: none;
-    background: rgba(255,255,255,.9);
-    color: var(--text-primary);
-    font-size: 14px;
-    font-family: var(--font);
-    outline: none;
-    box-shadow: 0 1px 0 rgba(9,30,66,.25);
-  }
-  .search-wrap input::placeholder { color: var(--text-hint); }
-  .search-wrap input:focus { background: #FFFFFF; }
 
   /* ===== BOARD — horizontal scroll ===== */
   .board {
@@ -827,9 +865,11 @@
   <div class="header">
     <div class="sync-indicator" id="syncDot" title="Синхронизация"></div>
     <div class="header-board-name" id="boardName">Бонд — Задачи</div>
-    <button class="header-btn" id="searchToggle" title="Поиск">
-      <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M11.5 7a4.5 4.5 0 1 1-9 0 4.5 4.5 0 0 1 9 0zm-.82 4.74a6 6 0 1 1 1.06-1.06l3.04 3.04a.75.75 0 1 1-1.06 1.06l-3.04-3.04z"/></svg>
-    </button>
+    <div class="header-search">
+      <span class="header-search-icon">🔍</span>
+      <input type="text" id="searchInput" placeholder="Поиск..." autocomplete="off">
+      <button class="header-search-clear" id="searchClear" type="button">✕</button>
+    </div>
     <button class="header-btn" id="refreshBtn" title="Обновить">
       <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M13.65 2.35A8 8 0 1 0 16 8h-2a6 6 0 1 1-1.76-4.24L10 6h6V0l-2.35 2.35z"/></svg>
     </button>
@@ -839,11 +879,6 @@
   <div class="board-tabs" id="tabs">
     <button class="board-tab active" data-board="bond">Бонд <span class="tab-badge" id="badgeBond">0</span></button>
     <button class="board-tab" data-board="vardges">Вардгес <span class="tab-badge" id="badgeVardges">0</span></button>
-  </div>
-
-  <!-- Search -->
-  <div class="search-wrap" id="searchWrap">
-    <input type="text" id="searchInput" placeholder="Поиск задач...">
   </div>
 
   <!-- Board -->
@@ -1449,6 +1484,7 @@
     $('boardName').textContent = BOARD_NAMES[activeBoard] || 'Задачи';
     searchQuery = '';
     $('searchInput').value = '';
+    $('searchClear').classList.remove('visible');
     renderBoard();
     $('board').scrollLeft = 0;
     haptic('select');
@@ -1558,28 +1594,26 @@
   });
 
   // Search
-  $('searchToggle').onclick = function() {
-    var wrap = $('searchWrap');
-    wrap.classList.toggle('active');
-    if (wrap.classList.contains('active')) {
-      $('searchInput').focus();
-    } else {
-      $('searchInput').value = '';
-      searchQuery = '';
-      renderBoard();
-    }
-    haptic('light');
-  };
-
   var searchDebounce = null;
   $('searchInput').addEventListener('input', function() {
     clearTimeout(searchDebounce);
     var val = this.value;
+    // Show/hide clear button
+    $('searchClear').classList.toggle('visible', val.length > 0);
     searchDebounce = setTimeout(function() {
       searchQuery = val;
       renderBoard();
     }, 150);
   });
+
+  $('searchClear').onclick = function() {
+    $('searchInput').value = '';
+    searchQuery = '';
+    this.classList.remove('visible');
+    renderBoard();
+    $('searchInput').focus();
+    haptic('light');
+  };
 
   // Refresh
   $('refreshBtn').onclick = function() {
