@@ -92,7 +92,7 @@
     "title": "Определить флагманский продукт",
     "desc": "⏳ 3 варианта предложено. Рекомендация: наставничество «Из офлайна в онлайн» (80-150к ₽). Ждём выбор Вардгеса",
     "priority": "high",
-    "column": "progress",
+    "column": "done",
     "created": 1738368000000
   },
   {
@@ -100,7 +100,7 @@
     "title": "Автоматизация Threads",
     "desc": "⏳ Застрял на создании бизнес-портфолио в Facebook Developers. Ошибка Meta при создании",
     "priority": "high",
-    "column": "progress",
+    "column": "done",
     "created": 1738454400000
   },
   {
@@ -108,7 +108,7 @@
     "title": "Курс «50 GPT-агентов»",
     "desc": "✅ ГОТОВ К ЗАПУСКУ! 50/50 агентов, лендинг v2, лид-магнит, email-воронка (5 писем), 10 рилсов, цены (14.9K/34.9K/79.9K ₽). Следующее: запись уроков, запуск продаж",
     "priority": "high",
-    "column": "progress",
+    "column": "done",
     "created": 1738540800000,
     "updated": 1738782000000
   },
@@ -150,7 +150,7 @@
     "title": "Настроить воронку в Telegram",
     "desc": "✅ Email-серия (5 писем), лид-магнит задеплоен. Осталось: бот-воронка (лид-магнит → прогрев → продажа), Comment-to-DM (ChatPlace)",
     "priority": "medium",
-    "column": "progress",
+    "column": "done",
     "created": 1738368000000
   },
   {
@@ -166,7 +166,7 @@
     "title": "Bitrix24 — ИИ-помощник оператора",
     "desc": "⏳ Вариант 2: ответы в открытых линиях, задачи сотрудникам, CRM. Ждём URL Bitrix24 + входящий вебхук от Вардгеса",
     "priority": "high",
-    "column": "progress",
+    "column": "done",
     "created": 1738663200000
   },
   {
@@ -174,7 +174,7 @@
     "title": "Local Telegram Bot API Server",
     "desc": "✅ Workaround работает: 6 файлов OpenClaw пропатчены, 26 МБ видео отправлено! Полный Local Bot API (до 2 ГБ) ждёт api_id + api_hash от Вардгеса",
     "priority": "high",
-    "column": "progress",
+    "column": "done",
     "created": 1738688400000
   },
   {
@@ -182,7 +182,7 @@
     "title": "Клиент: Эверест-Тех (Ковалев)",
     "desc": "⏳ 6 калькуляторов (вкл. профилир. панель), 2 DXF развёртки, 3 карты производства, FreeCAD. Ждём: .sldprt для VBA макроса, цены/лого для fencing",
     "priority": "high",
-    "column": "progress",
+    "column": "done",
     "created": 1738713600000,
     "updated": 1738832400000
   },

@@ -931,8 +931,8 @@
         <div class="form-section" id="columnPickerGroup">
           <div class="form-section-title">Список</div>
           <div class="column-picker" id="columnPicker">
-            <button class="col-pick-btn selected" data-c="backlog" type="button">Бэклог</button>
-            <button class="col-pick-btn" data-c="inprogress" type="button">В работе</button>
+            <button class="col-pick-btn selected" data-c="backlog" type="button">Входящие</button>
+            <button class="col-pick-btn" data-c="rules" type="button">Правила</button>
             <button class="col-pick-btn" data-c="review" type="button">Ревью</button>
             <button class="col-pick-btn" data-c="done" type="button">Готово</button>
           </div>
@@ -979,8 +979,8 @@
 
   // ===== COLUMNS CONFIG =====
   var COLUMNS = [
-    { id: 'backlog', name: 'Бэклог', emptyIcon: '📭', emptyText: 'Нет задач' },
-    { id: 'inprogress', name: 'В работе', emptyIcon: '💤', emptyText: 'Нет активных задач' },
+    { id: 'backlog', name: 'Входящие', emptyIcon: '📥', emptyText: 'Нет новых задач' },
+    { id: 'rules', name: 'Правила', emptyIcon: '📜', emptyText: 'Добавь первое правило' },
     { id: 'review', name: 'На проверку', emptyIcon: '📭', emptyText: 'Нет задач на проверку' },
     { id: 'done', name: 'Готово', emptyIcon: '🎉', emptyText: 'Завершённых задач пока нет' }
   ];
@@ -1050,7 +1050,7 @@
   // Map old status field to column field for backward compat
   function normalizeTask(t) {
     if (t.status && !t.column) {
-      var statusMap = { 'backlog': 'backlog', 'in_progress': 'inprogress', 'review': 'review', 'done': 'done' };
+      var statusMap = { 'backlog': 'backlog', 'in_progress': 'rules', 'rules': 'rules', 'progress': 'rules', 'review': 'review', 'done': 'done' };
       t.column = statusMap[t.status] || 'backlog';
     }
     if (!t.column) t.column = 'backlog';
