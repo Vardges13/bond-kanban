@@ -1074,24 +1074,31 @@
   // ===== DATA LOADING =====
   function fetchBoard(boardId, cb) {
     var cfg = BOARDS[boardId];
-    var url = cfg.file + '?t=' + Date.now();
+    var url = cfg.file + '?bust=' + Date.now() + Math.random();
     $('syncDot').classList.add('syncing');
+    
+    // Force clear old CloudStorage on v7 migration
+    if (cfg.storageKey === 'kanban_bond_v7' && tg && tg.CloudStorage) {
+      tg.CloudStorage.removeItem('kanban_bond_v6', function() {});
+    }
 
     fetch(url)
       .then(function(r) { return r.ok ? r.text() : Promise.reject('no json'); })
       .then(function(text) {
         $('syncDot').classList.remove('syncing');
-        if (text !== boardDataHash[boardId]) {
-          boardDataHash[boardId] = text;
-          try {
-            var parsed = JSON.parse(text);
-            boardTasks[boardId] = parsed.map(normalizeTask);
-          } catch(e) {
-            boardTasks[boardId] = [];
+        boardDataHash[boardId] = text; // Always update hash
+        try {
+          var parsed = JSON.parse(text);
+          boardTasks[boardId] = parsed.map(normalizeTask);
+          // Force update CloudStorage with new data
+          localStorage.setItem(cfg.storageKey, text);
+          if (tg && tg.CloudStorage) {
+            tg.CloudStorage.setItem(cfg.storageKey, text, function() {
+              console.log('CloudStorage updated with fresh data');
+            });
           }
-          try {
-            localStorage.setItem(cfg.storageKey, text);
-          } catch(e) {}
+        } catch(e) {
+          boardTasks[boardId] = [];
         }
         if (cb) cb(true);
       })
