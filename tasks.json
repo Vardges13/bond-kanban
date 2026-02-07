@@ -10,9 +10,9 @@
   {
     "id": "t_reels",
     "title": "Reels-пайплайн",
-    "desc": "Тема → скрипт → озвучка → субтитры → рендер. Ждём Notion API ключ",
+    "desc": "Тема → скрипт → озвучка → субтитры → рендер. Ждём Notion API ключ от Вардгеса",
     "priority": "high",
-    "column": "backlog",
+    "column": "review",
     "created": 1738368000000
   },
   {
