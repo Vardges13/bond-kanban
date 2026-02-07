@@ -1,159 +1,5 @@
 [
   {
-    "id": "t_pos",
-    "title": "Упаковать позиционирование",
-    "desc": "✅ Утверждено! Якорь: «практик из офлайна». Загружено в Notion",
-    "priority": "high",
-    "column": "done",
-    "created": 1738368000000
-  },
-  {
-    "id": "t_utp",
-    "title": "Сформулировать УТП",
-    "desc": "✅ Утверждено! «Реальный бизнес × ИИ × Здравый смысл». В Notion",
-    "priority": "high",
-    "column": "done",
-    "created": 1738368000000
-  },
-  {
-    "id": "t_ca",
-    "title": "Описать целевую аудиторию",
-    "desc": "✅ Утверждено! 3 сегмента + антиаудитория. Загружено в Notion",
-    "priority": "high",
-    "column": "done",
-    "created": 1738368000000
-  },
-  {
-    "id": "t_coursebot",
-    "title": "Telegram-бот курсов (@Oscar100_bot)",
-    "desc": "✅ aiogram 3 + YooKassa + SQLite. GitHub: Vardges13/course-bot. Работает!",
-    "priority": "high",
-    "column": "done",
-    "created": 1738454400000
-  },
-  {
-    "id": "t_academy",
-    "title": "Vardges Academy — Mini App",
-    "desc": "✅ Брендированный дизайн, фото Вардгеса, 5 направлений, тарифы. GitHub Pages",
-    "priority": "high",
-    "column": "done",
-    "created": 1738454400000
-  },
-  {
-    "id": "t_travelbot",
-    "title": "ИИ-бот турагентства",
-    "desc": "✅ Код готов (aiogram + GPT-4). Ждёт: бот-токен + OpenAI API ключ",
-    "priority": "medium",
-    "column": "done",
-    "created": 1738454400000
-  },
-  {
-    "id": "t_notion",
-    "title": "Notion — стратегия",
-    "desc": "✅ Все 3 документа загружены в «Стратегия 🚀» с форматированием",
-    "priority": "high",
-    "column": "done",
-    "created": 1738454400000
-  },
-  {
-    "id": "t_kanban_v3",
-    "title": "Канбан v3 — Trello-стиль",
-    "desc": "✅ 2 доски (Бонд/Вардгес), GitHub Pages, авто-обновление каждый час",
-    "priority": "high",
-    "column": "done",
-    "created": 1738454400000
-  },
-  {
-    "id": "t_gemini",
-    "title": "Gemini API — подключение",
-    "desc": "✅ Биллинг привязан, $300 кредитов. Nano Banana Pro, Imagen 4.0, Veo 3.0 — всё доступно",
-    "priority": "high",
-    "column": "done",
-    "created": 1738540800000
-  },
-  {
-    "id": "t_photoedit",
-    "title": "AI-фоторедактирование",
-    "desc": "✅ Nano Banana Pro: замена фона, освещение, апскейл. 4 версии сделаны и утверждены",
-    "priority": "medium",
-    "column": "done",
-    "created": 1738540800000
-  },
-  {
-    "id": "t_morning",
-    "title": "Утренняя сводка — крон",
-    "desc": "✅ Каждый день 8:00 МСК: новости, идеи контента, погода, новые скиллы",
-    "priority": "medium",
-    "column": "done",
-    "created": 1738454400000
-  },
-  {
-    "id": "t_product",
-    "title": "Определить флагманский продукт",
-    "desc": "⏳ 3 варианта предложено. Рекомендация: наставничество «Из офлайна в онлайн» (80-150к ₽). Ждём выбор Вардгеса",
-    "priority": "high",
-    "column": "done",
-    "created": 1738368000000
-  },
-  {
-    "id": "t_threads",
-    "title": "Автоматизация Threads",
-    "desc": "⏳ Застрял на создании бизнес-портфолио в Facebook Developers. Ошибка Meta при создании",
-    "priority": "high",
-    "column": "done",
-    "created": 1738454400000
-  },
-  {
-    "id": "t_course50",
-    "title": "Курс «50 GPT-агентов»",
-    "desc": "✅ ГОТОВ К ЗАПУСКУ! 50/50 агентов, лендинг v2, лид-магнит, email-воронка (5 писем), 10 рилсов, цены (14.9K/34.9K/79.9K ₽). Следующее: запись уроков, запуск продаж",
-    "priority": "high",
-    "column": "done",
-    "created": 1738540800000,
-    "updated": 1738782000000
-  },
-  {
-    "id": "t_struct",
-    "title": "Структура продукта",
-    "desc": "✅ Черновик готов: drafts/course-structure.md — 7 модулей, 28 уроков, 50 агентов",
-    "priority": "medium",
-    "column": "done",
-    "created": 1738368000000
-  },
-  {
-    "id": "t_price",
-    "title": "Ценообразование",
-    "desc": "✅ Конкурентный анализ 13 курсов, 3 пакета: Базовый 14.9K / Продвинутый 34.9K / Премиум 79.9K ₽. Файл: drafts/course-pricing-analysis.md",
-    "priority": "medium",
-    "column": "done",
-    "created": 1738368000000
-  },
-  {
-    "id": "t_content",
-    "title": "Контент-план на 2 недели",
-    "desc": "✅ ГОТОВО! 10 рилсов + 5 постов @vardges13 + 14 постов @onlinetur24 + картинки + автопостинг. Threads заблокирован (Meta)",
-    "priority": "medium",
-    "column": "done",
-    "created": 1738368000000,
-    "updated": 1738821600000
-  },
-  {
-    "id": "t_lead",
-    "title": "Написать лид-магнит",
-    "desc": "✅ Лид-магнит задеплоен: 5 агентов с копируемыми промптами, PDF. URL: https://vardges13.github.io/bond-kanban/course-demo/lead-magnet.html",
-    "priority": "medium",
-    "column": "done",
-    "created": 1738368000000
-  },
-  {
-    "id": "t_funnel",
-    "title": "Настроить воронку в Telegram",
-    "desc": "✅ Email-серия (5 писем), лид-магнит задеплоен. Осталось: бот-воронка (лид-магнит → прогрев → продажа), Comment-to-DM (ChatPlace)",
-    "priority": "medium",
-    "column": "done",
-    "created": 1738368000000
-  },
-  {
     "id": "t_reels",
     "title": "Reels-пайплайн",
     "desc": "Тема → скрипт → озвучка → субтитры → рендер. Ждём Notion API ключ",
@@ -162,44 +8,107 @@
     "created": 1738368000000
   },
   {
-    "id": "t_bitrix",
-    "title": "Bitrix24 — ИИ-помощник оператора",
-    "desc": "⏳ Вариант 2: ответы в открытых линиях, задачи сотрудникам, CRM. Ждём URL Bitrix24 + входящий вебхук от Вардгеса",
-    "priority": "high",
-    "column": "done",
-    "created": 1738663200000
+    "id": "t_wood",
+    "title": "Производство деревянных изделий",
+    "desc": "Исследование: ёлочные игрушки, зоотовары, декор. Бюджет 2 млн ₽. Лазер/ЧПУ из Китая",
+    "priority": "medium",
+    "column": "backlog",
+    "created": 1738926000000
   },
   {
-    "id": "t_tgapi",
-    "title": "Local Telegram Bot API Server",
-    "desc": "✅ Workaround работает: 6 файлов OpenClaw пропатчены, 26 МБ видео отправлено! Полный Local Bot API (до 2 ГБ) ждёт api_id + api_hash от Вардгеса",
+    "id": "t_uvdtf",
+    "title": "UV DTF принтер (Crystal Stickers)",
+    "desc": "Исследование: 3D-стикеры, маржа 80-95%, окупаемость 1-3 мес",
+    "priority": "medium",
+    "column": "backlog",
+    "created": 1738926000000
+  },
+  {
+    "id": "t_exec",
+    "title": "Починить exec (EBADF)",
+    "desc": "Системная ошибка — нужен полный перезапуск OpenClaw",
+    "priority": "high",
+    "column": "backlog",
+    "created": 1738926000000
+  },
+  {
+    "id": "t_pos",
+    "title": "✅ Позиционирование",
+    "desc": "Якорь: «практик из офлайна». Загружено в Notion",
     "priority": "high",
     "column": "done",
-    "created": 1738688400000
+    "created": 1738368000000
+  },
+  {
+    "id": "t_utp",
+    "title": "✅ УТП",
+    "desc": "«Реальный бизнес × ИИ × Здравый смысл»",
+    "priority": "high",
+    "column": "done",
+    "created": 1738368000000
+  },
+  {
+    "id": "t_ca",
+    "title": "✅ Целевая аудитория",
+    "desc": "3 сегмента + антиаудитория",
+    "priority": "high",
+    "column": "done",
+    "created": 1738368000000
+  },
+  {
+    "id": "t_course50",
+    "title": "✅ Курс «50 GPT-агентов»",
+    "desc": "50/50 агентов, лендинг, лид-магнит, email-воронка, цены",
+    "priority": "high",
+    "column": "done",
+    "created": 1738540800000
+  },
+  {
+    "id": "t_coursebot",
+    "title": "✅ Telegram-бот курсов",
+    "desc": "aiogram 3 + YooKassa + SQLite. Работает!",
+    "priority": "high",
+    "column": "done",
+    "created": 1738454400000
+  },
+  {
+    "id": "t_kanban",
+    "title": "✅ Канбан v3",
+    "desc": "GitHub Pages, авто-обновление",
+    "priority": "medium",
+    "column": "done",
+    "created": 1738454400000
+  },
+  {
+    "id": "t_gemini",
+    "title": "✅ Gemini API",
+    "desc": "$300 кредитов, все модели доступны",
+    "priority": "medium",
+    "column": "done",
+    "created": 1738540800000
+  },
+  {
+    "id": "t_morning",
+    "title": "✅ Утренняя сводка",
+    "desc": "Крон 8:00 МСК",
+    "priority": "medium",
+    "column": "done",
+    "created": 1738454400000
+  },
+  {
+    "id": "t_content",
+    "title": "✅ Контент-план",
+    "desc": "10 рилсов + посты + автопостинг @onlinetur24",
+    "priority": "medium",
+    "column": "done",
+    "created": 1738368000000
   },
   {
     "id": "t_everest",
-    "title": "Клиент: Эверест-Тех (Ковалев)",
-    "desc": "⏳ 6 калькуляторов (вкл. профилир. панель), 2 DXF развёртки, 3 карты производства, FreeCAD. Ждём: .sldprt для VBA макроса, цены/лого для fencing",
+    "title": "✅ Клиент: Эверест-Тех",
+    "desc": "6 калькуляторов, DXF развёртки, FreeCAD",
     "priority": "high",
-    "column": "done",
-    "created": 1738713600000,
-    "updated": 1738832400000
-  },
-  {
-    "id": "t_skills",
-    "title": "Скиллы — расширение",
-    "desc": "✅ 48 скиллов на борту! Установлены ТОП-30 с ClawHub. AI Router собран и протестирован",
-    "priority": "medium",
     "column": "done",
     "created": 1738713600000
-  },
-  {
-    "id": "rule_1",
-    "title": "🔥 Реакция + быстрый ответ",
-    "desc": "После прочтения КАЖДОГО сообщения:\n1. Сразу ставлю реакцию-эмодзи\n2. Максимально быстро даю обратную связь\n\nПрименяется к: личке Вардгеса + все группы",
-    "priority": "high",
-    "column": "rules",
-    "created": 1770452775000
   }
 ]
