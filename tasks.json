@@ -25,10 +25,10 @@
   },
   {
     "id": "t_exec",
-    "title": "Починить exec (EBADF)",
-    "desc": "Системная ошибка — нужен полный перезапуск OpenClaw",
+    "title": "✅ Local Bot API отключён",
+    "desc": "SSRF-блокировка localhost решена — PDF работает нативно",
     "priority": "high",
-    "column": "backlog",
+    "column": "done",
     "created": 1738926000000
   },
   {
