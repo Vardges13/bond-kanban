@@ -1,5 +1,13 @@
 [
   {
+    "id": "t_router",
+    "title": "✅ Model Router Skill",
+    "desc": "Умный роутинг моделей: llama/sonnet/opus. Экономия 70-80% API",
+    "priority": "high",
+    "column": "done",
+    "created": 1738963200000
+  },
+  {
     "id": "t_reels",
     "title": "Reels-пайплайн",
     "desc": "Тема → скрипт → озвучка → субтитры → рендер. Ждём Notion API ключ",
