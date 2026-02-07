@@ -870,7 +870,7 @@
       <input type="text" id="searchInput" placeholder="Поиск..." autocomplete="off">
       <button class="header-search-clear" id="searchClear" type="button">✕</button>
     </div>
-    <button class="header-btn" id="refreshBtn" title="Обновить">
+    <button class="header-btn" id="refreshBtn" title="Принудительное обновление (очистить кэш)">
       <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M13.65 2.35A8 8 0 1 0 16 8h-2a6 6 0 1 1-1.76-4.24L10 6h6V0l-2.35 2.35z"/></svg>
     </button>
   </div>
@@ -1097,6 +1097,9 @@
               console.log('CloudStorage updated with fresh data');
             });
           }
+          // Update last sync indicator
+          var lastUpdate = new Date().toLocaleTimeString('ru-RU', {hour: '2-digit', minute: '2-digit'});
+          $('syncDot').title = 'Обновлено: ' + lastUpdate;
         } catch(e) {
           boardTasks[boardId] = [];
         }
@@ -1623,9 +1626,19 @@
   // Refresh
   $('refreshBtn').onclick = function() {
     haptic('light');
+    // Force clear all caches
+    var cfg = BOARDS[activeBoard];
+    localStorage.removeItem(cfg.storageKey);
+    localStorage.removeItem(cfg.storageKey + '_ts');
+    if (tg && tg.CloudStorage) {
+      tg.CloudStorage.removeItem(cfg.storageKey, function() {});
+      tg.CloudStorage.removeItem('kanban_bond_v6', function() {}); // Clear old version
+    }
+    // Force new fetch with unique cache busting
+    boardDataHash[activeBoard] = null;
     fetchBoard(activeBoard, function() {
       renderBoard();
-      showToast('Обновлено');
+      showToast('🔄 Принудительно обновлено');
     });
   };
 
