@@ -190,5 +190,13 @@
     "priority": "low",
     "column": "backlog",
     "created": 1770572400000
+  },
+  {
+    "id": "t_threads_bio",
+    "title": "Шапка профиля в Threads",
+    "desc": "Создать привлекательное био как у kiryaaaz: рассказать о себе, экспертизе, достижениях + красивая подача. Threads API подключён",
+    "priority": "medium",
+    "column": "backlog",
+    "created": 1770578820000
   }
 ]
