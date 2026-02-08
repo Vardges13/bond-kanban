@@ -166,5 +166,29 @@
     "priority": "low",
     "column": "done",
     "created": 1770572200000
+  },
+  {
+    "id": "t_notion_api",
+    "title": "Новый Notion API ключ",
+    "desc": "Старый ключ скомпрометирован (попал в GitHub). Создать новый на notion.com/my-integrations + обновить скрипты",
+    "priority": "high",
+    "column": "backlog",
+    "created": 1770572400000
+  },
+  {
+    "id": "t_openrouter_sdk",
+    "title": "Тест OpenRouter SDK",
+    "desc": "Протестировать openrouterteam/agent-skills@openrouter-typescript-sdk как альтернативу model-router. 300+ моделей, автоинструменты",
+    "priority": "medium",
+    "column": "backlog",
+    "created": 1770572400000
+  },
+  {
+    "id": "t_tourism_return",
+    "title": "Автопостинг @onlinetur24 — обсуждение",
+    "desc": "Завтра обсудить возможное возвращение автопостинга в туристический канал (остановлен 8 фев по запросу)",
+    "priority": "low",
+    "column": "backlog",
+    "created": 1770572400000
   }
 ]
