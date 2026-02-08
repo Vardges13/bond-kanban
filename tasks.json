@@ -158,5 +158,13 @@
     "priority": "medium",
     "column": "backlog",
     "created": 1770571440000
+  },
+  {
+    "id": "t_autokanban",
+    "title": "✅ Авто-канбан правило",
+    "desc": "Настроено автоматическое добавление задач в канбан при упоминании Вардгесом. Триггеры в AGENTS.md",
+    "priority": "low",
+    "column": "done",
+    "created": 1770572200000
   }
 ]
