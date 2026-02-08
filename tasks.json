@@ -2,7 +2,7 @@
   {
     "id": "t_router",
     "title": "✅ Model Router Skill",
-    "desc": "Умный роутинг моделей: llama/sonnet/opus. Экономия 70-80% API. Обновлено 21:28",
+    "desc": "Умный роутинг моделей: llama/sonnet/opus. Экономия 70-80% API. ✅ Настроен 7 фев",
     "priority": "high",
     "column": "done",
     "created": 1738963200000
@@ -33,8 +33,8 @@
   },
   {
     "id": "t_exec",
-    "title": "✅ Local Bot API отключён",
-    "desc": "SSRF-блокировка localhost решена — PDF работает нативно",
+    "title": "✅ PDF/Local Bot API",
+    "desc": "SSRF-блокировка localhost решена — PDF работает нативно через OpenClaw. ✅ 7 фев",
     "priority": "high",
     "column": "done",
     "created": 1738926000000
