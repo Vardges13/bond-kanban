@@ -106,7 +106,7 @@
   {
     "id": "t_content",
     "title": "✅ Контент-план",
-    "desc": "10 рилсов + посты + автопостинг @onlinetur24",
+    "desc": "10 рилсов + посты готовы. ❌ Автопостинг @onlinetur24 остановлен 8 фев по запросу Вардгеса. Завтра обсуждение возможного возвращения",
     "priority": "medium",
     "column": "done",
     "created": 1738368000000
@@ -118,5 +118,77 @@
     "priority": "high",
     "column": "done",
     "created": 1738713600000
+  },
+  {
+    "id": "t_product1",
+    "title": "Курс «50 GPT-агентов» — запуск",
+    "desc": "Ценовая модель + настройка рекламы + продажи. Продукт готов к монетизации",
+    "priority": "high",
+    "column": "backlog",
+    "created": 1770571200000
+  },
+  {
+    "id": "t_product2", 
+    "title": "Внедрение ИИ-агентов в бизнес",
+    "desc": "B2B услуга: создание персональных агентов для предпринимателей. Кейс Эверест-Тех → презентация услуги",
+    "priority": "high",
+    "column": "backlog",
+    "created": 1770571200000
+  },
+  {
+    "id": "t_product3",
+    "title": "ИИ-блогер в Instagram",
+    "desc": "Обучение созданию аватара для заработка на рекламе. Самый перспективный продукт!",
+    "priority": "high", 
+    "column": "backlog",
+    "created": 1770571200000
+  },
+  {
+    "id": "t_partners",
+    "title": "Партнерская программа",
+    "desc": "Найти предпринимателей-партнёров. Комиссия за приведённых клиентов (обучение, внедрения)",
+    "priority": "medium",
+    "column": "backlog", 
+    "created": 1770571440000
+  },
+  {
+    "id": "t_clientbase",
+    "title": "Реактивация клиентской базы",
+    "desc": "Обзвон + рассылка существующим клиентам из туризма. Предложить ИИ-внедрения",
+    "priority": "medium",
+    "column": "backlog",
+    "created": 1770571440000
+  },
+  {
+    "id": "t_autokanban",
+    "title": "✅ Авто-канбан правило",
+    "desc": "Настроено автоматическое добавление задач в канбан при упоминании Вардгесом. Триггеры в AGENTS.md",
+    "priority": "low",
+    "column": "done",
+    "created": 1770572200000
+  },
+  {
+    "id": "t_notion_api",
+    "title": "Новый Notion API ключ",
+    "desc": "Старый ключ скомпрометирован (попал в GitHub). Создать новый на notion.com/my-integrations + обновить скрипты",
+    "priority": "high",
+    "column": "backlog",
+    "created": 1770572400000
+  },
+  {
+    "id": "t_openrouter_sdk",
+    "title": "Тест OpenRouter SDK",
+    "desc": "Протестировать openrouterteam/agent-skills@openrouter-typescript-sdk как альтернативу model-router. 300+ моделей, автоинструменты",
+    "priority": "medium",
+    "column": "backlog",
+    "created": 1770572400000
+  },
+  {
+    "id": "t_tourism_return",
+    "title": "Автопостинг @onlinetur24 — обсуждение",
+    "desc": "Завтра обсудить возможное возвращение автопостинга в туристический канал (остановлен 8 фев по запросу)",
+    "priority": "low",
+    "column": "backlog",
+    "created": 1770572400000
   }
 ]
