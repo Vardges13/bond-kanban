@@ -1,8 +1,90 @@
 [
-  {"id":"v_review_pos","title":"Просмотреть черновик позиционирования","desc":"Бонд подготовил: drafts/positioning.md. Якорь: «практик из офлайна»","priority":"high","column":"review","created":1738454400000},
-  {"id":"v_review_utp","title":"Просмотреть черновик УТП","desc":"Бонд подготовил: drafts/utp.md. 3 варианта УТП + анализ 7 конкурентов","priority":"high","column":"review","created":1738454400000},
-  {"id":"v_review_ca","title":"Просмотреть черновик ЦА","desc":"Бонд подготовил: drafts/target-audience.md. 3 сегмента + антиаудитория","priority":"high","column":"review","created":1738454400000},
-  {"id":"v_notion_key","title":"Передать API-ключ Notion","desc":"Нужен для Reels-пайплайна. Ключ начинается с ntn_...","priority":"medium","column":"backlog","created":1738454400000},
-  {"id":"v_tourvisor","title":"Решение по лиду Елена (TourVisor)","desc":"Заявка #1361, +79508794214, Москва→Вьетнам, 4-10 ноября, 2 взр, 6-8 ночей","priority":"high","column":"backlog","created":1738454400000},
-  {"id":"v_icloud","title":"Решение по iCloud хранилищу","desc":"2TB заполнено. Апгрейд до 6TB = 3 490 ₽/мес. Нужно решение","priority":"medium","column":"backlog","created":1738454400000}
+  {
+    "id": "v_flagship",
+    "title": "🎯 Выбрать флагманский продукт",
+    "desc": "Цель $5к/мес. Варианты: курс 50 агентов / консалтинг / ИИ-блогер",
+    "priority": "high",
+    "column": "inprogress",
+    "created": 1770663600000
+  },
+  {
+    "id": "v_reels_fill",
+    "title": "Наполнить базу Reels идеями",
+    "desc": "База создана в Notion. Добавить 20+ идей для рилсов",
+    "priority": "medium",
+    "column": "backlog",
+    "created": 1770663600000
+  },
+  {
+    "id": "v_course_launch",
+    "title": "Запуск курса «50 GPT-агентов»",
+    "desc": "Ценовая модель + реклама + первые продажи",
+    "priority": "high",
+    "column": "backlog",
+    "created": 1770571200000
+  },
+  {
+    "id": "v_ai_business",
+    "title": "B2B: Внедрение ИИ-агентов",
+    "desc": "Услуга создания агентов для предпринимателей. Кейс: Эверест-Тех",
+    "priority": "high",
+    "column": "backlog",
+    "created": 1770571200000
+  },
+  {
+    "id": "v_ai_blogger",
+    "title": "ИИ-блогер в Instagram",
+    "desc": "Обучение созданию аватара для заработка на рекламе",
+    "priority": "high",
+    "column": "backlog",
+    "created": 1770571200000
+  },
+  {
+    "id": "v_whoop",
+    "title": "Ежедневный отчёт WHOOP",
+    "desc": "Настроить сводку recovery/strain в утреннем сообщении",
+    "priority": "low",
+    "column": "backlog",
+    "created": 1770663600000
+  },
+  {
+    "id": "v_notion_key",
+    "title": "✅ Передать API-ключ Notion",
+    "desc": "Ключ передан, база Reels создана. 9 фев 2026",
+    "priority": "medium",
+    "column": "done",
+    "created": 1738454400000
+  },
+  {
+    "id": "v_icloud",
+    "title": "Решение по iCloud хранилищу",
+    "desc": "2TB заполнено. Апгрейд до 6TB = 3 490 ₽/мес",
+    "priority": "medium",
+    "column": "backlog",
+    "created": 1738454400000
+  },
+  {
+    "id": "v_review_pos",
+    "title": "✅ Позиционирование",
+    "desc": "Якорь: «практик из офлайна». Утверждено",
+    "priority": "high",
+    "column": "done",
+    "created": 1738454400000
+  },
+  {
+    "id": "v_review_utp",
+    "title": "✅ УТП",
+    "desc": "«Реальный бизнес × ИИ × Здравый смысл». Утверждено",
+    "priority": "high",
+    "column": "done",
+    "created": 1738454400000
+  },
+  {
+    "id": "v_review_ca",
+    "title": "✅ Целевая аудитория",
+    "desc": "3 сегмента + антиаудитория. Утверждено",
+    "priority": "high",
+    "column": "done",
+    "created": 1738454400000
+  }
 ]
