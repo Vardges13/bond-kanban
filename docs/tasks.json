@@ -41,10 +41,10 @@
   },
   {
     "id": "t_reels_fill",
-    "title": "Наполнить базу Reels",
+    "title": "✅ База Reels (25 идей)",
     "desc": "Добавить 20+ идей для рилсов в Notion базу",
     "priority": "medium",
-    "column": "backlog",
+    "column": "done",
     "created": 1770663600000
   },
   {
@@ -176,7 +176,7 @@
     "created": 1770571200000
   },
   {
-    "id": "t_product2", 
+    "id": "t_product2",
     "title": "Внедрение ИИ-агентов в бизнес",
     "desc": "B2B услуга: создание персональных агентов для предпринимателей",
     "priority": "high",
@@ -187,7 +187,7 @@
     "id": "t_product3",
     "title": "ИИ-блогер в Instagram",
     "desc": "Обучение созданию аватара для заработка на рекламе",
-    "priority": "high", 
+    "priority": "high",
     "column": "backlog",
     "created": 1770571200000
   },
@@ -196,7 +196,7 @@
     "title": "Партнерская программа",
     "desc": "Найти предпринимателей-партнёров. Комиссия за клиентов",
     "priority": "medium",
-    "column": "backlog", 
+    "column": "backlog",
     "created": 1770571440000
   },
   {
