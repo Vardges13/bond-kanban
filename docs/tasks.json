@@ -1,19 +1,67 @@
 [
   {
+    "id": "t_notion_reels",
+    "title": "✅ Notion + База Reels",
+    "desc": "API подключён, база идей создана (5 стартовых идей). 9 фев 2026",
+    "priority": "high",
+    "column": "done",
+    "created": 1770663600000
+  },
+  {
+    "id": "t_3d_gx53",
+    "title": "✅ 3D модель GX53",
+    "desc": "Светильник для Михаила (Эверест-Тех). STL отправлен. 9 фев 2026",
+    "priority": "high",
+    "column": "done",
+    "created": 1770663600000
+  },
+  {
+    "id": "t_3d_presentation",
+    "title": "✅ Презентация 3D моделирования",
+    "desc": "5 слайдов для Эверест-Тех. vardges13.github.io/everest-3d-presentation/",
+    "priority": "high",
+    "column": "done",
+    "created": 1770663600000
+  },
+  {
+    "id": "t_model_routing",
+    "title": "✅ Роутинг моделей",
+    "desc": "Opus основная, Sonnet саб-агенты, Llama простые, Gemini fallback. 9 фев 2026",
+    "priority": "high",
+    "column": "done",
+    "created": 1770663600000
+  },
+  {
+    "id": "t_flagship",
+    "title": "🎯 Флагманский продукт $5к/мес",
+    "desc": "Выбрать и запустить: курс 50 агентов / консалтинг / ИИ-блогер",
+    "priority": "high",
+    "column": "inprogress",
+    "created": 1770663600000
+  },
+  {
+    "id": "t_reels_fill",
+    "title": "Наполнить базу Reels",
+    "desc": "Добавить 20+ идей для рилсов в Notion базу",
+    "priority": "medium",
+    "column": "backlog",
+    "created": 1770663600000
+  },
+  {
+    "id": "t_whoop_daily",
+    "title": "Ежедневный отчёт WHOOP",
+    "desc": "Настроить крон утренней сводки с данными recovery/strain",
+    "priority": "low",
+    "column": "backlog",
+    "created": 1770663600000
+  },
+  {
     "id": "t_router",
     "title": "✅ Model Router Skill",
     "desc": "Умный роутинг моделей: llama/sonnet/opus. Экономия 70-80% API. ✅ Настроен 7 фев",
     "priority": "high",
     "column": "done",
     "created": 1738963200000
-  },
-  {
-    "id": "t_reels",
-    "title": "Reels-пайплайн",
-    "desc": "Тема → скрипт → озвучка → субтитры → рендер. Ждём Notion API ключ от Вардгеса",
-    "priority": "high",
-    "column": "review",
-    "created": 1738368000000
   },
   {
     "id": "t_wood",
@@ -90,7 +138,7 @@
   {
     "id": "t_gemini",
     "title": "✅ Gemini API",
-    "desc": "$300 кредитов, все модели доступны",
+    "desc": "$300 кредитов, все модели доступны. Ключ сохранён постоянно",
     "priority": "medium",
     "column": "done",
     "created": 1738540800000
@@ -106,7 +154,7 @@
   {
     "id": "t_content",
     "title": "✅ Контент-план",
-    "desc": "10 рилсов + посты готовы. ❌ Автопостинг @onlinetur24 остановлен 8 фев по запросу Вардгеса. Завтра обсуждение возможного возвращения",
+    "desc": "10 рилсов + посты готовы. ❌ Автопостинг @onlinetur24 остановлен 8 фев",
     "priority": "medium",
     "column": "done",
     "created": 1738368000000
@@ -114,7 +162,7 @@
   {
     "id": "t_everest",
     "title": "✅ Клиент: Эверест-Тех",
-    "desc": "6 калькуляторов, DXF развёртки, FreeCAD",
+    "desc": "Калькуляторы, DXF развёртки, 3D модели, презентации",
     "priority": "high",
     "column": "done",
     "created": 1738713600000
@@ -122,7 +170,7 @@
   {
     "id": "t_product1",
     "title": "Курс «50 GPT-агентов» — запуск",
-    "desc": "Ценовая модель + настройка рекламы + продажи. Продукт готов к монетизации",
+    "desc": "Ценовая модель + настройка рекламы + продажи",
     "priority": "high",
     "column": "backlog",
     "created": 1770571200000
@@ -130,7 +178,7 @@
   {
     "id": "t_product2", 
     "title": "Внедрение ИИ-агентов в бизнес",
-    "desc": "B2B услуга: создание персональных агентов для предпринимателей. Кейс Эверест-Тех → презентация услуги",
+    "desc": "B2B услуга: создание персональных агентов для предпринимателей",
     "priority": "high",
     "column": "backlog",
     "created": 1770571200000
@@ -138,7 +186,7 @@
   {
     "id": "t_product3",
     "title": "ИИ-блогер в Instagram",
-    "desc": "Обучение созданию аватара для заработка на рекламе. Самый перспективный продукт!",
+    "desc": "Обучение созданию аватара для заработка на рекламе",
     "priority": "high", 
     "column": "backlog",
     "created": 1770571200000
@@ -146,57 +194,17 @@
   {
     "id": "t_partners",
     "title": "Партнерская программа",
-    "desc": "Найти предпринимателей-партнёров. Комиссия за приведённых клиентов (обучение, внедрения)",
+    "desc": "Найти предпринимателей-партнёров. Комиссия за клиентов",
     "priority": "medium",
     "column": "backlog", 
     "created": 1770571440000
   },
   {
-    "id": "t_clientbase",
-    "title": "Реактивация клиентской базы",
-    "desc": "Обзвон + рассылка существующим клиентам из туризма. Предложить ИИ-внедрения",
+    "id": "t_solidworks",
+    "title": "SolidWorks VBA макрос",
+    "desc": "Автогенерация чертежей для Михаила. Ждём тестовые файлы",
     "priority": "medium",
-    "column": "backlog",
-    "created": 1770571440000
-  },
-  {
-    "id": "t_autokanban",
-    "title": "✅ Авто-канбан правило",
-    "desc": "Настроено автоматическое добавление задач в канбан при упоминании Вардгесом. Триггеры в AGENTS.md",
-    "priority": "low",
-    "column": "done",
-    "created": 1770572200000
-  },
-  {
-    "id": "t_notion_api",
-    "title": "Новый Notion API ключ",
-    "desc": "Старый ключ скомпрометирован (попал в GitHub). Создать новый на notion.com/my-integrations + обновить скрипты",
-    "priority": "high",
-    "column": "backlog",
-    "created": 1770572400000
-  },
-  {
-    "id": "t_openrouter_sdk",
-    "title": "Тест OpenRouter SDK",
-    "desc": "Протестировать openrouterteam/agent-skills@openrouter-typescript-sdk как альтернативу model-router. 300+ моделей, автоинструменты",
-    "priority": "medium",
-    "column": "backlog",
-    "created": 1770572400000
-  },
-  {
-    "id": "t_tourism_return",
-    "title": "Автопостинг @onlinetur24 — обсуждение",
-    "desc": "Завтра обсудить возможное возвращение автопостинга в туристический канал (остановлен 8 фев по запросу)",
-    "priority": "low",
-    "column": "backlog",
-    "created": 1770572400000
-  },
-  {
-    "id": "t_threads_bio",
-    "title": "Шапка профиля в Threads",
-    "desc": "Создать привлекательное био как у kiryaaaz: рассказать о себе, экспертизе, достижениях + красивая подача. Threads API подключён",
-    "priority": "medium",
-    "column": "backlog",
-    "created": 1770578820000
+    "column": "review",
+    "created": 1770663600000
   }
 ]
