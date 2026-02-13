@@ -1,5 +1,21 @@
 [
   {
+    "id": "t_voice_agent",
+    "title": "🎙️ Голосовой агент Бонд",
+    "desc": "Настроить ElevenLabs Conversational AI с промптом и памятью Бонда для рилсов",
+    "priority": "high",
+    "column": "backlog",
+    "created": 1770938820000
+  },
+  {
+    "id": "t_reels_series",
+    "title": "📺 Серия рилсов «Разговоры с ИИ»",
+    "desc": "Формат: живой диалог Вардгес + Бонд голосом. Сериальный контент",
+    "priority": "high",
+    "column": "backlog",
+    "created": 1770938820000
+  },
+  {
     "id": "t_english_content",
     "title": "🌍 Английский контент + аккаунты",
     "desc": "Создать новые аккаунты Instagram, TikTok, YouTube на английском. Дублировать рилсы/видео",
