@@ -1760,26 +1760,24 @@ body.dark .header-search input:focus {
   border-color: rgba(255, 255, 255, 0.2);
 }
 
-/* ===== ADDITIONAL STYLES FOR DYNAMIC CONTENT ===== */
-
-/* Due date colors */
+/* ===== DUE DATE COLORS ===== */
 .due-overdue { color: var(--danger) !important; font-weight: 600; }
 .due-today { color: var(--warning) !important; font-weight: 600; }
-.due-soon { color: var(--label-yellow) !important; }
+.due-soon { color: #eab308 !important; }
 .due-normal { color: var(--text-secondary); }
 
-/* Card subtask badge */
+/* ===== CARD SUBTASK BADGE ===== */
 .card-subtask-badge { display: inline-flex !important; align-items: center; gap: 3px; }
-.card-subtask-bar { width: 30px; height: 4px; background: rgba(99,102,241,.15); border-radius: 2px; overflow: hidden; }
+.card-subtask-bar { width: 30px; height: 4px; background: rgba(99,102,241,.12); border-radius: 2px; overflow: hidden; }
 body.dark .card-subtask-bar { background: rgba(255,255,255,.15); }
 .card-subtask-fill { height: 100%; background: var(--primary); border-radius: 2px; transition: width .3s; }
 .subtask-complete .card-subtask-fill { background: var(--success); }
 .subtask-complete { color: var(--success) !important; }
 
-/* Subtasks in modal */
+/* ===== SUBTASKS IN MODAL ===== */
 .subtask-progress { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; }
 .subtask-progress-text { font-size: 12px; color: var(--text-secondary); white-space: nowrap; }
-.subtask-progress-bar { flex: 1; height: 6px; background: rgba(99,102,241,.1); border-radius: 3px; overflow: hidden; }
+.subtask-progress-bar { flex: 1; height: 6px; background: rgba(99,102,241,.12); border-radius: 3px; overflow: hidden; }
 body.dark .subtask-progress-bar { background: rgba(255,255,255,.15); }
 .subtask-progress-fill { height: 100%; background: var(--primary); border-radius: 3px; transition: width .3s; }
 .subtask-item { display: flex; align-items: center; gap: 8px; padding: 6px 0; border-bottom: 1px solid rgba(99,102,241,.08); }
@@ -1788,18 +1786,22 @@ body.dark .subtask-item { border-color: rgba(255,255,255,.08); }
 .subtask-check { display: flex; align-items: center; cursor: pointer; flex-shrink: 0; }
 .subtask-check input { display: none; }
 .subtask-checkmark { width: 18px; height: 18px; border: 2px solid var(--input-border); border-radius: 4px; display: flex; align-items: center; justify-content: center; transition: all .15s; }
+body.dark .subtask-checkmark { border-color: rgba(99,102,241,.3); }
 .subtask-check input:checked + .subtask-checkmark { background: var(--primary); border-color: var(--primary); }
 .subtask-check input:checked + .subtask-checkmark::after { content: "\2713"; color: #fff; font-size: 12px; font-weight: 700; }
 .subtask-text { flex: 1; font-size: 14px; color: var(--text-primary); }
 .subtask-del { background: none; border: none; color: var(--text-hint); cursor: pointer; font-size: 14px; padding: 4px; border-radius: 6px; transition: background .1s; flex-shrink: 0; }
-.subtask-del:hover { background: rgba(239,68,68,.1); color: var(--danger); }
+.subtask-del:hover { background: rgba(99,102,241,.08); color: var(--danger); }
+.subtask-add { display: flex; gap: 6px; margin-top: 8px; }
+.subtask-add input { flex: 1; }
+.subtask-add-btn { background: var(--primary); color: #fff; border: none; border-radius: 8px; width: 36px; cursor: pointer; font-size: 18px; display: flex; align-items: center; justify-content: center; min-height: 44px; }
 
-/* Filter bar */
-#filterBar { padding: 4px 8px; background: rgba(0,0,0,.08); flex-shrink: 0; }
+/* ===== FILTER BAR (from JS) ===== */
+#filterBar { padding: 4px 8px; flex-shrink: 0; }
 .filter-section { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
 .filter-pills { display: flex; gap: 4px; }
-.filter-pill { padding: 4px 10px; border-radius: 12px; border: 1px solid rgba(255,255,255,.3); background: rgba(255,255,255,.15); color: #fff; font-size: 12px; font-family: var(--font); font-weight: 500; cursor: pointer; transition: all .15s; display: flex; align-items: center; gap: 4px; }
-.filter-pill.active { background: rgba(255,255,255,.35); border-color: #fff; }
+.filter-pill { padding: 5px 12px; border-radius: 20px; border: 1px solid rgba(255,255,255,.2); background: var(--filter-pill-bg); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); color: var(--text-primary); font-size: 12px; font-family: var(--font); font-weight: 500; cursor: pointer; transition: all .15s; display: flex; align-items: center; gap: 4px; white-space: nowrap; min-height: 44px; }
+.filter-pill.active { background: var(--filter-pill-active); color: #ffffff; border-color: transparent; }
 .filter-pill.priority-high.active { background: rgba(239,68,68,.5); border-color: var(--danger); }
 .filter-pill.priority-medium.active { background: rgba(245,158,11,.4); border-color: var(--warning); }
 .filter-pill.priority-low.active { background: rgba(34,197,94,.4); border-color: var(--success); }
@@ -1816,73 +1818,107 @@ body.dark .subtask-item { border-color: rgba(255,255,255,.08); }
 .filter-chip:hover { background: rgba(255,255,255,.4); }
 .filter-clear-all { background: none; border: none; color: rgba(255,255,255,.7); font-size: 11px; cursor: pointer; font-family: var(--font); text-decoration: underline; padding: 2px 4px; }
 
-/* Stats panel */
+/* ===== STATS PANEL (from JS) ===== */
 #statsPanel { padding: 0 8px 4px; flex-shrink: 0; }
-.stats-content { background: rgba(255,255,255,.12); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border-radius: 12px; padding: 14px; color: #fff; border: 1px solid rgba(255,255,255,.15); }
-.stats-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; font-weight: 700; font-size: 14px; }
-.stats-close { background: none; border: none; color: rgba(255,255,255,.7); cursor: pointer; font-size: 16px; padding: 4px 8px; border-radius: 6px; }
-.stats-close:hover { background: rgba(255,255,255,.1); }
+.stats-content { background: rgba(255,255,255,.12); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border-radius: 12px; padding: 12px; color: #fff; }
+.stats-close { background: none; border: none; color: rgba(255,255,255,.7); cursor: pointer; font-size: 16px; padding: 2px 6px; border-radius: 6px; }
 .stats-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-bottom: 12px; }
-.stat-card { text-align: center; background: rgba(255,255,255,.1); border-radius: 8px; padding: 10px 6px; }
-.stat-num { font-size: 24px; font-weight: 700; }
+.stat-card { text-align: center; background: rgba(255,255,255,.1); border-radius: 8px; padding: 8px 4px; }
+.stat-num { font-size: 22px; font-weight: 700; }
 .stat-label { font-size: 11px; opacity: .8; margin-top: 2px; }
 .stats-bars { margin-bottom: 10px; }
-.stats-bar-row { display: flex; align-items: center; gap: 6px; margin-bottom: 5px; }
-.stats-bar-label { font-size: 11px; width: 110px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; flex-shrink: 0; }
+.stats-bar-row { display: flex; align-items: center; gap: 6px; margin-bottom: 4px; }
+.stats-bar-label { font-size: 11px; width: 100px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; flex-shrink: 0; }
 .stats-bar-track { flex: 1; height: 8px; background: rgba(255,255,255,.15); border-radius: 4px; overflow: hidden; }
-.stats-bar-fill { height: 100%; background: rgba(255,255,255,.5); border-radius: 4px; transition: width .5s cubic-bezier(.25,.46,.45,.94); }
-.stats-bar-count { font-size: 11px; width: 22px; text-align: right; font-weight: 600; }
+.stats-bar-fill { height: 100%; background: rgba(255,255,255,.5); border-radius: 4px; transition: width .3s; }
+.stats-bar-count { font-size: 11px; width: 20px; text-align: right; }
 .stats-priority { display: flex; gap: 6px; flex-wrap: wrap; }
-.stats-pri-badge { padding: 4px 10px; border-radius: 10px; font-size: 11px; border: 1px solid; background: rgba(255,255,255,.08); font-weight: 500; }
+.stats-pri-badge { padding: 3px 8px; border-radius: 10px; font-size: 11px; border: 1px solid; background: rgba(255,255,255,.08); }
 
-/* Archive panel */
-#archivePanel { position: fixed; top: 0; right: 0; bottom: 0; width: 300px; max-width: 85vw; background: var(--modal-bg); backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px); z-index: 450; transform: translateX(100%); transition: transform .35s cubic-bezier(.32,.72,0,1); box-shadow: -8px 0 32px rgba(0,0,0,.2); overflow-y: auto; border-left: 1px solid rgba(255,255,255,.1); }
+/* ===== ARCHIVE PANEL (from JS) ===== */
+#archivePanel { position: fixed; top: 0; right: 0; bottom: 0; width: 300px; max-width: 85vw; background: var(--archive-bg); backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px); z-index: 450; transform: translateX(100%); transition: transform .3s cubic-bezier(.32,.72,0,1); box-shadow: -4px 0 20px rgba(0,0,0,.2); overflow-y: auto; border-left: 1px solid rgba(255,255,255,.15); }
+body.dark #archivePanel { background: rgba(30,30,50,.95); }
 #archivePanel.open { transform: translateX(0); }
-.archive-header { display: flex; justify-content: space-between; align-items: center; padding: 16px; font-weight: 700; font-size: 16px; color: var(--text-primary); border-bottom: 1px solid rgba(99,102,241,.1); }
-body.dark .archive-header { border-color: rgba(255,255,255,.08); }
-.archive-close-btn { background: rgba(99,102,241,.08); border: none; cursor: pointer; font-size: 18px; color: var(--text-secondary); padding: 4px 8px; border-radius: 8px; min-width: 36px; min-height: 36px; display: flex; align-items: center; justify-content: center; }
-.archive-close-btn:active { background: rgba(99,102,241,.15); }
-.archive-empty { text-align: center; padding: 40px 16px; color: var(--text-hint); font-size: 14px; }
-.archive-list { padding: 10px; }
-.archive-item { background: var(--card-bg); border-radius: var(--card-border-radius); border: 1px solid rgba(255,255,255,.15); padding: 12px; margin-bottom: 8px; box-shadow: var(--card-shadow); }
-.archive-item-title { font-size: 14px; color: var(--text-primary); margin-bottom: 4px; font-weight: 500; }
-.archive-item-date { font-size: 11px; color: var(--text-secondary); margin-bottom: 8px; }
-.archive-restore-btn { background: linear-gradient(135deg, var(--primary), var(--primary-dark)); color: #fff; border: none; border-radius: 8px; padding: 6px 14px; font-size: 12px; font-weight: 600; font-family: var(--font); cursor: pointer; transition: opacity .15s; }
-.archive-restore-btn:active { opacity: .7; }
-.archive-done-btn { padding: 6px 8px; display: flex; align-items: center; gap: 4px; background: none; border: none; color: var(--btn-add-color); font-size: 12px; font-family: var(--font); cursor: pointer; width: 100%; transition: background .15s, color .15s; border-radius: 0 0 var(--column-border-radius) var(--column-border-radius); }
-.archive-done-btn:hover { background: rgba(99,102,241,.08); color: var(--btn-add-hover); }
-
-/* Archive badge */
-.archive-badge { background: var(--danger); color: #fff; font-size: 9px; font-weight: 700; border-radius: 8px; padding: 1px 5px; min-width: 16px; text-align: center; position: absolute; top: -2px; right: -2px; display: none; }
+.archive-header { display: flex; justify-content: space-between; align-items: center; padding: 16px; font-weight: 600; font-size: 16px; color: var(--text-primary); border-bottom: 1px solid rgba(99,102,241,.1); }
+body.dark .archive-header { border-color: rgba(255,255,255,.1); }
+.archive-close-btn { background: rgba(99,102,241,.08); border: none; cursor: pointer; font-size: 18px; color: var(--text-secondary); padding: 4px 8px; border-radius: 8px; min-width: 44px; min-height: 44px; display: flex; align-items: center; justify-content: center; }
+.archive-empty { text-align: center; padding: 40px 16px; color: var(--text-secondary); font-size: 14px; }
+.archive-list { padding: 8px; }
+.archive-item { background: var(--card-bg); border-radius: var(--card-border-radius); border: 1px solid rgba(255,255,255,.2); padding: 10px; margin-bottom: 6px; box-shadow: var(--card-shadow); }
+.archive-item-title { font-size: 14px; color: var(--text-primary); margin-bottom: 4px; }
+.archive-item-date { font-size: 11px; color: var(--text-secondary); margin-bottom: 6px; }
+.archive-restore-btn { background: var(--primary); color: #fff; border: none; border-radius: 8px; padding: 5px 10px; font-size: 12px; font-family: var(--font); cursor: pointer; }
+.archive-done-btn { padding: 6px 8px; display: flex; align-items: center; gap: 4px; background: none; border: none; color: var(--btn-add-color); font-size: 12px; font-family: var(--font); cursor: pointer; width: 100%; transition: background .1s; min-height: 44px; }
+.archive-done-btn:hover { background: rgba(99,102,241,.08); }
+.archive-badge { background: var(--danger); color: #fff; font-size: 10px; font-weight: 700; border-radius: 8px; padding: 1px 5px; min-width: 16px; text-align: center; position: absolute; top: -4px; right: -4px; display: none; }
 .header-btn { position: relative; }
 
-/* Header counter */
-.header-counter { font-size: 12px; color: rgba(255,255,255,.85); padding: 0 6px; white-space: nowrap; font-weight: 500; }
-.header-counter .counter-done { font-weight: 700; color: #fff; }
+/* ===== HEADER COUNTER ===== */
+.header-counter { font-size: 12px; color: rgba(255,255,255,.8); padding: 0 6px; white-space: nowrap; font-weight: 500; }
+.header-counter .counter-done { font-weight: 700; }
 
-/* Shortcuts panel */
-#shortcutsPanel { position: fixed; inset: 0; z-index: 550; background: var(--overlay-bg); backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px); display: none; align-items: center; justify-content: center; padding: 20px; }
-.shortcuts-box { background: var(--modal-bg); backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px); border-radius: 16px; border: 1px solid rgba(255,255,255,.2); padding: 20px 24px; max-width: 340px; width: 100%; box-shadow: 0 16px 48px rgba(0,0,0,.25); }
-.shortcuts-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; font-weight: 700; font-size: 15px; color: var(--text-primary); }
-.shortcuts-header button { background: rgba(99,102,241,.08); border: none; cursor: pointer; font-size: 18px; color: var(--text-secondary); padding: 4px 8px; border-radius: 8px; }
-.shortcuts-header button:active { background: rgba(99,102,241,.15); }
-.shortcut-row { display: flex; align-items: center; gap: 12px; padding: 6px 0; }
-.shortcut-row kbd { background: rgba(99,102,241,.1); border: 1px solid var(--input-border); border-radius: 6px; padding: 3px 10px; font-size: 13px; font-family: monospace; min-width: 30px; text-align: center; color: var(--text-primary); font-weight: 600; }
+/* ===== SHORTCUTS PANEL ===== */
+#shortcutsPanel { position: fixed; inset: 0; z-index: 550; background: var(--overlay-bg); display: none; align-items: center; justify-content: center; padding: 20px; }
+.shortcuts-box { background: var(--modal-bg); backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px); border-radius: 16px; border: 1px solid rgba(255,255,255,.2); padding: 16px 20px; max-width: 340px; width: 100%; box-shadow: 0 8px 32px rgba(0,0,0,.25); }
+body.dark .shortcuts-box { background: rgba(30,30,50,.95); }
+.shortcuts-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; font-weight: 600; font-size: 15px; color: var(--text-primary); }
+.shortcuts-header button { background: none; border: none; cursor: pointer; font-size: 18px; color: var(--text-secondary); padding: 2px 6px; border-radius: 6px; }
+.shortcut-row { display: flex; align-items: center; gap: 12px; padding: 5px 0; }
+.shortcut-row kbd { background: var(--input-bg); border: 1px solid var(--input-border); border-radius: 6px; padding: 2px 8px; font-size: 13px; font-family: monospace; min-width: 28px; text-align: center; color: var(--text-primary); }
+body.dark .shortcut-row kbd { background: rgba(40,40,65,.8); border-color: rgba(99,102,241,.3); }
 .shortcut-row span { font-size: 13px; color: var(--text-secondary); }
 
-/* Due date input */
+/* ===== DUE DATE INPUT ===== */
 .due-date-input { width: 100%; padding: 10px 14px; border: 2px solid var(--input-border); border-radius: 10px; background: var(--input-bg); color: var(--text-primary); font-size: 14px; font-family: var(--font); outline: none; transition: border-color .2s, background .2s, box-shadow .2s; }
 .due-date-input:focus { border-color: var(--input-focus-border); background: rgba(255,255,255,.95); box-shadow: 0 0 0 4px var(--input-focus-ring); }
-body.dark .due-date-input { background: rgba(40,40,65,.8); border-color: rgba(99,102,241,.3); color: var(--text-primary); }
+body.dark .due-date-input { background: rgba(40,40,65,.8); border-color: rgba(99,102,241,.3); }
 body.dark .due-date-input:focus { border-color: var(--primary); background: rgba(40,40,65,.95); }
 
-/* Progress bar animation for subtasks */
-@keyframes subtaskComplete { 0% { transform: scale(1); } 50% { transform: scale(1.05); } 100% { transform: scale(1); } }
-.card-subtask-badge.subtask-complete { animation: subtaskComplete .3s ease; }
+/* ===== FILTER DIVIDER ===== */
+.filter-divider { width: 1px; height: 20px; background: rgba(255,255,255,.2); margin: 0 2px; flex-shrink: 0; }
+.filter-clear { display: none; }
+.filter-clear.visible { display: flex; }
+.filter-scroll { display: flex; gap: 6px; align-items: center; flex-wrap: nowrap; }
+
+/* ===== SHORTCUTS OVERLAY ===== */
+.shortcuts-overlay { position: fixed; inset: 0; z-index: 550; background: var(--overlay-bg); backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px); display: flex; align-items: center; justify-content: center; padding: 20px; opacity: 0; visibility: hidden; transition: opacity .25s, visibility .25s; }
+.shortcuts-overlay.active { opacity: 1; visibility: visible; }
+.shortcuts-overlay .shortcuts-box { transform: scale(.9); transition: transform .3s cubic-bezier(.32,.72,0,1); }
+.shortcuts-overlay.active .shortcuts-box { transform: scale(1); }
+.shortcuts-list { display: flex; flex-direction: column; gap: 2px; }
+.shortcuts-close-btn { background: rgba(99,102,241,.08); border: none; width: 32px; height: 32px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 18px; cursor: pointer; color: var(--text-secondary); }
+
+/* ===== ARCHIVE OVERLAY ===== */
+.archive-overlay { position: fixed; inset: 0; background: var(--overlay-bg); backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px); z-index: 400; opacity: 0; visibility: hidden; transition: opacity .25s, visibility .25s; }
+.archive-overlay.active { opacity: 1; visibility: visible; }
+.archive-panel-inner { position: fixed; top: 0; right: 0; bottom: 0; width: 320px; max-width: 90vw; background: var(--archive-bg); backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px); border-left: 1px solid rgba(255,255,255,.15); display: flex; flex-direction: column; transform: translateX(100%); transition: transform .35s cubic-bezier(.32,.72,0,1); }
+.archive-overlay.active .archive-panel-inner { transform: translateX(0); }
+.archive-body { flex: 1; overflow-y: auto; padding: 10px; }
+.archive-list { display: flex; flex-direction: column; gap: 8px; }
+
+/* ===== CONFETTI CANVAS ===== */
+#confettiCanvas { position: fixed; inset: 0; pointer-events: none; z-index: 9998; }
+
+/* ===== STAT PANEL EXTRAS (HTML version) ===== */
+.stats-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; }
+.stat-card { background: rgba(255,255,255,.08); border-radius: 10px; padding: 12px; }
+.stat-card-wide { grid-column: 1 / -1; }
+.stat-value { font-size: 24px; font-weight: 700; color: var(--text-primary); }
+.stat-col-row { display: flex; align-items: center; gap: 8px; margin-bottom: 6px; }
+.stat-col-name { font-size: 12px; color: var(--text-secondary); min-width: 90px; flex-shrink: 0; }
+.stat-col-bar-bg { flex: 1; height: 8px; background: var(--stats-bar-bg); border-radius: 4px; overflow: hidden; }
+.stat-col-bar { height: 100%; background: var(--primary); border-radius: 4px; transition: width .6s; }
+.stat-col-count { font-size: 12px; font-weight: 700; color: var(--text-primary); min-width: 20px; text-align: right; }
+.stat-priority-row { display: flex; align-items: center; gap: 6px; margin-bottom: 4px; }
+.stat-priority-dot { width: 8px; height: 8px; border-radius: 50%; }
+.stat-priority-dot.high { background: var(--danger); }
+.stat-priority-dot.medium { background: var(--warning); }
+.stat-priority-dot.low { background: var(--success); }
+.stat-priority-count { margin-left: auto; font-weight: 700; font-size: 13px; color: var(--text-primary); }
+.stat-priorities { display: flex; flex-direction: column; gap: 2px; }
 </style>
 </head>
 <body>
-
   <!-- Loading -->
   <div class="loading-overlay" id="loadingOverlay">
     <div class="loading-logo">
@@ -1896,100 +1932,180 @@ body.dark .due-date-input:focus { border-color: var(--primary); background: rgba
   </div>
 
   <!-- Header -->
-  <div class="header">
-    <div class="sync-indicator" id="syncDot" title="Синхронизация"></div>
+  <div class="header" role="banner">
+    <div class="sync-indicator" id="syncDot" title="Синхронизация" role="status" aria-label="Статус синхронизации"></div>
     <div class="header-board-name" id="boardName">Бонд — Задачи</div>
-    <div class="header-counter" id="headerCounter"><span class="counter-done">0</span> / <span class="counter-total">0</span> задач</div>
-    <div class="header-search">
-      <span class="header-search-icon">🔍</span>
-      <input type="text" id="searchInput" placeholder="Поиск..." autocomplete="off">
-      <button class="header-search-clear" id="searchClear" type="button">✕</button>
+    <div class="header-search" role="search">
+      <span class="header-search-icon" aria-hidden="true">🔍</span>
+      <input type="text" id="searchInput" placeholder="Поиск..." autocomplete="off" aria-label="Поиск задач">
+      <button class="header-search-clear" id="searchClear" type="button" aria-label="Очистить поиск">✕</button>
     </div>
-    <button class="header-btn" id="filterBtn" title="Фильтры">⚙</button>
-    <button class="header-btn" id="statsBtn" title="Статистика">📊</button>
-    <button class="header-btn" id="refreshBtn" title="Обновить">
+    <button class="header-btn" id="statsToggle" title="Статистика" aria-label="Показать статистику" aria-expanded="false" aria-controls="statsPanel">📊</button>
+    <button class="header-btn" id="darkToggle" title="Тёмная тема" aria-label="Переключить тему">🌙</button>
+    <button class="header-btn" id="refreshBtn" title="Принудительное обновление (очистить кэш)" aria-label="Обновить">
       <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M13.65 2.35A8 8 0 1 0 16 8h-2a6 6 0 1 1-1.76-4.24L10 6h6V0l-2.35 2.35z"/></svg>
     </button>
-    <button class="header-btn" id="archiveBtn" title="Архив">📦<span class="archive-badge" id="archiveBadge">0</span></button>
-    <button class="header-btn" id="darkModeBtn" title="Тёмная тема">🌙</button>
+    <button class="header-btn" id="archiveBtn" title="Архив" aria-label="Открыть архив" aria-expanded="false" aria-controls="archivePanel">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20.54 5.23l-1.39-1.68C18.88 3.21 18.47 3 18 3H6c-.47 0-.88.21-1.16.55L3.46 5.23C3.17 5.57 3 6.02 3 6.5V19c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V6.5c0-.48-.17-.93-.46-1.27zM12 17.5L6.5 12H10v-2h4v2h3.5L12 17.5zM5.12 5l.81-1h12l.94 1H5.12z"/></svg>
+      <span class="archive-badge" id="archiveBadge" aria-label="Количество архивных задач">0</span>
+    </button>
   </div>
 
   <!-- Progress Bar -->
-  <div class="progress-bar-container"><div class="progress-bar-fill" id="progressBar"></div></div>
-
-  <!-- Board Tabs (hidden, single board) -->
-  <div class="board-tabs" id="tabs" style="display:none;">
-    <button class="board-tab active" data-board="bond">Бонд <span class="tab-badge" id="badgeBond">0</span></button>
+  <div class="progress-bar-container" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" aria-label="Прогресс выполнения задач">
+    <div class="progress-bar-fill" id="progressBar"></div>
   </div>
 
   <!-- Filter Bar -->
-  <div id="filterBar" style="display:none"></div>
+  <div class="filter-bar" id="filterBar" role="toolbar" aria-label="Фильтры задач">
+    <div class="filter-scroll">
+      <button class="filter-pill priority-filter" data-priority="high" type="button">🔴 Высокий</button>
+      <button class="filter-pill priority-filter" data-priority="medium" type="button">🟡 Средний</button>
+      <button class="filter-pill priority-filter" data-priority="low" type="button">🟢 Низкий</button>
+      <span class="filter-divider" aria-hidden="true"></span>
+      <button class="filter-pill label-filter" data-label="green" type="button" aria-label="Метка зелёная"><span class="filter-label-dot green"></span></button>
+      <button class="filter-pill label-filter" data-label="yellow" type="button" aria-label="Метка жёлтая"><span class="filter-label-dot yellow"></span></button>
+      <button class="filter-pill label-filter" data-label="orange" type="button" aria-label="Метка оранжевая"><span class="filter-label-dot orange"></span></button>
+      <button class="filter-pill label-filter" data-label="red" type="button" aria-label="Метка красная"><span class="filter-label-dot red"></span></button>
+      <button class="filter-pill label-filter" data-label="purple" type="button" aria-label="Метка фиолетовая"><span class="filter-label-dot purple"></span></button>
+      <button class="filter-pill label-filter" data-label="blue" type="button" aria-label="Метка синяя"><span class="filter-label-dot blue"></span></button>
+      <span class="filter-divider" aria-hidden="true"></span>
+      <button class="filter-pill filter-clear" id="filterClear" type="button" style="display:none">✕ Сбросить</button>
+    </div>
+  </div>
 
-  <!-- Stats Panel -->
-  <div id="statsPanel" style="display:none"></div>
+  <!-- Statistics Panel -->
+  <div class="stats-panel" id="statsPanel" role="region" aria-label="Статистика доски" hidden>
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-label">Всего задач</div>
+        <div class="stat-value" id="statTotal">0</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">Завершено</div>
+        <div class="stat-value" id="statCompletion">0%</div>
+      </div>
+      <div class="stat-card stat-card-wide">
+        <div class="stat-label">По колонкам</div>
+        <div class="stat-columns" id="statColumns">
+          <div class="stat-col-row">
+            <span class="stat-col-name">📋 Бэклог</span>
+            <div class="stat-col-bar-bg"><div class="stat-col-bar" id="statBarBacklog"></div></div>
+            <span class="stat-col-count" id="statCountBacklog">0</span>
+          </div>
+          <div class="stat-col-row">
+            <span class="stat-col-name">🔨 В работе</span>
+            <div class="stat-col-bar-bg"><div class="stat-col-bar" id="statBarInprogress"></div></div>
+            <span class="stat-col-count" id="statCountInprogress">0</span>
+          </div>
+          <div class="stat-col-row">
+            <span class="stat-col-name">👀 На проверке</span>
+            <div class="stat-col-bar-bg"><div class="stat-col-bar" id="statBarReview"></div></div>
+            <span class="stat-col-count" id="statCountReview">0</span>
+          </div>
+          <div class="stat-col-row">
+            <span class="stat-col-name">✅ Готово</span>
+            <div class="stat-col-bar-bg"><div class="stat-col-bar" id="statBarDone"></div></div>
+            <span class="stat-col-count" id="statCountDone">0</span>
+          </div>
+        </div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">По приоритету</div>
+        <div class="stat-priorities" id="statPriorities">
+          <div class="stat-priority-row">
+            <span class="stat-priority-dot high"></span>
+            <span>Высокий</span>
+            <span class="stat-priority-count" id="statPriorityHigh">0</span>
+          </div>
+          <div class="stat-priority-row">
+            <span class="stat-priority-dot medium"></span>
+            <span>Средний</span>
+            <span class="stat-priority-count" id="statPriorityMedium">0</span>
+          </div>
+          <div class="stat-priority-row">
+            <span class="stat-priority-dot low"></span>
+            <span>Низкий</span>
+            <span class="stat-priority-count" id="statPriorityLow">0</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <!-- Board -->
-  <div class="board" id="board"></div>
+  <div class="board" id="board" role="main" aria-label="Канбан доска"></div>
 
   <!-- Column dots (mobile) -->
-  <div class="column-dots" id="columnDots"></div>
+  <div class="column-dots" id="columnDots" role="tablist" aria-label="Навигация по колонкам"></div>
 
   <!-- Task Modal -->
-  <div class="modal-overlay" id="taskModal">
+  <div class="modal-overlay" id="taskModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
     <div class="modal">
       <div class="modal-header">
-        <div class="modal-header-icon">
+        <div class="modal-header-icon" aria-hidden="true">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M4 5a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V5zm0 6a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-2zm0 6a1 1 0 0 1 1-1h7a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-2z"/></svg>
         </div>
         <div class="modal-header-content">
           <div class="modal-title-text" id="modalTitle">Новая задача</div>
           <div class="modal-subtitle" id="modalSubtitle">Добавить в доску</div>
         </div>
-        <button class="modal-close-btn" id="modalClose" type="button">&times;</button>
+        <button class="modal-close-btn" id="modalClose" type="button" aria-label="Закрыть">&times;</button>
       </div>
       <div class="modal-body">
+        <!-- Title -->
         <div class="form-section">
-          <div class="form-section-title">Название</div>
+          <label class="form-section-title" for="taskTitle">Название</label>
           <input type="text" id="taskTitle" placeholder="Введите название задачи..." autocomplete="off">
         </div>
+        <!-- Description -->
         <div class="form-section">
-          <div class="form-section-title">Описание</div>
+          <label class="form-section-title" for="taskDesc">Описание</label>
           <textarea id="taskDesc" placeholder="Добавьте описание..."></textarea>
         </div>
-        <div class="form-section" id="dueDateSection">
-          <div class="form-section-title">Срок</div>
-          <input type="date" id="taskDueDate" class="due-date-input">
-        </div>
-        <div class="form-section" id="subtasksSection" style="display:none">
+        <!-- Subtasks -->
+        <div class="form-section">
           <div class="form-section-title">Подзадачи</div>
-          <div id="subtasksContainer"></div>
+          <div class="subtasks-list" id="subtasksList" role="list" aria-label="Список подзадач"></div>
+          <div class="subtask-add">
+            <input type="text" id="newSubtaskInput" placeholder="Добавить подзадачу..." autocomplete="off" aria-label="Новая подзадача">
+            <button class="subtask-add-btn" id="addSubtaskBtn" type="button" aria-label="Добавить подзадачу">+</button>
+          </div>
         </div>
+        <!-- Due Date -->
+        <div class="form-section">
+          <label class="form-section-title" for="taskDueDate">Срок</label>
+          <input type="date" id="taskDueDate" aria-label="Дата выполнения">
+        </div>
+        <!-- Labels -->
         <div class="form-section">
           <div class="form-section-title">Метки</div>
-          <div class="labels-picker" id="labelsPicker">
-            <div class="label-chip green" data-label="green"></div>
-            <div class="label-chip yellow" data-label="yellow"></div>
-            <div class="label-chip orange" data-label="orange"></div>
-            <div class="label-chip red" data-label="red"></div>
-            <div class="label-chip purple" data-label="purple"></div>
-            <div class="label-chip blue" data-label="blue"></div>
+          <div class="labels-picker" id="labelsPicker" role="group" aria-label="Выбор меток">
+            <div class="label-chip green" data-label="green" role="checkbox" aria-checked="false" aria-label="Зелёная метка" tabindex="0"></div>
+            <div class="label-chip yellow" data-label="yellow" role="checkbox" aria-checked="false" aria-label="Жёлтая метка" tabindex="0"></div>
+            <div class="label-chip orange" data-label="orange" role="checkbox" aria-checked="false" aria-label="Оранжевая метка" tabindex="0"></div>
+            <div class="label-chip red" data-label="red" role="checkbox" aria-checked="false" aria-label="Красная метка" tabindex="0"></div>
+            <div class="label-chip purple" data-label="purple" role="checkbox" aria-checked="false" aria-label="Фиолетовая метка" tabindex="0"></div>
+            <div class="label-chip blue" data-label="blue" role="checkbox" aria-checked="false" aria-label="Синяя метка" tabindex="0"></div>
           </div>
         </div>
+        <!-- Priority -->
         <div class="form-section">
           <div class="form-section-title">Приоритет</div>
-          <div class="priority-picker" id="priorityPicker">
-            <button class="priority-btn" data-p="high" type="button">Высокий</button>
-            <button class="priority-btn selected" data-p="medium" type="button">Средний</button>
-            <button class="priority-btn" data-p="low" type="button">Низкий</button>
+          <div class="priority-picker" id="priorityPicker" role="radiogroup" aria-label="Выбор приоритета">
+            <button class="priority-btn" data-p="high" type="button" role="radio" aria-checked="false">Высокий</button>
+            <button class="priority-btn selected" data-p="medium" type="button" role="radio" aria-checked="true">Средний</button>
+            <button class="priority-btn" data-p="low" type="button" role="radio" aria-checked="false">Низкий</button>
           </div>
         </div>
+        <!-- Column -->
         <div class="form-section" id="columnPickerGroup">
           <div class="form-section-title">Список</div>
-          <div class="column-picker" id="columnPicker">
-            <button class="col-pick-btn selected" data-c="backlog" type="button">📋 Бэклог</button>
-            <button class="col-pick-btn" data-c="inprogress" type="button">🔨 В работе</button>
-            <button class="col-pick-btn" data-c="review" type="button">👀 Проверка</button>
-            <button class="col-pick-btn" data-c="done" type="button">✅ Готово</button>
+          <div class="column-picker" id="columnPicker" role="radiogroup" aria-label="Выбор колонки">
+            <button class="col-pick-btn selected" data-c="backlog" type="button" role="radio" aria-checked="true">📋 Бэклог</button>
+            <button class="col-pick-btn" data-c="inprogress" type="button" role="radio" aria-checked="false">🔨 В работе</button>
+            <button class="col-pick-btn" data-c="review" type="button" role="radio" aria-checked="false">👀 На проверке</button>
+            <button class="col-pick-btn" data-c="done" type="button" role="radio" aria-checked="false">✅ Готово</button>
           </div>
         </div>
       </div>
@@ -2002,9 +2118,9 @@ body.dark .due-date-input:focus { border-color: var(--primary); background: rgba
   </div>
 
   <!-- Confirm Dialog -->
-  <div class="confirm-overlay" id="confirmOverlay">
+  <div class="confirm-overlay" id="confirmOverlay" role="alertdialog" aria-modal="true" aria-labelledby="confirmTitle" aria-describedby="confirmText">
     <div class="confirm-box">
-      <h3>Удалить задачу?</h3>
+      <h3 id="confirmTitle">Удалить задачу?</h3>
       <p id="confirmText">Это действие нельзя отменить.</p>
       <div class="btns">
         <button class="btn-secondary" id="confirmNo">Отмена</button>
@@ -2014,708 +2130,65 @@ body.dark .due-date-input:focus { border-color: var(--primary); background: rgba
   </div>
 
   <!-- Archive Panel -->
-  <div id="archivePanel"></div>
+  <div class="archive-overlay" id="archivePanel" role="dialog" aria-modal="true" aria-labelledby="archivePanelTitle" hidden>
+    <div class="archive-panel-inner">
+      <div class="archive-header">
+        <h2 id="archivePanelTitle">Архив</h2>
+        <button class="archive-close-btn" id="archiveClose" type="button" aria-label="Закрыть архив">&times;</button>
+      </div>
+      <div class="archive-body">
+        <div class="archive-list" id="archiveList" role="list" aria-label="Архивные задачи"></div>
+        <div class="archive-empty" id="archiveEmpty">
+          <span aria-hidden="true">📦</span>
+          <p>Архив пуст</p>
+        </div>
+      </div>
+    </div>
+  </div>
 
-  <!-- Shortcuts Panel -->
-  <div id="shortcutsPanel"></div>
+  <!-- Keyboard Shortcuts Help -->
+  <div class="shortcuts-overlay" id="shortcutsHelp" role="dialog" aria-modal="true" aria-labelledby="shortcutsTitle" hidden>
+    <div class="shortcuts-box">
+      <div class="shortcuts-header">
+        <h3 id="shortcutsTitle">Горячие клавиши</h3>
+        <button class="shortcuts-close-btn" id="shortcutsClose" type="button" aria-label="Закрыть">&times;</button>
+      </div>
+      <div class="shortcuts-list">
+        <div class="shortcut-row">
+          <kbd>N</kbd>
+          <span>Новая задача</span>
+        </div>
+        <div class="shortcut-row">
+          <kbd>F</kbd>
+          <span>Поиск</span>
+        </div>
+        <div class="shortcut-row">
+          <kbd>1</kbd> <kbd>2</kbd> <kbd>3</kbd> <kbd>4</kbd>
+          <span>Перейти к колонке</span>
+        </div>
+        <div class="shortcut-row">
+          <kbd>D</kbd>
+          <span>Тёмная тема</span>
+        </div>
+        <div class="shortcut-row">
+          <kbd>?</kbd>
+          <span>Помощь</span>
+        </div>
+        <div class="shortcut-row">
+          <kbd>Esc</kbd>
+          <span>Закрыть</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Confetti Canvas -->
+  <canvas id="confettiCanvas" aria-hidden="true"></canvas>
 
   <!-- Toast -->
-  <div class="toast" id="toast"></div>
+  <div class="toast" id="toast" role="alert" aria-live="polite"></div>
 
 <script>
-(function() {
-  'use strict';
-
-  // ===== TELEGRAM INIT =====
-  var tg = window.Telegram && window.Telegram.WebApp;
-  if (tg) {
-    tg.ready();
-    tg.expand();
-    tg.enableClosingConfirmation();
-    try { tg.disableVerticalSwipes(); } catch(e) {}
-    try { tg.setHeaderColor('#4f46e5'); } catch(e) {}
-    try { tg.setBackgroundColor('#667eea'); } catch(e) {}
-  }
-
-  // ===== COLUMNS CONFIG (4 columns) =====
-  var COLUMNS = [
-    { id: 'backlog',    name: '📋 Backlog',       emptyIcon: '📥', emptyText: 'Нет новых задач' },
-    { id: 'inprogress', name: '🔨 В работе',      emptyIcon: '🛠️', emptyText: 'Ничего в работе' },
-    { id: 'review',     name: '👀 На проверке',    emptyIcon: '🔍', emptyText: 'Нет задач на проверке' },
-    { id: 'done',       name: '✅ Готово',          emptyIcon: '🎉', emptyText: 'Задач не завершено' }
-  ];
-
-  var BOARDS = {
-    bond: { file: 'tasks.json', storageKey: 'kanban_bond_v8' },
-    vardges: { file: 'tasks-vardges.json', storageKey: 'kanban_vardges_v1' }
-  };
-
-  var BOARD_NAMES = { bond: 'Бонд — Задачи', vardges: 'Вардгес — Задачи' };
-  var LABEL_COLORS = ['green', 'yellow', 'orange', 'red', 'purple', 'blue'];
-
-  // ===== STATE =====
-  var activeBoard = 'bond';
-  var boardTasks = { bond: [], vardges: [] };
-  var boardDataHash = { bond: '', vardges: '' };
-  var archivedTasks = { bond: [], vardges: [] };
-  var editingId = null;
-  var searchQuery = '';
-  var deleteTargetId = null;
-  var refreshTimer = null;
-  var isLoading = true;
-  var darkMode = false;
-  var statsVisible = false;
-  var archiveVisible = false;
-  var activeFilters = { priorities: [], labels: [] };
-  var shortcutsVisible = false;
-
-  // ===== UTILS =====
-  function $(id) { return document.getElementById(id); }
-  function genId() { return Date.now().toString(36) + Math.random().toString(36).slice(2, 8); }
-
-  function formatDate(ts) {
-    var d = new Date(ts);
-    var months = ['янв','фев','мар','апр','май','июн','июл','авг','сен','окт','ноя','дек'];
-    return d.getDate() + ' ' + months[d.getMonth()];
-  }
-
-  function escHtml(s) { var d = document.createElement('div'); d.textContent = s; return d.innerHTML; }
-
-  function showToast(msg) {
-    var t = $('toast');
-    t.textContent = msg;
-    t.classList.add('show');
-    clearTimeout(t._timer);
-    t._timer = setTimeout(function() { t.classList.remove('show'); }, 2000);
-  }
-
-  function haptic(type) {
-    if (tg && tg.HapticFeedback) {
-      if (type === 'light') tg.HapticFeedback.impactOccurred('light');
-      else if (type === 'medium') tg.HapticFeedback.impactOccurred('medium');
-      else if (type === 'heavy') tg.HapticFeedback.impactOccurred('heavy');
-      else if (type === 'success') tg.HapticFeedback.notificationOccurred('success');
-      else if (type === 'error') tg.HapticFeedback.notificationOccurred('error');
-      else if (type === 'select') tg.HapticFeedback.selectionChanged();
-    }
-  }
-
-  function tasks() { return boardTasks[activeBoard]; }
-  function archived() { return archivedTasks[activeBoard]; }
-
-  // ===== RELATIVE TIME =====
-  function relativeTime(ts) {
-    var diff = Date.now() - ts;
-    var sec = Math.floor(diff / 1000);
-    var min = Math.floor(sec / 60);
-    var hr = Math.floor(min / 60);
-    var day = Math.floor(hr / 24);
-    if (sec < 60) return 'только что';
-    if (min < 60) return min + ' мин назад';
-    if (hr < 24) return hr + ' час' + (hr === 1 ? '' : (hr < 5 ? 'а' : 'ов')) + ' назад';
-    if (day === 1) return 'вчера';
-    if (day < 7) return day + ' дн' + (day === 1 ? 'ь' : (day < 5 ? 'я' : 'ей')) + ' назад';
-    return formatDate(ts);
-  }
-
-  // ===== DUE DATE HELPERS =====
-  function dueDateLabel(ts) {
-    if (!ts) return null;
-    var now = new Date();
-    var today = new Date(now.getFullYear(), now.getMonth(), now.getDate()).getTime();
-    var dueDay = new Date(new Date(ts).getFullYear(), new Date(ts).getMonth(), new Date(ts).getDate()).getTime();
-    var days = Math.round((dueDay - today) / 86400000);
-    if (days < 0) return { text: 'просрочено', cls: 'due-overdue' };
-    if (days === 0) return { text: 'сегодня', cls: 'due-today' };
-    if (days === 1) return { text: 'завтра', cls: 'due-soon' };
-    return { text: 'через ' + days + ' дн' + (days === 1 ? 'ь' : (days < 5 ? 'я' : 'ей')), cls: 'due-normal' };
-  }
-
-  function formatDateInput(ts) {
-    if (!ts) return '';
-    var d = new Date(ts);
-    return d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0') + '-' + String(d.getDate()).padStart(2, '0');
-  }
-
-  // ===== NORMALIZE TASK =====
-  function normalizeTask(t) {
-    if (t.status && !t.column) {
-      var statusMap = { 'backlog': 'backlog', 'in_progress': 'inprogress', 'inprogress': 'inprogress', 'rules': 'inprogress', 'progress': 'inprogress', 'review': 'review', 'done': 'done' };
-      t.column = statusMap[t.status] || 'backlog';
-    }
-    if (!t.column) t.column = 'backlog';
-    if (t.column === 'rules' || t.column === 'progress' || t.column === 'in_progress') t.column = 'inprogress';
-    if (!t.labels) t.labels = [];
-    if (!t.priority) t.priority = 'medium';
-    if (!t.created && t.createdAt) t.created = new Date(t.createdAt).getTime();
-    if (!t.created) t.created = Date.now();
-    if (t.description && !t.desc) t.desc = t.description;
-    if (!t.subtasks) t.subtasks = [];
-    if (!t.dueDate) t.dueDate = null;
-    return t;
-  }
-
-  function ensureLabels(t) {
-    if (!t.labels || t.labels.length === 0) {
-      if (t.priority === 'high') t.labels = ['red'];
-      else if (t.priority === 'low') t.labels = ['green'];
-      else t.labels = ['blue'];
-    }
-    return t;
-  }
-
-  // ===== DATA LOADING =====
-  function fetchBoard(boardId, cb) {
-    var cfg = BOARDS[boardId];
-    var url = cfg.file + '?bust=' + Date.now() + Math.random();
-    $('syncDot').classList.add('syncing');
-    fetch(url)
-      .then(function(r) { return r.ok ? r.text() : Promise.reject('no json'); })
-      .then(function(text) {
-        $('syncDot').classList.remove('syncing');
-        boardDataHash[boardId] = text;
-        try {
-          boardTasks[boardId] = JSON.parse(text).map(normalizeTask);
-          localStorage.setItem(cfg.storageKey, text);
-          if (tg && tg.CloudStorage) tg.CloudStorage.setItem(cfg.storageKey, text, function() {});
-          $('syncDot').title = 'Обновлено: ' + new Date().toLocaleTimeString('ru-RU', { hour: '2-digit', minute: '2-digit' });
-        } catch(e) { boardTasks[boardId] = []; }
-        if (cb) cb(true);
-      })
-      .catch(function() {
-        $('syncDot').classList.remove('syncing');
-        try {
-          var local = localStorage.getItem(cfg.storageKey);
-          if (local) boardTasks[boardId] = JSON.parse(local).map(normalizeTask);
-        } catch(e) {}
-        if (tg && tg.CloudStorage) {
-          tg.CloudStorage.getItem(cfg.storageKey, function(err, val) {
-            if (!err && val) try { boardTasks[boardId] = JSON.parse(val).map(normalizeTask); } catch(e) {}
-            if (cb) cb(false);
-          });
-        } else { if (cb) cb(false); }
-      });
-  }
-
-  function saveTasks() {
-    var cfg = BOARDS[activeBoard];
-    var data = JSON.stringify(boardTasks[activeBoard]);
-    try { localStorage.setItem(cfg.storageKey, data); localStorage.setItem(cfg.storageKey + '_ts', String(Date.now())); } catch(e) {}
-    if (tg && tg.CloudStorage) tg.CloudStorage.setItem(cfg.storageKey, data, function() {});
-    boardDataHash[activeBoard] = data;
-    try { localStorage.setItem(cfg.storageKey + '_archive', JSON.stringify(archivedTasks[activeBoard])); } catch(e) {}
-  }
-
-  function loadArchive() {
-    var cfg = BOARDS[activeBoard];
-    try { var data = localStorage.getItem(cfg.storageKey + '_archive'); if (data) archivedTasks[activeBoard] = JSON.parse(data); } catch(e) {}
-  }
-
-  function loadAllBoards(cb) {
-    var loaded = 0;
-    function done() { loaded++; if (loaded >= 2 && cb) cb(); }
-    fetchBoard('bond', done);
-    fetchBoard('vardges', done);
-  }
-
-  function startAutoRefresh() {
-    if (refreshTimer) clearInterval(refreshTimer);
-    refreshTimer = setInterval(function() { fetchBoard(activeBoard, function(changed) { if (changed) renderBoard(); }); }, 30000);
-  }
-
-  // ===== DARK MODE =====
-  function initDarkMode() {
-    var saved = localStorage.getItem('kanban_dark_mode');
-    if (saved !== null) darkMode = saved === 'true';
-    else darkMode = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-    applyDarkMode();
-  }
-  function toggleDarkMode() { darkMode = !darkMode; localStorage.setItem('kanban_dark_mode', String(darkMode)); applyDarkMode(); haptic('select'); }
-  function applyDarkMode() {
-    document.body.classList.toggle('dark', darkMode);
-    var btn = $('darkModeBtn');
-    if (btn) btn.textContent = darkMode ? '☀️' : '🌙';
-  }
-
-  // ===== CONFETTI =====
-  function launchConfetti() {
-    var canvas = document.createElement('canvas');
-    canvas.style.cssText = 'position:fixed;inset:0;z-index:9999;pointer-events:none;';
-    canvas.width = window.innerWidth; canvas.height = window.innerHeight;
-    document.body.appendChild(canvas);
-    var ctx = canvas.getContext('2d');
-    var particles = [];
-    var colors = ['#22c55e', '#eab308', '#f97316', '#ef4444', '#a855f7', '#6366f1', '#ec4899', '#06b6d4'];
-    for (var i = 0; i < 70; i++) {
-      particles.push({
-        x: canvas.width * 0.5 + (Math.random() - 0.5) * 200, y: canvas.height * 0.4,
-        vx: (Math.random() - 0.5) * 12, vy: -Math.random() * 12 - 4,
-        size: Math.random() * 6 + 3, color: colors[Math.floor(Math.random() * colors.length)],
-        rotation: Math.random() * 360, rotSpeed: (Math.random() - 0.5) * 10, alpha: 1,
-        shape: Math.random() > 0.5 ? 'rect' : 'circle'
-      });
-    }
-    var startTime = Date.now();
-    function animate() {
-      var elapsed = Date.now() - startTime;
-      if (elapsed > 3000) { canvas.remove(); return; }
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      particles.forEach(function(p) {
-        p.x += p.vx; p.vy += 0.25; p.y += p.vy; p.rotation += p.rotSpeed;
-        if (elapsed > 2000) p.alpha = Math.max(0, 1 - (elapsed - 2000) / 1000);
-        ctx.save(); ctx.translate(p.x, p.y); ctx.rotate(p.rotation * Math.PI / 180);
-        ctx.globalAlpha = p.alpha; ctx.fillStyle = p.color;
-        if (p.shape === 'rect') ctx.fillRect(-p.size / 2, -p.size / 2, p.size, p.size * 0.6);
-        else { ctx.beginPath(); ctx.arc(0, 0, p.size / 2, 0, Math.PI * 2); ctx.fill(); }
-        ctx.restore();
-      });
-      requestAnimationFrame(animate);
-    }
-    requestAnimationFrame(animate);
-  }
-
-  // ===== PROGRESS BAR =====
-  function updateProgressBar() {
-    var total = tasks().length;
-    var done = tasks().filter(function(t) { return t.column === 'done'; }).length;
-    var pct = total > 0 ? Math.round(done / total * 100) : 0;
-    var bar = $('progressBar');
-    if (bar) bar.style.width = pct + '%';
-  }
-
-  // ===== ANIMATED COUNTER =====
-  function animateCounter(el, target) {
-    var current = parseInt(el.textContent) || 0;
-    if (current === target) return;
-    var step = target > current ? 1 : -1;
-    var delay = Math.max(30, 300 / Math.abs(target - current));
-    function tick() { current += step; el.textContent = current; if (current !== target) setTimeout(tick, delay); }
-    tick();
-  }
-  function updateHeaderCounter() {
-    var total = tasks().length;
-    var done = tasks().filter(function(t) { return t.column === 'done'; }).length;
-    var counter = $('headerCounter');
-    if (!counter) return;
-    var doneSp = counter.querySelector('.counter-done');
-    var totalSp = counter.querySelector('.counter-total');
-    if (doneSp && totalSp) { animateCounter(doneSp, done); animateCounter(totalSp, total); }
-  }
-
-  // ===== FILTER SYSTEM =====
-  function matchesFilters(task) {
-    if (activeFilters.priorities.length > 0 && activeFilters.priorities.indexOf(task.priority) < 0) return false;
-    if (activeFilters.labels.length > 0) {
-      var tLabels = task.labels || [];
-      if (!activeFilters.labels.some(function(l) { return tLabels.indexOf(l) >= 0; })) return false;
-    }
-    return true;
-  }
-  function toggleFilter(type, value) {
-    var arr = activeFilters[type]; var idx = arr.indexOf(value);
-    if (idx >= 0) arr.splice(idx, 1); else arr.push(value);
-    renderBoard(); haptic('select');
-  }
-  function clearFilters() { activeFilters.priorities = []; activeFilters.labels = []; renderBoard(); haptic('light'); }
-  function hasActiveFilters() { return activeFilters.priorities.length > 0 || activeFilters.labels.length > 0; }
-
-  function renderFilterBar() {
-    var bar = $('filterBar'); if (!bar) return;
-    var html = '<div class="filter-section"><div class="filter-pills">';
-    ['high', 'medium', 'low'].forEach(function(p) {
-      var names = { high: 'Высокий', medium: 'Средний', low: 'Низкий' };
-      var active = activeFilters.priorities.indexOf(p) >= 0 ? ' active' : '';
-      html += '<button class="filter-pill priority-' + p + active + '" onclick="K.toggleFilter(\'priorities\',\'' + p + '\')">' + names[p] + '</button>';
-    });
-    html += '</div><div class="filter-pills">';
-    LABEL_COLORS.forEach(function(c) {
-      var active = activeFilters.labels.indexOf(c) >= 0 ? ' active' : '';
-      html += '<button class="filter-pill filter-label-pill ' + c + active + '" onclick="K.toggleFilter(\'labels\',\'' + c + '\')"><span class="filter-label-dot ' + c + '"></span></button>';
-    });
-    html += '</div>';
-    if (hasActiveFilters()) {
-      html += '<div class="filter-chips">';
-      var pNames = { high: 'Высокий', medium: 'Средний', low: 'Низкий' };
-      activeFilters.priorities.forEach(function(p) { html += '<span class="filter-chip" onclick="K.toggleFilter(\'priorities\',\'' + p + '\')">' + pNames[p] + ' ✕</span>'; });
-      activeFilters.labels.forEach(function(l) { html += '<span class="filter-chip" onclick="K.toggleFilter(\'labels\',\'' + l + '\')"><span class="filter-label-dot ' + l + '"></span> ✕</span>'; });
-      html += '<button class="filter-clear-all" onclick="K.clearFilters()">Сбросить</button></div>';
-    }
-    html += '</div>';
-    bar.innerHTML = html;
-    bar.style.display = hasActiveFilters() || bar.classList.contains('force-show') ? 'block' : 'none';
-  }
-
-  // ===== STATISTICS =====
-  function renderStats() {
-    var panel = $('statsPanel'); if (!panel) return;
-    if (!statsVisible) { panel.style.display = 'none'; return; }
-    panel.style.display = 'block';
-    var all = tasks(), total = all.length;
-    var doneCount = all.filter(function(t) { return t.column === 'done'; }).length;
-    var rate = total > 0 ? Math.round(doneCount / total * 100) : 0;
-    var colCounts = {};
-    COLUMNS.forEach(function(c) { colCounts[c.id] = all.filter(function(t) { return t.column === c.id; }).length; });
-    var maxCol = Math.max.apply(null, Object.values(colCounts).concat([1]));
-    var priCounts = { high: 0, medium: 0, low: 0 };
-    all.forEach(function(t) { priCounts[t.priority] = (priCounts[t.priority] || 0) + 1; });
-    var weekAgo = Date.now() - 7 * 86400000;
-    var doneThisWeek = all.filter(function(t) { return t.column === 'done' && t.created > weekAgo; }).length;
-
-    var html = '<div class="stats-content">';
-    html += '<div class="stats-header"><span>📊 Статистика</span><button class="stats-close" onclick="K.toggleStats()">✕</button></div>';
-    html += '<div class="stats-grid">';
-    html += '<div class="stat-card"><div class="stat-num">' + total + '</div><div class="stat-label">Всего задач</div></div>';
-    html += '<div class="stat-card"><div class="stat-num">' + rate + '%</div><div class="stat-label">Завершено</div></div>';
-    html += '<div class="stat-card"><div class="stat-num">' + doneThisWeek + '</div><div class="stat-label">За неделю</div></div>';
-    html += '</div><div class="stats-bars">';
-    COLUMNS.forEach(function(c) {
-      var pct = maxCol > 0 ? Math.round(colCounts[c.id] / maxCol * 100) : 0;
-      html += '<div class="stats-bar-row"><span class="stats-bar-label">' + escHtml(c.name) + '</span><div class="stats-bar-track"><div class="stats-bar-fill" style="width:' + pct + '%"></div></div><span class="stats-bar-count">' + colCounts[c.id] + '</span></div>';
-    });
-    html += '</div><div class="stats-priority">';
-    var pNames = { high: 'Высокий', medium: 'Средний', low: 'Низкий' };
-    var pColors = { high: '#ef4444', medium: '#f59e0b', low: '#22c55e' };
-    ['high', 'medium', 'low'].forEach(function(p) {
-      html += '<span class="stats-pri-badge" style="border-color:' + pColors[p] + '">' + pNames[p] + ': ' + priCounts[p] + '</span>';
-    });
-    html += '</div></div>';
-    panel.innerHTML = html;
-  }
-
-  // ===== ARCHIVE =====
-  function archiveAllDone() {
-    var doneItems = tasks().filter(function(t) { return t.column === 'done'; });
-    if (doneItems.length === 0) { showToast('Нет завершённых задач'); return; }
-    doneItems.forEach(function(t) { t.archivedAt = Date.now(); archivedTasks[activeBoard].push(t); });
-    boardTasks[activeBoard] = tasks().filter(function(t) { return t.column !== 'done'; });
-    saveTasks(); renderBoard(); haptic('success');
-    showToast('Архивировано: ' + doneItems.length);
-  }
-  function restoreFromArchive(taskId) {
-    var idx = archived().findIndex(function(t) { return t.id === taskId; });
-    if (idx < 0) return;
-    var task = archived().splice(idx, 1)[0]; delete task.archivedAt; task.column = 'backlog';
-    tasks().unshift(task); saveTasks(); renderBoard(); renderArchivePanel(); haptic('success'); showToast('Восстановлено');
-  }
-  function toggleArchive() { archiveVisible = !archiveVisible; renderArchivePanel(); haptic('select'); }
-  function renderArchivePanel() {
-    var panel = $('archivePanel'); if (!panel) return;
-    panel.classList.toggle('open', archiveVisible);
-    var badge = $('archiveBadge');
-    if (badge) { var count = archived().length; badge.textContent = count; badge.style.display = count > 0 ? 'inline-flex' : 'none'; }
-    if (!archiveVisible) return;
-    var items = archived();
-    var html = '<div class="archive-header"><span>📦 Архив</span><button class="archive-close-btn" onclick="K.toggleArchive()">✕</button></div>';
-    if (items.length === 0) html += '<div class="archive-empty">Архив пуст</div>';
-    else {
-      html += '<div class="archive-list">';
-      items.forEach(function(t) {
-        html += '<div class="archive-item"><div class="archive-item-title">' + escHtml(t.title) + '</div><div class="archive-item-date">' + relativeTime(t.archivedAt || t.created) + '</div><button class="archive-restore-btn" onclick="K.restoreFromArchive(\'' + t.id + '\')">Восстановить</button></div>';
-      });
-      html += '</div>';
-    }
-    panel.innerHTML = html;
-  }
-
-  // ===== SUBTASKS =====
-  function renderSubtasksInModal(task) {
-    var container = $('subtasksContainer'); if (!container) return;
-    var subs = task.subtasks || [];
-    var doneCount = subs.filter(function(s) { return s.done; }).length;
-    var html = '';
-    if (subs.length > 0) {
-      var pct = Math.round(doneCount / subs.length * 100);
-      html += '<div class="subtask-progress"><span class="subtask-progress-text">' + doneCount + '/' + subs.length + '</span><div class="subtask-progress-bar"><div class="subtask-progress-fill" style="width:' + pct + '%"></div></div></div>';
-    }
-    subs.forEach(function(s) {
-      html += '<div class="subtask-item' + (s.done ? ' done' : '') + '"><label class="subtask-check"><input type="checkbox"' + (s.done ? ' checked' : '') + ' onchange="K.toggleSubtask(\'' + task.id + '\',\'' + s.id + '\')"><span class="subtask-checkmark"></span></label><span class="subtask-text">' + escHtml(s.text) + '</span><button class="subtask-del" onclick="K.deleteSubtask(\'' + task.id + '\',\'' + s.id + '\')">✕</button></div>';
-    });
-    html += '<div class="subtask-add"><input type="text" id="newSubtaskInput" placeholder="Новый пункт..." onkeydown="if(event.key===\'Enter\'){event.preventDefault();K.addSubtask(\'' + task.id + '\')}"><button class="subtask-add-btn" onclick="K.addSubtask(\'' + task.id + '\')">+</button></div>';
-    container.innerHTML = html;
-  }
-  function addSubtask(taskId) {
-    var input = $('newSubtaskInput'); if (!input) return;
-    var text = input.value.trim(); if (!text) return;
-    var task = tasks().find(function(t) { return t.id === taskId; }); if (!task) return;
-    if (!task.subtasks) task.subtasks = [];
-    task.subtasks.push({ id: genId(), text: text, done: false });
-    input.value = ''; saveTasks(); renderSubtasksInModal(task); renderBoard(); haptic('light');
-  }
-  function toggleSubtask(taskId, subtaskId) {
-    var task = tasks().find(function(t) { return t.id === taskId; }); if (!task || !task.subtasks) return;
-    var sub = task.subtasks.find(function(s) { return s.id === subtaskId; }); if (!sub) return;
-    sub.done = !sub.done; saveTasks(); renderSubtasksInModal(task); renderBoard(); haptic('select');
-  }
-  function deleteSubtask(taskId, subtaskId) {
-    var task = tasks().find(function(t) { return t.id === taskId; }); if (!task || !task.subtasks) return;
-    task.subtasks = task.subtasks.filter(function(s) { return s.id !== subtaskId; });
-    saveTasks(); renderSubtasksInModal(task); renderBoard(); haptic('light');
-  }
-
-  // ===== SHORTCUTS =====
-  function renderShortcutsHelp() {
-    var panel = $('shortcutsPanel'); if (!panel) return;
-    if (!shortcutsVisible) { panel.style.display = 'none'; return; }
-    panel.style.display = 'flex';
-    var shortcuts = [['N', 'Новая задача'], ['F / /', 'Поиск'], ['1–4', 'Перейти к колонке'], ['Esc', 'Закрыть окно'], ['D', 'Тёмная тема'], ['S', 'Статистика'], ['A', 'Архив'], ['?', 'Эта подсказка']];
-    var html = '<div class="shortcuts-box"><div class="shortcuts-header"><span>⌨️ Горячие клавиши</span><button onclick="K.toggleShortcuts()">✕</button></div>';
-    shortcuts.forEach(function(s) { html += '<div class="shortcut-row"><kbd>' + s[0] + '</kbd><span>' + s[1] + '</span></div>'; });
-    html += '</div>'; panel.innerHTML = html;
-  }
-
-  // ===== RENDER =====
-  function getColumnTasks(colId) {
-    var list = tasks().filter(function(t) { return t.column === colId; });
-    if (searchQuery) {
-      var q = searchQuery.toLowerCase();
-      list = list.filter(function(t) { return t.title.toLowerCase().indexOf(q) >= 0 || (t.desc && t.desc.toLowerCase().indexOf(q) >= 0); });
-    }
-    if (hasActiveFilters()) list = list.filter(matchesFilters);
-    var pOrder = { high: 0, medium: 1, low: 2 };
-    list.sort(function(a, b) { return (pOrder[a.priority] || 1) - (pOrder[b.priority] || 1); });
-    return list;
-  }
-
-  function renderTabBadges() {
-    var bondActive = boardTasks.bond.filter(function(t) { return t.column !== 'done'; }).length;
-    var el = $('badgeBond'); if (el) el.textContent = bondActive;
-  }
-
-  function renderDots() {
-    var dots = $('columnDots');
-    dots.innerHTML = COLUMNS.map(function(c, i) { return '<div class="cdot' + (i === 0 ? ' active' : '') + '" data-col="' + i + '"></div>'; }).join('');
-  }
-
-  function updateDots() {
-    var board = $('board');
-    var cols = board.querySelectorAll('.column'); if (!cols.length) return;
-    var colW = cols[0].offsetWidth + 10;
-    var idx = Math.round(board.scrollLeft / colW);
-    idx = Math.max(0, Math.min(idx, COLUMNS.length - 1));
-    document.querySelectorAll('#columnDots .cdot').forEach(function(d, i) { d.classList.toggle('active', i === idx); });
-  }
-
-  function renderBoard() {
-    var board = $('board');
-    board.innerHTML = COLUMNS.map(function(col, ci) {
-      var colTasks = getColumnTasks(col.id);
-      var emptyHTML = colTasks.length === 0 ? '<div class="empty-state"><div class="icon">' + col.emptyIcon + '</div><p>' + col.emptyText + '</p></div>' : '';
-      var cardsHTML = colTasks.map(function(t) { return renderCard(t, ci); }).join('');
-      var archiveBtnHTML = col.id === 'done' && colTasks.length > 0 ? '<button class="archive-done-btn" onclick="K.archiveAllDone()">📦 Архивировать все</button>' : '';
-      return '<div class="column" data-col="' + col.id + '" id="col-' + col.id + '">' +
-        '<div class="column-header"><span class="column-title">' + escHtml(col.name) + '</span><span class="column-count">' + colTasks.length + '</span></div>' +
-        '<div class="column-body" data-col="' + col.id + '"><div class="drop-zone" data-col="' + col.id + '"></div>' + cardsHTML + emptyHTML + '</div>' +
-        archiveBtnHTML +
-        '<button class="add-card-btn" onclick="K.addToCol(\'' + col.id + '\')"><span class="plus">+</span> Добавить карточку</button></div>';
-    }).join('');
-    renderTabBadges(); renderDots(); renderFilterBar(); renderStats(); renderArchivePanel(); updateHeaderCounter(); updateProgressBar(); setupDragDrop();
-  }
-
-  function renderCard(task, colIndex) {
-    var t = ensureLabels(task);
-    var labelsHTML = '';
-    if (t.labels && t.labels.length > 0)
-      labelsHTML = '<div class="card-labels">' + t.labels.map(function(l) { return '<div class="card-label ' + l + '"></div>'; }).join('') + '</div>';
-    var prevBtn = colIndex > 0 ? '<button class="card-move-btn" onclick="event.stopPropagation();K.move(\'' + t.id + '\',-1)" title="Назад">◂</button>' : '';
-    var nextBtn = colIndex < COLUMNS.length - 1 ? '<button class="card-move-btn" onclick="event.stopPropagation();K.move(\'' + t.id + '\',1)" title="Вперёд">▸</button>' : '';
-    var descIcon = t.desc ? '<div class="card-badge"><svg viewBox="0 0 24 24"><path d="M4 5h16v2H4V5zm0 4h16v2H4V9zm0 4h10v2H4v-2z"/></svg></div>' : '';
-    var dueBadge = '';
-    if (t.dueDate) { var due = dueDateLabel(t.dueDate); if (due) dueBadge = '<div class="card-badge ' + due.cls + '"><svg viewBox="0 0 24 24" width="14" height="14"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg> ' + due.text + '</div>'; }
-    var subtaskBadge = '';
-    if (t.subtasks && t.subtasks.length > 0) {
-      var subDone = t.subtasks.filter(function(s) { return s.done; }).length;
-      var subPct = Math.round(subDone / t.subtasks.length * 100);
-      var subClass = subDone === t.subtasks.length ? 'subtask-complete' : '';
-      subtaskBadge = '<div class="card-badge card-subtask-badge ' + subClass + '"><svg viewBox="0 0 24 24" width="14" height="14"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-9 14l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg> ' + subDone + '/' + t.subtasks.length + '<div class="card-subtask-bar"><div class="card-subtask-fill" style="width:' + subPct + '%"></div></div></div>';
-    }
-    return '<div class="card" draggable="true" data-id="' + t.id + '" onclick="K.edit(\'' + t.id + '\')">' + labelsHTML +
-      '<div class="card-title">' + escHtml(t.title) + '</div><div class="card-badges">' +
-      '<div class="card-badge"><svg viewBox="0 0 24 24"><path d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V10h14v10z"/></svg> ' + relativeTime(t.created || Date.now()) + '</div>' +
-      descIcon + dueBadge + subtaskBadge +
-      '<div class="card-move-btns">' + prevBtn + nextBtn + '</div></div></div>' +
-      '<div class="drop-zone" data-col="' + COLUMNS[colIndex].id + '" data-after="' + t.id + '"></div>';
-  }
-
-  // ===== DRAG & DROP =====
-  function setupDragDrop() {
-    document.querySelectorAll('.card[draggable]').forEach(function(card) {
-      var longPressTimer = null, startX, startY, isDragging = false, clone = null;
-      card.addEventListener('dragstart', function(e) {
-        card.classList.add('dragging'); e.dataTransfer.effectAllowed = 'move'; e.dataTransfer.setData('text/plain', card.dataset.id); haptic('medium');
-      });
-      card.addEventListener('dragend', function() { card.classList.remove('dragging'); document.querySelectorAll('.drop-zone').forEach(function(dz) { dz.classList.remove('active'); }); });
-      card.addEventListener('touchstart', function(e) {
-        startX = e.touches[0].clientX; startY = e.touches[0].clientY;
-        longPressTimer = setTimeout(function() {
-          isDragging = true; card.classList.add('dragging'); haptic('heavy');
-          clone = card.cloneNode(true);
-          clone.style.cssText = 'position:fixed;z-index:9000;pointer-events:none;width:' + card.offsetWidth + 'px;opacity:.85;transform:rotate(3deg);box-shadow:0 12px 40px rgba(0,0,50,.35);transition:none;';
-          clone.style.left = (startX - card.offsetWidth / 2) + 'px'; clone.style.top = (startY - 30) + 'px';
-          document.body.appendChild(clone);
-          document.querySelectorAll('.drop-zone').forEach(function(dz) { dz.classList.add('active'); });
-        }, 300);
-      }, { passive: true });
-      card.addEventListener('touchmove', function(e) {
-        if (!isDragging) { if (Math.abs(e.touches[0].clientX - startX) > 8 || Math.abs(e.touches[0].clientY - startY) > 8) clearTimeout(longPressTimer); return; }
-        e.preventDefault(); var touch = e.touches[0];
-        if (clone) { clone.style.left = (touch.clientX - clone.offsetWidth / 2) + 'px'; clone.style.top = (touch.clientY - 30) + 'px'; }
-        var el = document.elementFromPoint(touch.clientX, touch.clientY);
-        document.querySelectorAll('.drop-zone').forEach(function(dz) { dz.classList.remove('active'); dz.style.borderColor = ''; });
-        if (el && (el.classList.contains('drop-zone') || el.classList.contains('column-body'))) el.classList.add('active');
-      }, { passive: false });
-      card.addEventListener('touchend', function(e) {
-        clearTimeout(longPressTimer); if (clone) { clone.remove(); clone = null; } if (!isDragging) return;
-        var touch = e.changedTouches[0]; var el = document.elementFromPoint(touch.clientX, touch.clientY);
-        if (el) { var colBody = el.closest('.column-body'); if (colBody) {
-          var targetCol = colBody.dataset.col; var task = tasks().find(function(t) { return t.id === card.dataset.id; });
-          if (task && task.column !== targetCol) { var oldCol = task.column; task.column = targetCol; saveTasks(); haptic('success');
-            showToast('Перемещено в «' + COLUMNS.find(function(c) { return c.id === targetCol; }).name + '»');
-            if (targetCol === 'done' && oldCol !== 'done') launchConfetti(); }
-        }}
-        card.classList.remove('dragging'); document.querySelectorAll('.drop-zone').forEach(function(dz) { dz.classList.remove('active'); }); isDragging = false; renderBoard();
-      }, { passive: true });
-    });
-    document.querySelectorAll('.drop-zone, .column-body').forEach(function(zone) {
-      zone.addEventListener('dragover', function(e) { e.preventDefault(); e.dataTransfer.dropEffect = 'move'; zone.classList.add('active'); });
-      zone.addEventListener('dragleave', function() { zone.classList.remove('active'); });
-      zone.addEventListener('drop', function(e) {
-        e.preventDefault(); zone.classList.remove('active');
-        var taskId = e.dataTransfer.getData('text/plain');
-        var targetCol = zone.dataset.col || (zone.closest('.column-body') || {}).dataset.col;
-        if (taskId && targetCol) { var task = tasks().find(function(t) { return t.id === taskId; });
-          if (task && task.column !== targetCol) { var oldCol = task.column; task.column = targetCol; saveTasks(); renderBoard(); haptic('success');
-            showToast('Перемещено в «' + COLUMNS.find(function(c) { return c.id === targetCol; }).name + '»');
-            if (targetCol === 'done' && oldCol !== 'done') launchConfetti(); }
-        }
-      });
-    });
-  }
-
-  // ===== GLOBAL API =====
-  window.K = {
-    move: function(taskId, dir) {
-      var task = tasks().find(function(t) { return t.id === taskId; }); if (!task) return;
-      var ci = COLUMNS.findIndex(function(c) { return c.id === task.column; }); var ni = ci + dir;
-      if (ni < 0 || ni >= COLUMNS.length) return;
-      var oldCol = task.column; task.column = COLUMNS[ni].id; saveTasks(); renderBoard(); haptic('select');
-      showToast('→ ' + COLUMNS[ni].name);
-      if (COLUMNS[ni].id === 'done' && oldCol !== 'done') launchConfetti();
-    },
-    edit: function(taskId) {
-      var task = tasks().find(function(t) { return t.id === taskId; }); if (!task) return;
-      editingId = taskId;
-      $('modalTitle').textContent = escHtml(task.title);
-      $('modalSubtitle').textContent = 'в списке «' + (COLUMNS.find(function(c) { return c.id === task.column; }) || {}).name + '»';
-      $('taskTitle').value = task.title; $('taskDesc').value = task.desc || '';
-      document.querySelectorAll('#labelsPicker .label-chip').forEach(function(chip) { chip.classList.toggle('selected', (task.labels || []).indexOf(chip.dataset.label) >= 0); });
-      document.querySelectorAll('#priorityPicker button').forEach(function(b) { b.classList.toggle('selected', b.dataset.p === task.priority); });
-      document.querySelectorAll('#columnPicker button').forEach(function(b) { b.classList.toggle('selected', b.dataset.c === task.column); });
-      var dueDateInput = $('taskDueDate'); if (dueDateInput) dueDateInput.value = task.dueDate ? formatDateInput(task.dueDate) : '';
-      var subtasksSection = $('subtasksSection'); if (subtasksSection) { subtasksSection.style.display = 'block'; renderSubtasksInModal(task); }
-      $('modalDelete').style.display = 'block'; $('columnPickerGroup').style.display = 'block'; openModal(); haptic('light');
-    },
-    addToCol: function(colId) { editingId = null; resetForm(); document.querySelectorAll('#columnPicker button').forEach(function(b) { b.classList.toggle('selected', b.dataset.c === colId); }); openModal(); haptic('light'); },
-    confirmDel: function(taskId) { deleteTargetId = taskId; var task = tasks().find(function(t) { return t.id === taskId; }); $('confirmText').textContent = task ? '«' + task.title + '» — это нельзя отменить.' : 'Это нельзя отменить.'; $('confirmOverlay').classList.add('active'); haptic('medium'); },
-    toggleFilter: toggleFilter, clearFilters: clearFilters,
-    toggleStats: function() { statsVisible = !statsVisible; renderStats(); haptic('select'); },
-    toggleArchive: toggleArchive, archiveAllDone: archiveAllDone, restoreFromArchive: restoreFromArchive,
-    addSubtask: addSubtask, toggleSubtask: toggleSubtask, deleteSubtask: deleteSubtask,
-    toggleShortcuts: function() { shortcutsVisible = !shortcutsVisible; renderShortcutsHelp(); }
-  };
-
-  // ===== MODAL =====
-  function openModal() { $('taskModal').classList.add('active'); setTimeout(function() { $('taskTitle').focus(); }, 300); }
-  function closeModal() { $('taskModal').classList.remove('active'); editingId = null; resetForm(); }
-  function resetForm() {
-    $('taskTitle').value = ''; $('taskDesc').value = '';
-    $('modalTitle').textContent = 'Новая задача'; $('modalSubtitle').textContent = 'Добавить в доску';
-    document.querySelectorAll('#labelsPicker .label-chip').forEach(function(c) { c.classList.remove('selected'); });
-    document.querySelectorAll('#priorityPicker button').forEach(function(b) { b.classList.remove('selected'); });
-    var medBtn = document.querySelector('#priorityPicker button[data-p="medium"]'); if (medBtn) medBtn.classList.add('selected');
-    document.querySelectorAll('#columnPicker button').forEach(function(b) { b.classList.remove('selected'); });
-    var blBtn = document.querySelector('#columnPicker button[data-c="backlog"]'); if (blBtn) blBtn.classList.add('selected');
-    $('modalDelete').style.display = 'none';
-    var dueDateInput = $('taskDueDate'); if (dueDateInput) dueDateInput.value = '';
-    var subtasksSection = $('subtasksSection'); if (subtasksSection) { subtasksSection.style.display = 'none'; var c = $('subtasksContainer'); if (c) c.innerHTML = ''; }
-  }
-  function getSelectedLabels() { var labels = []; document.querySelectorAll('#labelsPicker .label-chip.selected').forEach(function(c) { labels.push(c.dataset.label); }); return labels; }
-
-  // ===== EVENTS =====
-  $('tabs').addEventListener('click', function(e) {
-    var tab = e.target.closest('.board-tab'); if (!tab || tab.classList.contains('active')) return;
-    document.querySelectorAll('.board-tab').forEach(function(t) { t.classList.remove('active'); }); tab.classList.add('active');
-    activeBoard = tab.dataset.board; $('boardName').textContent = BOARD_NAMES[activeBoard] || 'Задачи';
-    searchQuery = ''; $('searchInput').value = ''; $('searchClear').classList.remove('visible');
-    loadArchive(); renderBoard(); $('board').scrollLeft = 0; haptic('select');
-  });
-  $('modalCancel').onclick = closeModal; $('modalClose').onclick = closeModal;
-  $('taskModal').addEventListener('click', function(e) { if (e.target === this) closeModal(); });
-  $('labelsPicker').addEventListener('click', function(e) { var chip = e.target.closest('.label-chip'); if (!chip) return; chip.classList.toggle('selected'); haptic('select'); });
-  $('priorityPicker').addEventListener('click', function(e) { var btn = e.target.closest('button'); if (!btn) return; this.querySelectorAll('button').forEach(function(b) { b.classList.remove('selected'); }); btn.classList.add('selected'); haptic('select'); });
-  $('columnPicker').addEventListener('click', function(e) { var btn = e.target.closest('button'); if (!btn) return; this.querySelectorAll('button').forEach(function(b) { b.classList.remove('selected'); }); btn.classList.add('selected'); haptic('select'); });
-
-  $('modalSave').onclick = function() {
-    var title = $('taskTitle').value.trim();
-    if (!title) { haptic('error'); $('taskTitle').style.borderColor = 'var(--danger)'; setTimeout(function() { $('taskTitle').style.borderColor = ''; }, 1200); return; }
-    var desc = $('taskDesc').value.trim();
-    var priority = (document.querySelector('#priorityPicker .selected') || {}).dataset.p || 'medium';
-    var column = (document.querySelector('#columnPicker .selected') || {}).dataset.c || 'backlog';
-    var labels = getSelectedLabels();
-    var dueDateInput = $('taskDueDate');
-    var dueDate = dueDateInput && dueDateInput.value ? new Date(dueDateInput.value).getTime() : null;
-    if (editingId) {
-      var task = tasks().find(function(t) { return t.id === editingId; });
-      if (task) { var oldCol = task.column; task.title = title; task.desc = desc; task.priority = priority; task.column = column; task.labels = labels; task.dueDate = dueDate; showToast('Обновлено'); if (column === 'done' && oldCol !== 'done') launchConfetti(); }
-    } else {
-      tasks().unshift({ id: genId(), title: title, desc: desc, priority: priority, column: column, labels: labels, created: Date.now(), subtasks: [], dueDate: dueDate });
-      showToast('Карточка добавлена');
-    }
-    saveTasks(); closeModal(); renderBoard(); haptic('success');
-  };
-  $('modalDelete').onclick = function() { if (editingId) { closeModal(); K.confirmDel(editingId); } };
-  $('confirmYes').onclick = function() { if (deleteTargetId) { boardTasks[activeBoard] = tasks().filter(function(t) { return t.id !== deleteTargetId; }); saveTasks(); renderBoard(); haptic('success'); showToast('Удалено'); deleteTargetId = null; } $('confirmOverlay').classList.remove('active'); };
-  $('confirmNo').onclick = function() { $('confirmOverlay').classList.remove('active'); deleteTargetId = null; };
-  $('confirmOverlay').addEventListener('click', function(e) { if (e.target === this) { this.classList.remove('active'); deleteTargetId = null; } });
-
-  var searchDebounce = null;
-  $('searchInput').addEventListener('input', function() { clearTimeout(searchDebounce); var val = this.value; $('searchClear').classList.toggle('visible', val.length > 0); searchDebounce = setTimeout(function() { searchQuery = val; renderBoard(); }, 150); });
-  $('searchClear').onclick = function() { $('searchInput').value = ''; searchQuery = ''; this.classList.remove('visible'); renderBoard(); $('searchInput').focus(); haptic('light'); };
-  $('refreshBtn').onclick = function() { haptic('light'); var cfg = BOARDS[activeBoard]; localStorage.removeItem(cfg.storageKey); localStorage.removeItem(cfg.storageKey + '_ts'); if (tg && tg.CloudStorage) tg.CloudStorage.removeItem(cfg.storageKey, function() {}); boardDataHash[activeBoard] = null; fetchBoard(activeBoard, function() { renderBoard(); showToast('🔄 Обновлено'); }); };
-  $('filterBtn').onclick = function() { var bar = $('filterBar'); bar.classList.toggle('force-show'); if (bar.classList.contains('force-show')) bar.style.display = 'block'; else if (!hasActiveFilters()) bar.style.display = 'none'; renderFilterBar(); haptic('light'); };
-  $('statsBtn').onclick = function() { K.toggleStats(); };
-  $('archiveBtn').onclick = function() { K.toggleArchive(); };
-  $('darkModeBtn').onclick = toggleDarkMode;
-  $('board').addEventListener('scroll', updateDots);
-
-  // ===== KEYBOARD SHORTCUTS =====
-  document.addEventListener('keydown', function(e) {
-    var tag = (e.target.tagName || '').toLowerCase();
-    var isInput = tag === 'input' || tag === 'textarea';
-    var modalOpen = $('taskModal').classList.contains('active');
-    if (e.key === 'Escape') {
-      if (shortcutsVisible) { shortcutsVisible = false; renderShortcutsHelp(); return; }
-      if (archiveVisible) { archiveVisible = false; renderArchivePanel(); return; }
-      closeModal(); $('confirmOverlay').classList.remove('active'); return;
-    }
-    if (isInput || modalOpen) { if (e.key === 'Enter' && e.target === $('taskTitle')) { e.preventDefault(); $('modalSave').click(); } return; }
-    if (e.key === 'n' || e.key === 'N') { e.preventDefault(); K.addToCol('backlog'); }
-    else if (e.key === 'f' || e.key === 'F' || e.key === '/') { e.preventDefault(); $('searchInput').focus(); }
-    else if (e.key >= '1' && e.key <= '4') { e.preventDefault(); var ci = parseInt(e.key) - 1; if (ci < COLUMNS.length) { var el = document.getElementById('col-' + COLUMNS[ci].id); if (el) el.scrollIntoView({ behavior: 'smooth', inline: 'center' }); } }
-    else if (e.key === 'd' || e.key === 'D') toggleDarkMode();
-    else if (e.key === 's' || e.key === 'S') K.toggleStats();
-    else if (e.key === 'a' || e.key === 'A') K.toggleArchive();
-    else if (e.key === '?') { e.preventDefault(); K.toggleShortcuts(); }
-  });
-
-  // ===== INIT =====
-  initDarkMode();
-  loadAllBoards(function() {
-    isLoading = false;
-    $('loadingOverlay').classList.add('hidden');
-    setTimeout(function() { $('loadingOverlay').style.display = 'none'; }, 300);
-    loadArchive(); renderBoard(); updateDots(); startAutoRefresh();
-  });
-})();
 </script>
 </body>
 </html>
