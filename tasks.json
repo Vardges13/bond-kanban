@@ -1,5 +1,13 @@
 [
   {
+    "id": "t_english_content",
+    "title": "🌍 Английский контент + аккаунты",
+    "desc": "Создать новые аккаунты Instagram, TikTok, YouTube на английском. Дублировать рилсы/видео",
+    "priority": "high",
+    "column": "backlog",
+    "created": 1770936960000
+  },
+  {
     "id": "t_notion_reels",
     "title": "✅ Notion + База Reels",
     "desc": "API подключён, база идей создана (5 стартовых идей). 9 фев 2026",
