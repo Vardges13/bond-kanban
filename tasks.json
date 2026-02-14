@@ -28,7 +28,7 @@
     "title": "✅ Notion + База Reels",
     "desc": "API подключён, база идей создана (5 стартовых идей). 9 фев 2026",
     "priority": "high",
-    "column": "done",
+    "column": "backlog",
     "created": 1770663600000
   },
   {
@@ -36,7 +36,7 @@
     "title": "✅ Роутинг моделей",
     "desc": "Opus основная, Sonnet саб-агенты, Llama простые, Gemini fallback. 9 фев 2026",
     "priority": "high",
-    "column": "done",
+    "column": "backlog",
     "created": 1770663600000
   },
   {
@@ -44,7 +44,7 @@
     "title": "🎯 Флагманский продукт $5к/мес",
     "desc": "Выбрать и запустить: курс 50 агентов / консалтинг / ИИ-блогер",
     "priority": "high",
-    "column": "inprogress",
+    "column": "backlog",
     "created": 1770663600000
   },
   {
@@ -52,7 +52,7 @@
     "title": "✅ База Reels (25 идей)",
     "desc": "Добавить 20+ идей для рилсов в Notion базу",
     "priority": "medium",
-    "column": "done",
+    "column": "backlog",
     "created": 1770663600000
   },
   {
@@ -60,7 +60,7 @@
     "title": "✅ WHOOP в утренней сводке",
     "desc": "Recovery/сон включены в мега-сводку 8:00",
     "priority": "low",
-    "column": "done",
+    "column": "backlog",
     "created": 1770663600000
   },
   {
@@ -68,7 +68,7 @@
     "title": "✅ Model Router Skill",
     "desc": "Умный роутинг моделей: llama/sonnet/opus. Экономия 70-80% API",
     "priority": "high",
-    "column": "done",
+    "column": "backlog",
     "created": 1738963200000
   },
   {
@@ -76,7 +76,7 @@
     "title": "✅ Позиционирование",
     "desc": "Якорь: «практик из офлайна». Загружено в Notion",
     "priority": "high",
-    "column": "done",
+    "column": "backlog",
     "created": 1738368000000
   },
   {
@@ -84,7 +84,7 @@
     "title": "✅ УТП",
     "desc": "«Реальный бизнес × ИИ × Здравый смысл»",
     "priority": "high",
-    "column": "done",
+    "column": "backlog",
     "created": 1738368000000
   },
   {
@@ -92,7 +92,7 @@
     "title": "✅ Целевая аудитория",
     "desc": "3 сегмента + антиаудитория",
     "priority": "high",
-    "column": "done",
+    "column": "backlog",
     "created": 1738368000000
   },
   {
@@ -100,7 +100,7 @@
     "title": "✅ Курс «50 GPT-агентов»",
     "desc": "50/50 агентов, лендинг, лид-магнит, email-воронка, цены",
     "priority": "high",
-    "column": "done",
+    "column": "backlog",
     "created": 1738540800000
   },
   {
@@ -108,7 +108,7 @@
     "title": "✅ Telegram-бот курсов",
     "desc": "aiogram 3 + YooKassa + SQLite. Работает!",
     "priority": "high",
-    "column": "done",
+    "column": "backlog",
     "created": 1738454400000
   },
   {
@@ -116,7 +116,7 @@
     "title": "✅ Канбан v3",
     "desc": "GitHub Pages, авто-обновление",
     "priority": "medium",
-    "column": "done",
+    "column": "backlog",
     "created": 1738454400000
   },
   {
@@ -124,7 +124,7 @@
     "title": "✅ Gemini API",
     "desc": "$300 кредитов, все модели доступны",
     "priority": "medium",
-    "column": "done",
+    "column": "backlog",
     "created": 1738540800000
   },
   {
@@ -132,7 +132,7 @@
     "title": "✅ Утренняя мега-сводка",
     "desc": "17 пунктов + голосовое. Крон 8:00 МСК",
     "priority": "medium",
-    "column": "done",
+    "column": "backlog",
     "created": 1738454400000
   },
   {
@@ -140,7 +140,7 @@
     "title": "✅ Контент-план",
     "desc": "7 чек-листов + 7 гайдов готовы",
     "priority": "medium",
-    "column": "done",
+    "column": "backlog",
     "created": 1738368000000
   },
   {
