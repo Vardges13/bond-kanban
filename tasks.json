@@ -1,5 +1,13 @@
 [
   {
+    "id": "t_mac_studio",
+    "title": "🖥️ Mac Studio + GLM-4.7-Flash",
+    "desc": "Купить Mac Studio с 64+ GB RAM для установки крупных моделей (GLM-4.7-Flash 19GB). Мощная локальная ИИ-машина",
+    "priority": "medium",
+    "column": "backlog",
+    "created": 1708722000000
+  },
+  {
     "id": "t_voice_agent",
     "title": "🎙️ Голосовой агент Бонд",
     "desc": "Настроить ElevenLabs Conversational AI с промптом и памятью Бонда для рилсов",
