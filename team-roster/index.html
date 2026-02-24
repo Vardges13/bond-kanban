@@ -42,7 +42,7 @@
         
         .agents-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 30px;
             margin-bottom: 40px;
         }
@@ -54,25 +54,11 @@
             backdrop-filter: blur(10px);
             border: 1px solid rgba(255,255,255,0.2);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
-            position: relative;
-            overflow: hidden;
         }
         
         .agent-card:hover {
             transform: translateY(-10px);
             box-shadow: 0 20px 40px rgba(0,0,0,0.3);
-        }
-        
-        .agent-image {
-            width: 120px;
-            height: 120px;
-            border-radius: 15px;
-            object-fit: cover;
-            border: 3px solid rgba(255,255,255,0.3);
-            float: right;
-            margin-left: 20px;
-            margin-bottom: 15px;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
         }
         
         .agent-header {
@@ -102,7 +88,6 @@
             margin: 15px 0;
             line-height: 1.5;
             opacity: 0.9;
-            clear: both;
         }
         
         .agent-skills {
@@ -169,14 +154,6 @@
             .agent-card {
                 padding: 20px;
             }
-            
-            .agent-image {
-                width: 100px;
-                height: 100px;
-                float: none;
-                display: block;
-                margin: 0 auto 15px auto;
-            }
         }
     </style>
 </head>
@@ -189,7 +166,6 @@
         
         <div class="agents-grid">
             <div class="agent-card">
-                <img src="images/bond.png" alt="Agent Bond" class="agent-image">
                 <div class="agent-header">
                     <div class="agent-icon">🕶️</div>
                     <div>
@@ -208,7 +184,6 @@
             </div>
             
             <div class="agent-card">
-                <img src="images/sherlock.png" alt="Agent Sherlock" class="agent-image">
                 <div class="agent-header">
                     <div class="agent-icon">🔍</div>
                     <div>
@@ -227,7 +202,6 @@
             </div>
             
             <div class="agent-card">
-                <img src="images/stark.png" alt="Agent Stark" class="agent-image">
                 <div class="agent-header">
                     <div class="agent-icon">🚀</div>
                     <div>
@@ -246,7 +220,6 @@
             </div>
             
             <div class="agent-card">
-                <img src="images/salt.png" alt="Agent Salt" class="agent-image">
                 <div class="agent-header">
                     <div class="agent-icon">🕵️‍♀️</div>
                     <div>
@@ -265,7 +238,6 @@
             </div>
             
             <div class="agent-card">
-                <img src="images/ethan.png" alt="Agent Ethan" class="agent-image">
                 <div class="agent-header">
                     <div class="agent-icon">✍️</div>
                     <div>
@@ -284,7 +256,6 @@
             </div>
             
             <div class="agent-card">
-                <img src="images/batman.png" alt="Agent Batman" class="agent-image">
                 <div class="agent-header">
                     <div class="agent-icon">🦇</div>
                     <div>
@@ -303,7 +274,6 @@
             </div>
             
             <div class="agent-card">
-                <img src="images/catwoman.png" alt="Agent Catwoman" class="agent-image">
                 <div class="agent-header">
                     <div class="agent-icon">🐱</div>
                     <div>
@@ -345,7 +315,7 @@
         </div>
         
         <div class="footer">
-            <p>🚀 <strong>Создано Вардгес Арутюнян</strong> • Команда постоянно развивается</p>
+            <p>🚀 <strong>Создано Вардгесом Арутюняном</strong> • Команда постоянно развивается</p>
             <p>📺 Смотри сериал "Семья ИИ-агентов" в телеграм-канале <strong>@vardges13</strong></p>
         </div>
     </div>
