@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Команда ИИ-Агентов Вардгеса</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .header h1 {
+            font-size: 3em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+        
+        .header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+        
+        .agents-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .agent-card {
+            background: rgba(255,255,255,0.1);
+            border-radius: 20px;
+            padding: 25px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .agent-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+        }
+        
+        .agent-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .agent-icon {
+            font-size: 3em;
+            margin-right: 15px;
+        }
+        
+        .agent-name {
+            font-size: 1.8em;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        
+        .agent-role {
+            font-size: 1.1em;
+            opacity: 0.8;
+            color: #ffd700;
+        }
+        
+        .agent-description {
+            margin: 15px 0;
+            line-height: 1.5;
+            opacity: 0.9;
+        }
+        
+        .agent-skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 15px;
+        }
+        
+        .skill-tag {
+            background: rgba(255,255,255,0.2);
+            padding: 5px 12px;
+            border-radius: 15px;
+            font-size: 0.9em;
+            border: 1px solid rgba(255,255,255,0.3);
+        }
+        
+        .stats {
+            background: rgba(0,0,0,0.2);
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+            margin-top: 40px;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+        
+        .stat-item {
+            padding: 15px;
+        }
+        
+        .stat-number {
+            font-size: 3em;
+            font-weight: bold;
+            color: #ffd700;
+            margin-bottom: 5px;
+        }
+        
+        .stat-label {
+            font-size: 1.1em;
+            opacity: 0.8;
+        }
+        
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            padding: 20px;
+            opacity: 0.7;
+        }
+        
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2em;
+            }
+            
+            .agents-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .agent-card {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🤖 КОМАНДА ИИ-АГЕНТОВ</h1>
+            <p>Семья из 7 специализированных агентов заменяет целый офис</p>
+        </div>
+        
+        <div class="agents-grid">
+            <div class="agent-card">
+                <div class="agent-header">
+                    <div class="agent-icon">🕶️</div>
+                    <div>
+                        <div class="agent-name">БОНД</div>
+                        <div class="agent-role">Главный координатор</div>
+                    </div>
+                </div>
+                <div class="agent-description">
+                    Правая рука Вардгеса. Управляет командой, координирует задачи, принимает стратегические решения. Работает 24/7 без отпусков и больничных.
+                </div>
+                <div class="agent-skills">
+                    <span class="skill-tag">🎯 Стратегия</span>
+                    <span class="skill-tag">📊 Координация</span>
+                    <span class="skill-tag">🚀 Проактивность</span>
+                </div>
+            </div>
+            
+            <div class="agent-card">
+                <div class="agent-header">
+                    <div class="agent-icon">🔍</div>
+                    <div>
+                        <div class="agent-name">ШЕРЛОК</div>
+                        <div class="agent-role">Аналитик-детектив</div>
+                    </div>
+                </div>
+                <div class="agent-description">
+                    Исследует рынки, анализирует конкурентов, находит скрытые инсайты. Видит то, что другие пропускают. Ваш личный Шерлок Холмс для бизнеса.
+                </div>
+                <div class="agent-skills">
+                    <span class="skill-tag">🔬 Исследования</span>
+                    <span class="skill-tag">📈 Аналитика</span>
+                    <span class="skill-tag">💡 Инсайты</span>
+                </div>
+            </div>
+            
+            <div class="agent-card">
+                <div class="agent-header">
+                    <div class="agent-icon">🚀</div>
+                    <div>
+                        <div class="agent-name">СТАРК</div>
+                        <div class="agent-role">Бизнес-исполнитель</div>
+                    </div>
+                </div>
+                <div class="agent-description">
+                    Гений финансов и стратегии. Планирует инвестиции, считает прибыль, разрабатывает бизнес-модели. Железный человек в мире денег.
+                </div>
+                <div class="agent-skills">
+                    <span class="skill-tag">💰 Финансы</span>
+                    <span class="skill-tag">📊 Планирование</span>
+                    <span class="skill-tag">🎯 ROI</span>
+                </div>
+            </div>
+            
+            <div class="agent-card">
+                <div class="agent-header">
+                    <div class="agent-icon">🕵️‍♀️</div>
+                    <div>
+                        <div class="agent-name">СОЛТ</div>
+                        <div class="agent-role">Женщина-агент</div>
+                    </div>
+                </div>
+                <div class="agent-description">
+                    Специалист по стратегическим операциям. Изучает целевую аудиторию, планирует продвижение, работает с партнёрами. Элегантность и эффективность.
+                </div>
+                <div class="agent-skills">
+                    <span class="skill-tag">🎯 Таргетинг</span>
+                    <span class="skill-tag">🤝 Партнёрства</span>
+                    <span class="skill-tag">💎 Премиум</span>
+                </div>
+            </div>
+            
+            <div class="agent-card">
+                <div class="agent-header">
+                    <div class="agent-icon">✍️</div>
+                    <div>
+                        <div class="agent-name">ИТАН</div>
+                        <div class="agent-role">Креативщик</div>
+                    </div>
+                </div>
+                <div class="agent-description">
+                    Создаёт контент который цепляет. Пишет тексты, придумывает сценарии, разрабатывает креативы. Ваш персональный копирайтер-гений.
+                </div>
+                <div class="agent-skills">
+                    <span class="skill-tag">✍️ Копирайтинг</span>
+                    <span class="skill-tag">🎬 Сценарии</span>
+                    <span class="skill-tag">🎨 Креатив</span>
+                </div>
+            </div>
+            
+            <div class="agent-card">
+                <div class="agent-header">
+                    <div class="agent-icon">🦇</div>
+                    <div>
+                        <div class="agent-name">БЭТМЕН</div>
+                        <div class="agent-role">Тактический агент</div>
+                    </div>
+                </div>
+                <div class="agent-description">
+                    Защитник бизнеса от рисков. Анализирует угрозы, разрабатывает планы реагирования, обеспечивает безопасность операций. Тёмный рыцарь бизнеса.
+                </div>
+                <div class="agent-skills">
+                    <span class="skill-tag">🛡️ Защита</span>
+                    <span class="skill-tag">⚡ Реакция</span>
+                    <span class="skill-tag">🎯 Тактика</span>
+                </div>
+            </div>
+            
+            <div class="agent-card">
+                <div class="agent-header">
+                    <div class="agent-icon">🐱</div>
+                    <div>
+                        <div class="agent-name">КЭТВУМЭН</div>
+                        <div class="agent-role">Агент операций</div>
+                    </div>
+                </div>
+                <div class="agent-description">
+                    Мастер сложных операций. Проникает в закрытые источники, получает инсайдерскую информацию, выполняет деликатные задачи. Грация и точность.
+                </div>
+                <div class="agent-skills">
+                    <span class="skill-tag">🎭 Маскировка</span>
+                    <span class="skill-tag">🕶️ Разведка</span>
+                    <span class="skill-tag">💎 Эксклюзив</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="stats">
+            <h2>📊 СТАТИСТИКА КОМАНДЫ</h2>
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-number">7</div>
+                    <div class="stat-label">Агентов в команде</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">27</div>
+                    <div class="stat-label">Уникальных аватаров</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">24/7</div>
+                    <div class="stat-label">Время работы</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">∞</div>
+                    <div class="stat-label">Потенциал роста</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p>🚀 <strong>Создано Вардгесом Арутюняном</strong> • Команда постоянно развивается</p>
+            <p>📺 Смотри сериал "Семья ИИ-агентов" в телеграм-канале <strong>@vardges13</strong></p>
+        </div>
+    </div>
+</body>
+</html>
