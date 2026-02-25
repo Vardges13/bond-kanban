@@ -177,10 +177,18 @@
   },
   {
     "id": "t_partners",
-    "title": "Партнерская программа",
+    "title": "Партнерская программа", 
     "desc": "Найти предпринимателей-партнёров. Комиссия за клиентов",
     "priority": "medium",
     "column": "backlog",
     "created": 1770571440000
+  },
+  {
+    "id": "t_taste_skill_claude",
+    "title": "🎨 Taste-Skill для Claude",
+    "desc": "Создать промпт/инструкцию для Claude Code, чтобы он генерировал красивый, современный код вместо шаблонного. Аналог frontend-design skill для персонального использования",
+    "priority": "high",
+    "column": "backlog", 
+    "created": 1772060400000
   }
 ]
